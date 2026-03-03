@@ -30,7 +30,7 @@ author:
   location         : "Glasgow, UK"
   employer         : "University of Glasgow"
   uri              : # URL
-  email            : "Kasra.Mirnobahar@glasgow.ac.uk / Kasra Mirnobahar@gmail.com" 
+  email            : "Kasra.Mirnobahar@glasgow.ac.uk" 
 
   # Academic websites
   academia         : # URL
@@ -57,7 +57,7 @@ author:
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : "https://bsky.app/profile/kasramn.bsky.social" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -66,7 +66,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : # www.linkedin.com/in/kasra-mirnobahar-339b09107
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
