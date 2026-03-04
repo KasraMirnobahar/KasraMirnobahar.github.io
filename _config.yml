@@ -11,7 +11,7 @@ locale                   : "en-US"
 site_theme               : "mint" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Kasra Mirnobahar"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Kasra"
 description              : &description "Msc Behavioural Sciences"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://kasramirnobahar.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
@@ -37,13 +37,12 @@ author:
   arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en"
   orcid            : "https://orcid.org/0009-0001-2363-6381"
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
 
   # Repositories and software development
   github           : "KasraMirnobahar.github.io"
   # Social media
   bluesky          : "https://bsky.app/profile/kasramn.bsky.social" # Replace this with you Bluesky username
-  linkedin         : # "https://www.linkedin.com/in/kasra-mirnobahar-339b09107"
+  linkedin         : "https://www.linkedin.com/in/kasra-mirnobahar-339b09107"
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
