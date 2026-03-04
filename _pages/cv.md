@@ -16,9 +16,9 @@ Education
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
+* **Research Assistant:** University of Glasgow
+  * Marios Phillastides Decision-Making Lab
+  * Contributed to Data collection: Participants recruitment, EEG and fMRI setup and preprocessing the data
   * Supervisor: The Users
 
 * Fall 2015: Research Assistant
@@ -30,7 +30,22 @@ Work experience
   * GitHub University
   * Duties included: Tagging issues
   * Supervisor: Professor Git
+
+Research Projects
+======
+ * Learning and Cardiac Cycle: University of Glasgow
+    * Other researchers: Hamed Ghane, Marios Phillastides
+    * A real-time EEG task to investigate how cardiac cycle influence learning
+    * Feb 2026 - Ongoing
   
+* **Decision-making, confidence and meta-cognition**: University of Glasgow
+  * Other researchers: Gina Brunner, Marios Phillastides
+  * A face vs. car task decision-making task, using simultaneous EEG and 3T fMRI, investigating how sconfidence interact with decision-making
+  * June 2025 - Ongoing
+ 
+* **Uncertainty and Social Media**: University of Glasgow 
+
+
 Skills
 ======
 * Skill 1
@@ -52,12 +67,7 @@ Talks
     {% include archive-single-talk-cv.html  %}
   {% endfor %}</ul>
   
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
+
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams
