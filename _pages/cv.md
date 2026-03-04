@@ -11,9 +11,8 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* M.S. in Behavioural Sciences, University of Glasgow, 2024 - 2025
+* B.S. in Psycholohy, University of Social Welfare and Rehabilitation Sciences, 2019 - 2023
 
 Work experience
 ======
