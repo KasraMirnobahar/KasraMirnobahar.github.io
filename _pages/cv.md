@@ -52,9 +52,9 @@ Research Experiences
   * June 2025 - Ongoing
  
 * **Uncertainty and Social Media**: University of Glasgow, Adam Smith Business School, Master Dissertation
-    * • Conceptualisation, research design, task design using Gorilla
-      • Ethical approval, data collection and participants recruitment
-      • Data analysis, Writing and editing dissertation
+      * Conceptualisation, research design, task design using Gorilla
+      * Ethical approval, data collection and participants recruitment
+      * Data analysis, Writing and editing dissertation
     * June 2025 - Sep 2025
  
    
@@ -69,12 +69,11 @@ Research Experiences
 * **Cognitive HTKS Task among Children**: University of Social Welfare and Rehabilition Sciences, Department of Psychology and Education of Exceptional Children
    • Led the ethics approval process with governmental and educational authorities for research involving
     children aged 5–8
-   • Coordinated with schools to recruit participants and administer the Head-Toes-Knees-Shoulders
+     • Coordinated with schools to recruit participants and administer the Head-Toes-Knees-Shoulders
     (HTKS) task
-   • Conducted behavioural data collection in school settings
-   • Identified and reported atypical or concerning observations to schools, supervisors, and parents in
-    accordance with ethical guidelines
-   • Organised, coded, and entered behavioural data into SPSS for subsequent statistical analysis
+     • Conducted behavioural data collection in school settings
+   • Identified and reported atypical or concerning observations to schools, supervisors, and parents in accordance with ethical guidelines
+     • Organised, coded, and entered behavioural data into SPSS for subsequent statistical analysis
 
 
 * **Social Media Problematic Usage and FOMO**: University of Social Welfare and Rehabilition Sciences, Department of Clinical Psychology
