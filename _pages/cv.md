@@ -68,13 +68,13 @@ Research Experiences
 
 * **Cognitive HTKS Task among Children**: University of Social Welfare and Rehabilition Sciences, Department of Psychology and Education of Exceptional Children
    • Led the ethics approval process with governmental and educational authorities for research involving
-  children aged 5–8
-  • Coordinated with schools to recruit participants and administer the Head-Toes-Knees-Shoulders
+    children aged 5–8
+   • Coordinated with schools to recruit participants and administer the Head-Toes-Knees-Shoulders
     (HTKS) task
-  • Conducted behavioural data collection in school settings
-  • Identified and reported atypical or concerning observations to schools, supervisors, and parents in
+   • Conducted behavioural data collection in school settings
+   • Identified and reported atypical or concerning observations to schools, supervisors, and parents in
     accordance with ethical guidelines
-  • Organised, coded, and entered behavioural data into SPSS for subsequent statistical analysis
+   • Organised, coded, and entered behavioural data into SPSS for subsequent statistical analysis
 
 
 * **Social Media Problematic Usage and FOMO**: University of Social Welfare and Rehabilition Sciences, Department of Clinical Psychology
