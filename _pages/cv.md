@@ -14,24 +14,27 @@ Education
 * M.S. in Behavioural Sciences, University of Glasgow, 2024 - 2025
 * B.S. in Psycholohy, University of Social Welfare and Rehabilitation Sciences, 2019 - 2023
 
-Work experience
+Working experience
 ======
-* **Research Assistant:** University of Glasgow
-  * Marios Phillastides Decision-Making Lab
-  * Contributed to Data collection: Participants recruitment, EEG and fMRI setup and preprocessing the data
-  * Supervisor: The Users
+* **Research Assistant,** University of Glasgow 
+  * Contributed to data collection such as participants recruitment, EEG and fMRI setup, EEG and fMRI preprocessing
+  * June 2025 - Ongoing
+  
+ * **Researcher,** Jahan Majd Basir Co. 
+  * Conducted cross-cultural research on social, cultural, religious, and belief systems across multiple regions
+    Contributed to data collection and synthesis for applied research projects
+  * Aug 2023 - Dec 2023
+* **Content Writer,** Varan Psychology School
+  * Authored psychology-focused content across social, clinical, cognitive, and neuroscience domains
+    Coordinated workshops, courses, and guest sessions
+  * Oct 2021 - July 2022
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* **Content Writer,** Kayzen IO Psychology Co
+  * Produced written content on topics in Industrial and Organisational
+    Psychology for an online platform
+  * Oct 2021 - July 2022
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-
-Research Projects
+Research Experiences
 ======
  * Learning and Cardiac Cycle: University of Glasgow
     * Other researchers: Hamed Ghane, Marios Phillastides
