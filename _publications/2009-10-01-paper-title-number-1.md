@@ -1,5 +1,5 @@
 ---
-title: "Paper Title Number 1"
+title: "Impact of Childhood Poly-victimization on Impulsivity and Behavioral Problems in Iranian Adults: A Regression Analysis"
 collection: publications
 category: manuscripts
 permalink: /publication/2009-10-01-paper-title-number-1
