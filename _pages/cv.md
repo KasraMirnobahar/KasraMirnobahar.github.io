@@ -14,16 +14,16 @@ Education
 * M.S. in Behavioural Sciences, University of Glasgow, 2024 - 2025
 * B.S. in Psycholohy, University of Social Welfare and Rehabilitation Sciences, 2019 - 2023
 
-Working experience
+Working Experiences
 ======
 * **Research Assistant,** University of Glasgow 
   * Contributed to data collection such as participants recruitment, EEG and fMRI setup, EEG and fMRI preprocessing
   * June 2025 - Ongoing
   
- * **Researcher,** Jahan Majd Basir Co. 
-  * Conducted cross-cultural research on social, cultural, religious, and belief systems across multiple regions
-    Contributed to data collection and synthesis for applied research projects
-  * Aug 2023 - Dec 2023
+* **Researcher,** Jahan Majd Basir Co. 
+    * Conducted cross-cultural research on social, cultural, religious, and belief systems across multiple regions
+      Contributed to data collection and synthesis for applied research projects
+    * Aug 2023 - Dec 2023
 * **Content Writer,** Varan Psychology School
   * Authored psychology-focused content across social, clinical, cognitive, and neuroscience domains
     Coordinated workshops, courses, and guest sessions
@@ -36,17 +36,53 @@ Working experience
 
 Research Experiences
 ======
- * Learning and Cardiac Cycle: University of Glasgow
+ * **Decision_Making, Learning and Cardiac Cycle**: University of Glasgow, School of Psychology and Neurosciences, Philiastides Lab
     * Other researchers: Hamed Ghane, Marios Phillastides
     * A real-time EEG task to investigate how cardiac cycle influence learning
+      • Contributing to data collection including EEG and ECG, Participants recruitment
+      • Supporting experimental setup, participant testing, and data acquisition
+      • Assisting with data quality control
     * Feb 2026 - Ongoing
   
-* **Decision-making, confidence and meta-cognition**: University of Glasgow
+* **Decision-making, confidence and meta-cognition**: University of Glasgow, School of Psychology and Neurosciences, Philiastides Lab
   * Other researchers: Gina Brunner, Marios Phillastides
-  * A face vs. car task decision-making task, using simultaneous EEG and 3T fMRI, investigating how sconfidence interact with decision-making
+  * Contributing to data collection including EEG and fMRI Setup on perceptual decision-making and metacognition
+  • Supporting experimental setup, participant testing, and data acquisition
+  • Assisting with data quality control
   * June 2025 - Ongoing
  
-* **Uncertainty and Social Media**: University of Glasgow 
+* **Uncertainty and Social Media**: University of Glasgow, Adam Smith Business School, Master Dissertation
+    * • Conceptualisation, research design, task design using Gorilla
+      • Ethical approval, data collection and participants recruitment
+      • Data analysis, Writing and editing dissertation
+    * June 2025 - Sep 2025
+ 
+   
+* **Childhood Poly-victimisation and Behavioural Problems and Impulsivity among Iranian Adults**: University of Social Welfare and Rehabilition Sciences, Department of Clinical Psychology, Bachelor Dissertation
+    * Conceptualised and designed the study
+    • Led the Ethical Approval Process
+    • Conducted data collection and statistical analysis, Interpreted findings
+    • Manuscript writing and Editing
+    * Feb 2023 - Sep 2023
+
+
+* **Cognitive HTKS Task among Children**: University of Social Welfare and Rehabilition Sciences, Department of Psychology and Education of Exceptional Children
+   • Led the ethics approval process with governmental and educational authorities for research involving
+  children aged 5–8
+  • Coordinated with schools to recruit participants and administer the Head-Toes-Knees-Shoulders
+    (HTKS) task
+  • Conducted behavioural data collection in school settings
+  • Identified and reported atypical or concerning observations to schools, supervisors, and parents in
+    accordance with ethical guidelines
+  • Organised, coded, and entered behavioural data into SPSS for subsequent statistical analysis
+
+
+* **Social Media Problematic Usage and FOMO**: University of Social Welfare and Rehabilition Sciences, Department of Clinical Psychology
+   • Conducted online and in-person data collection for studies on problematic social media use
+   • Coordinated participant recruitment and screening across clinical and non-clinical samples
+   • Organised, cleaned, and managed datasets; performed data entry and wrangling for statistical
+      analysis
+   • Contributed to manuscript drafting, revision, and editing for peer-reviewed publication
 
 
 Skills
