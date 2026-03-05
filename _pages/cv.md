@@ -67,21 +67,21 @@ Research Experiences
 
 
 * **Cognitive HTKS Task among Children**: University of Social Welfare and Rehabilition Sciences, Department of Psychology and Education of Exceptional Children
-   • Led the ethics approval process with governmental and educational authorities for research involving
-    children aged 5–8
-     • Coordinated with schools to recruit participants and administer the Head-Toes-Knees-Shoulders
-    (HTKS) task
-     • Conducted behavioural data collection in school settings
-   • Identified and reported atypical or concerning observations to schools, supervisors, and parents in accordance with ethical guidelines
-     • Organised, coded, and entered behavioural data into SPSS for subsequent statistical analysis
+     * Led the ethics approval process with governmental and educational authorities for research involving
+      children aged 5–8
+      * Coordinated with schools to recruit participants and administer the Head-Toes-Knees-Shoulders
+      (HTKS) task
+     * Conducted behavioural data collection in school settings
+     * Identified and reported atypical or concerning observations to schools, supervisors, and parents in accordance with ethical guidelines
+     * Organised, coded, and entered behavioural data into SPSS for subsequent statistical analysis
 
 
 * **Social Media Problematic Usage and FOMO**: University of Social Welfare and Rehabilition Sciences, Department of Clinical Psychology
-   • Conducted online and in-person data collection for studies on problematic social media use
-   • Coordinated participant recruitment and screening across clinical and non-clinical samples
-   • Organised, cleaned, and managed datasets; performed data entry and wrangling for statistical
+     * Conducted online and in-person data collection for studies on problematic social media use
+     * Coordinated participant recruitment and screening across clinical and non-clinical samples
+     * Organised, cleaned, and managed datasets; performed data entry and wrangling for statistical
       analysis
-   • Contributed to manuscript drafting, revision, and editing for peer-reviewed publication
+     * Contributed to manuscript drafting, revision, and editing for peer-reviewed publication
 
 
 Skills
