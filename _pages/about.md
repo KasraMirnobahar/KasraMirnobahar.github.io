@@ -46,19 +46,59 @@ Hi, This is Kasra and idk what to write herer
 
 .edu-degree { font-weight: 600; font-size: 1rem; }
 
-.edu-school { color: #888; font-size: 0.9rem; margin-top: 2px; }
+.edu-school { color: #eee; font-size: 0.9rem; margin-top: 2px; }
 </style>
 
 
-Research Interests
-------
-My main research interest is to understand the underlying mechanisms of specific behaviours, how these behaviours influence mental health, and how they can be addressed through effective interventions. While understanding the causes of behaviour is essential, I believe it is even more important to find practical ways to tackle these issues. For this reason, I am particularly interested in research that has clear real-world and societal impact.
+<section>
+  <h2>Research Interests</h2>
 
-In recent years, much of my work has focused on the effects of social media on mental health, behaviour, and cognition. For example, I have designed behavioural experiments to investigate how uncertainty can increase checking behaviour in digital environments.
+  <div class="research-tags">
+    <span>🧠 Social Media & Mental Health</span>
+    <span>⚡ Decision-Making</span>
+    <span>🔬 Behavioural Neuroscience</span>
+    <span>📊 EEG & fMRI</span>
+    <span>🎯 Reward Processing</span>
+    <span>🌍 Public Policy & Interventions</span>
+  </div>
 
-Alongside my interest in behaviour, I am also interested in neuroscience, particularly decision-making, reward processing, and the role of dopaminergic systems in the brain. Over the past year, I have gained experience working with both EEG and fMRI methods to study the neural mechanisms underlying decision-making.
+  <div class="research-paras">
+    <p>My main research interest is understanding the underlying mechanisms of specific behaviours, how they influence mental health, and how they can be addressed through effective interventions. I am particularly drawn to research with clear real-world and societal impact.</p>
 
-More broadly, I aim to continue my research at the intersection of social media, decision-making, and behavioural science. I am particularly interested in how insights from behavioural and cognitive neuroscience can inform public policy and contribute to developing interventions that address challenges related to digital environments and mental health across society.
+    <p>Much of my recent work has focused on the effects of <strong>social media on mental health, behaviour, and cognition</strong> — including designing behavioural experiments to investigate how uncertainty drives checking behaviour in digital environments.</p>
+
+    <p>I am also interested in <strong>neuroscience</strong>, particularly decision-making, reward processing, and dopaminergic systems. Over the past year I have gained experience with both <strong>EEG and fMRI</strong> methods.</p>
+
+    <p>More broadly, I aim to work at the intersection of social media, decision-making, and behavioural science — using insights from cognitive neuroscience to inform public policy and interventions for digital mental health.</p>
+  </div>
+
+</section>
+
+<style>
+.research-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.4rem;
+}
+
+.research-tags span {
+  background: #f0f4ff;
+  color: #2a5bd7;
+  border: 1px solid #c8d8f8;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.research-paras p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+</style>
 
 **Markdown generator**
 
