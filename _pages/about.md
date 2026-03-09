@@ -6,12 +6,24 @@ redirect_from:
   - /about/
   - /about.html
 ---
+<section>
+  <h2>Biography</h2>
+  <div class="bio-text"> 
+    <p>
+      I'm research assistant at University of Glasgow, working at MArios Phillastides decision-making lab. I studied psychology in my undergraduate and then moved to Glasgow, to study my master of behavioural sciences at University of Glasgow
+    </p>
+  </div>
+</section>
 
-**Biography**
-Hi, This is Kasra and idk what to write herer
-
-
-
+<style>
+  .bio-text p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #eee;
+  margin-bottom: 0.8rem;
+}
+</style>
+  
 
 <section>
   <h2>Education</h2>
