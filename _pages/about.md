@@ -53,15 +53,6 @@ Hi, This is Kasra and idk what to write herer
 <section>
   <h2>Research Interests</h2>
 
-  <div class="research-tags">
-    <span>🧠 Social Media & Mental Health</span>
-    <span>⚡ Decision-Making</span>
-    <span>🔬 Behavioural Neuroscience</span>
-    <span>📊 EEG & fMRI</span>
-    <span>🎯 Reward Processing</span>
-    <span>🌍 Public Policy & Interventions</span>
-  </div>
-
   <div class="research-paras">
     <p>My main research interest is understanding the underlying mechanisms of specific behaviours, how they influence mental health, and how they can be addressed through effective interventions. I am particularly drawn to research with clear real-world and societal impact.</p>
 
@@ -70,6 +61,13 @@ Hi, This is Kasra and idk what to write herer
     <p>I am also interested in <strong>neuroscience</strong>, particularly decision-making, reward processing, and dopaminergic systems. Over the past year I have gained experience with both <strong>EEG and fMRI</strong> methods.</p>
 
     <p>More broadly, I aim to work at the intersection of social media, decision-making, and behavioural science — using insights from cognitive neuroscience to inform public policy and interventions for digital mental health.</p>
+  </div>
+
+  <div class="research-tags">
+    <span>🧠 Social Media & Mental Health</span>
+    <span>⚡ Decision-Making</span>
+    <span>🔬 Behavioural Science</span>
+    <span>🌍 Public Policy & Interventions</span>
   </div>
 
 </section>
@@ -90,12 +88,13 @@ Hi, This is Kasra and idk what to write herer
   padding: 4px 12px;
   font-size: 0.82rem;
   font-weight: 500;
+  opacity: 0.6;
 }
 
 .research-paras p {
   font-size: 0.95rem;
   line-height: 1.75;
-  color: #333;
+  color: #eee;
   margin-bottom: 0.8rem;
 }
 </style>
