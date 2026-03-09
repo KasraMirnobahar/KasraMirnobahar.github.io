@@ -1,14 +1,15 @@
 ---
-title: "Paper Title Number 2"
+title: "Assessing Childhood Trauma: The Iranian Validation of the Juvenile Polyvictimization Questionnaire and Its Link to Psychiatric Symptoms"
 collection: publications
 category: manuscripts
-permalink: /publication/2010-10-01-paper-title-number-2
-excerpt: 'This paper is about the number 2. The number 3 is left for future work.'
-date: 2010-10-01
-venue: 'Journal 1'
-slidesurl: 'https://academicpages.github.io/files/slides2.pdf'
-paperurl: 'https://academicpages.github.io/files/paper2.pdf'
-citation: 'Your Name, You. (2010). &quot;Paper Title Number 2.&quot; <i>Journal 1</i>. 1(2).'
+permalink: /publication/2025-childhood-trauma-validation
+excerpt: 'This study validated the Juvenile Polyvictimization Questionnaire for Iranian populations and examined its association with psychiatric symptoms.'
+date: 2025-06-01
+venue: 'International Journal of High Risk Behaviors and Addiction'
+paperurl: 'https://doi.org/10.5812/ijhrba-163153'
+citation: 'Pourmohamadreza-Tajrishi M, Mirnobahar K, Mohammadi Bytamar J. (2025). &quot;Assessing Childhood Trauma: The Iranian Validation of the Juvenile Polyvictimization Questionnaire and Its Link to Psychiatric Symptoms.&quot; <i>Int J High Risk Behav Addict</i>. 14(3): e163153.'
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+This study adapted and validated the Juvenile Polyvictimization Questionnaire for use in Iran, examining its psychometric properties and its relationship to psychiatric symptom severity across clinical and non-clinical samples.
+
+[Download Paper](https://doi.org/10.5812/ijhrba-163153)
