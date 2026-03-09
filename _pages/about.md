@@ -20,8 +20,15 @@ Education
 * Msc Behavioural Sciences, University of Glasgow, Glasgow, UK; 2024 - 2025
 * Graduated with Merit
 
+Research Interests
 ------
-For site content, there is one Markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a Markdown file in the [_talks directory](https://github.com/academicpages/academicpages.github.io/tree/master/_talks). At the top of each Markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the [Talks page](https://academicpages.github.io/talks), each [individual page](https://academicpages.github.io/talks/2012-03-01-talk-1) for specific talks, the talks section for the [CV page](https://academicpages.github.io/cv), and the [map of places you've given a talk](https://academicpages.github.io/talkmap.html) (if you run this [python file](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py) or [Jupyter notebook](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb), which creates the HTML for the map based on the contents of the _talks directory).
+My main research interest is to understand the underlying mechanisms of specific behaviours, how these behaviours influence mental health, and how they can be addressed through effective interventions. While understanding the causes of behaviour is essential, I believe it is even more important to find practical ways to tackle these issues. For this reason, I am particularly interested in research that has clear real-world and societal impact.
+
+In recent years, much of my work has focused on the effects of social media on mental health, behaviour, and cognition. For example, I have designed behavioural experiments to investigate how uncertainty can increase checking behaviour in digital environments.
+
+Alongside my interest in behaviour, I am also interested in neuroscience, particularly decision-making, reward processing, and the role of dopaminergic systems in the brain. Over the past year, I have gained experience working with both EEG and fMRI methods to study the neural mechanisms underlying decision-making.
+
+More broadly, I aim to continue my research at the intersection of social media, decision-making, and behavioural science. I am particularly interested in how insights from behavioural and cognitive neuroscience can inform public policy and contribute to developing interventions that address challenges related to digital environments and mental health across society.
 
 **Markdown generator**
 
