@@ -8,16 +8,16 @@ redirect_from:
 ---
 
 **Biography**
- Hi, This is Kasra and idk what to write herer
+Hi, This is Kasra and idk what to write herer
 
 
 
 
 Education
 ------
-* Bsc of Psychology, University of Social Welfare & Rehabilitation Sciences, Tehran, Iran 2019 - 2023
-** Graduated with first class honour
-* Msc Behavioural Sciences, University of Glasgow, 2024 - 2025
+* Bsc of Psychology, University of Social Welfare & Rehabilitation Sciences, Tehran, Iran; 2019 - 2023
+* Graduated with first class honour
+* Msc Behavioural Sciences, University of Glasgow, Glasgow, UK; 2024 - 2025
 * Graduated with Merit
 
 ------
