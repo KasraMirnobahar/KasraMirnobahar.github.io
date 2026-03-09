@@ -13,38 +13,24 @@ Hi, This is Kasra and idk what to write herer
 
 
 
-<section class="edu-section">
-  <h2 class="edu-heading">Education</h2>
+<section>
+  <h2>Education</h2>
 
-  <div class="edu-timeline">
+  <div class="edu-list">
 
     <div class="edu-item">
-      <div class="edu-icon">🎓</div>
-      <div class="edu-content">
-        <div class="edu-degree">MSc Behavioural Sciences</div>
-        <div class="edu-meta">
-          <span class="edu-school">University of Glasgow</span>
-          <span class="edu-dot">·</span>
-          <span class="edu-location">Glasgow, UK</span>
-          <span class="edu-dot">·</span>
-          <span class="edu-year">2024 – 2025</span>
-        </div>
-        <div class="edu-honour merit">🏅 Graduated with Merit</div>
+      <span class="edu-cap">🎓</span>
+      <div>
+        <div class="edu-degree">MSc Behavioural Sciences, 2025</div>
+        <div class="edu-school">University of Glasgow</div>
       </div>
     </div>
 
     <div class="edu-item">
-      <div class="edu-icon">🎓</div>
-      <div class="edu-content">
-        <div class="edu-degree">BSc Psychology</div>
-        <div class="edu-meta">
-          <span class="edu-school">University of Social Welfare & Rehabilitation Sciences</span>
-          <span class="edu-dot">·</span>
-          <span class="edu-location">Tehran, Iran</span>
-          <span class="edu-dot">·</span>
-          <span class="edu-year">2019 – 2023</span>
-        </div>
-        <div class="edu-honour first">🏆 First Class Honours</div>
+      <span class="edu-cap">🎓</span>
+      <div>
+        <div class="edu-degree">BSc Psychology, 2023</div>
+        <div class="edu-school">University of Social Welfare & Rehabilitation Sciences</div>
       </div>
     </div>
 
@@ -52,62 +38,16 @@ Hi, This is Kasra and idk what to write herer
 </section>
 
 <style>
-.edu-section { margin: 2rem 0; }
+.edu-list { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1rem; }
 
-.edu-heading {
-  font-size: 1.6rem;
-  font-weight: 700;
-  border-bottom: 2px solid #2196f3;
-  padding-bottom: 0.4rem;
-  margin-bottom: 1.5rem;
-}
+.edu-item { display: flex; align-items: flex-start; gap: 0.8rem; }
 
-.edu-timeline { display: flex; flex-direction: column; gap: 1.2rem; }
+.edu-cap { font-size: 1.4rem; margin-top: 2px; }
 
-.edu-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  background: #f8f9ff;
-  border-left: 4px solid #2196f3;
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.edu-item:hover {
-  transform: translateX(4px);
-  box-shadow: 0 4px 16px rgba(33,150,243,0.12);
-}
+.edu-degree { font-weight: 600; font-size: 1rem; }
 
-.edu-icon { font-size: 1.8rem; margin-top: 2px; }
-
-.edu-degree { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; }
-
-.edu-meta {
-  font-size: 0.88rem;
-  color: #555;
-  margin-top: 0.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-  align-items: center;
-}
-
-.edu-school { font-weight: 600; color: #333; }
-.edu-dot { color: #aaa; }
-
-.edu-honour {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 2px 10px;
-  border-radius: 20px;
-}
-.edu-honour.first  { background: #fff3cd; color: #856404; }
-.edu-honour.merit  { background: #d1ecf1; color: #0c5460; }
+.edu-school { color: #888; font-size: 0.9rem; margin-top: 2px; }
 </style>
-
 
 
 Research Interests
