@@ -53,10 +53,10 @@ redirect_from:
 
   .cv-plain { font-size: 0.88rem; color: #666; margin: 3px 0; }
 
-  .cv-pub { font-size: 0.88rem; color: #555; line-height: 1.6; margin-bottom: 0.8rem; }
-  .cv-pub strong { color: #1a1a2e; }
+  .cv-pub { font-size: 0.88rem; color: #FFFFFF; line-height: 1.6; margin-bottom: 0.8rem; }
+  .cv-pub strong { color: #FFFFFF; }
 
-  .cv-skills-row { font-size: 0.88rem; color: #555; margin-bottom: 0.4rem; }
+  .cv-skills-row { font-size: 0.88rem; color: #FFF5EE; margin-bottom: 0.4rem; }
   .cv-skills-row span { font-weight: 700; color: #1a1a2e; }
 
   .cv-lang { font-size: 0.92rem; color: #555; }
