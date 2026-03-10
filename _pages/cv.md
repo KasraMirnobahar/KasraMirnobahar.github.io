@@ -60,7 +60,7 @@ redirect_from:
   .cv-skills-row span { font-weight: 700; color: #87CEEB; }
 
   .cv-lang { font-size: 0.92rem; color: #555; }
-  .cv-lang strong { color: #1a1a2e; }
+  .cv-lang strong { color: #87CEEB; }
   .cv-sep { color: #ccc; margin: 0 0.5rem; }
 </style>
 
