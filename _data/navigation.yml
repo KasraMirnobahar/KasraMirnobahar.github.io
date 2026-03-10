@@ -17,8 +17,8 @@ main:
   - title: "CV"
     url: /cv/
 
-    - title: "Research Projects"
-    url: /research/
+  - title: "Research Projects"
+  url: /research/
     
   # - title: "CV"
   #   url: /cv-json/
