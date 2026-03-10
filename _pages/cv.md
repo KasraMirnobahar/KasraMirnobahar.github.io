@@ -32,10 +32,10 @@ redirect_from:
   }
 
   .cv-role { font-weight: 700; font-size: 0.98rem; }
-  .cv-org  { color: #555; font-size: 0.92rem; }
-  .cv-date { color: #999; font-size: 0.85rem; font-style: italic; white-space: nowrap; }
+  .cv-org  { color: #F0FFFF; font-size: 0.92rem; }
+  .cv-date { color: #F8F8FF; font-size: 0.85rem; font-style: italic; white-space: nowrap; }
 
-  .cv-sub  { color: #888; font-size: 0.85rem; font-style: italic; margin: 2px 0 6px; }
+  .cv-sub  { color: #F0FFFF; font-size: 0.85rem; font-style: italic; margin: 2px 0 6px; }
 
   .cv-bullets { margin: 4px 0 0 0; padding: 0; list-style: none; }
   .cv-bullets li {
@@ -133,7 +133,7 @@ redirect_from:
     <ul class="cv-bullets">
       <li>Conceptualisation, research design, and task design using Gorilla</li>
       <li>Ethical approval, participant recruitment and data collection</li>
-      <li>Data analysis, dissertation writing and editing</li>
+      <li>Data analysis using Regression and Bayesian Modelling, dissertation writing and editing</li>
     </ul>
   </div>
 
