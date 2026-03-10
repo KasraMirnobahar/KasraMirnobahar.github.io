@@ -61,7 +61,7 @@ redirect_from:
 
   .cv-lang { font-size: 0.92rem; color: #555; }
   .cv-lang strong { color: #87CEEB; }
-  .cv-sep { color: #ccc; margin: 0 0.5rem; }
+  .cv-sep { color: #FFFFFF; margin: 0 0.5rem; }
 </style>
 
 
