@@ -57,7 +57,7 @@ redirect_from:
   .cv-pub strong { color: #FFFFFF; }
 
   .cv-skills-row { font-size: 0.88rem; color: #FFF5EE; margin-bottom: 0.4rem; }
-  .cv-skills-row span { font-weight: 700; color: #1a1a2e; }
+  .cv-skills-row span { font-weight: 700; color: #87CEEB; }
 
   .cv-lang { font-size: 0.92rem; color: #555; }
   .cv-lang strong { color: #1a1a2e; }
