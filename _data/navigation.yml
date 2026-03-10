@@ -13,12 +13,14 @@ main:
 
   - title: "Talks"
     url: /talks/        
+
+ - title: "Research Projects"
+   url: /research/
     
   - title: "CV"
     url: /cv/
 
-  - title: "Research Projects"
-  url: /research/
+  
     
   # - title: "CV"
   #   url: /cv-json/
