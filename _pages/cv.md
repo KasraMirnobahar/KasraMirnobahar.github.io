@@ -40,7 +40,7 @@ redirect_from:
   .cv-bullets { margin: 4px 0 0 0; padding: 0; list-style: none; }
   .cv-bullets li {
     font-size: 0.88rem;
-    color: #555;
+    color: #FFFFFF;
     padding: 2px 0 2px 1.1rem;
     position: relative;
   }
@@ -48,7 +48,7 @@ redirect_from:
     content: "–";
     position: absolute;
     left: 0;
-    color: #aaa;
+    color: #FFFFFF;
   }
 
   .cv-plain { font-size: 0.88rem; color: #666; margin: 3px 0; }
