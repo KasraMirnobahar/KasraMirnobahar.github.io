@@ -15,7 +15,7 @@ main:
     url: /talks/        
 
   - title: "Research Projects"
-  url: /research/
+    url: /research/
     
   - title: "CV"
     url: /cv/
