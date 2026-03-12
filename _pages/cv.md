@@ -329,3 +329,7 @@ redirect_from:
     <strong>German</strong> A2
   </div>
 </div>
+
+
+[Download my CV](../files/Kasra_Mirnoabahar_CV.pdf)
+
