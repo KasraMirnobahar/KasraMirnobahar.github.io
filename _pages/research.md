@@ -5,6 +5,27 @@ permalink: /research/
 author_profile: true
 ---
 
+<div class="rp-notice">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+  This page is under update and the content may not be accurate.
+</div>
+
+<style>
+.rp-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(252,211,77,0.08);
+  border: 1px solid rgba(252,211,77,0.3);
+  color: #fcd34d;
+  font-size: 0.87rem;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+</style>
+
+
 <style>
   .rp-section-title {
     font-size: 1.15rem;
