@@ -10,7 +10,7 @@ redirect_from:
   <h2>Biography</h2>
   <div class="bio-text"> 
     <p>
-      I'm research assistant at University of Glasgow, working at MArios Phillastides decision-making lab. I studied psychology in my undergraduate and then moved to Glasgow, to study my master of behavioural sciences at University of Glasgow
+      I am a Research Assistant at the University of Glasgow, working in the decision-making lab led by Marios Philiastides. I completed my undergraduate degree in Psychology before moving to Glasgow to pursue a Master’s degree in Behavioural Sciences at the University of Glasgow. My work focuses on understanding the cognitive and neural mechanisms underlying decision-making and behaviour.
     </p>
   </div>
 </section>
