@@ -4,13 +4,32 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+<a href="{{site.author.googlescholar}}" target="_blank" class="gs-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/><path d="M12 14L2.107 8.006A11.955 11.955 0 0 1 12 4c3.898 0 7.334 1.946 9.393 4.916"/></svg> View my Google Scholar profile</a>
 {% endif %}
-
 {% include base_path %}
 
+<style>
+.gs-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7eb3f5;
+  border: 1px solid rgba(126,179,245,0.35);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.87rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: background 0.2s, color 0.2s;
+}
+.gs-link:hover {
+  background: #7eb3f5;
+  color: #1a1a2e;
+  text-decoration: none;
+}
+</style>
 <!-- New style rendering if publication categories are defined -->
 {% if site.publication_category %}
   {% for category in site.publication_category  %}
