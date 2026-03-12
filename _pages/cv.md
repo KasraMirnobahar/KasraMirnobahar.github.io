@@ -331,5 +331,5 @@ redirect_from:
 </div>
 
 
-[Download my CV](../files/Kasra_Mirnoabahar_CV.pdf)
+[Download my CV](/files/Kasra_Mirnoabahar_CV.pdf)
 
