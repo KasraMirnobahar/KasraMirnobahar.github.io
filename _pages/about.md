@@ -111,3 +111,62 @@ redirect_from:
 }
 </style>
 
+
+<div class="contact-box">
+  <div class="contact-box-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+  </div>
+  <div class="contact-box-content">
+    <div class="contact-box-title">Get in Touch</div>
+    <p class="contact-box-text">If you have any questions about my research projects, background, or prospective collaborations, I'd be happy to have a chat — feel free to reach out!</p>
+    <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk" class="contact-box-btn">Send me an email</a>
+  </div>
+</div>
+
+<style>
+.contact-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border: 1px solid rgba(126,179,245,0.25);
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+  margin-top: 2rem;
+  background: rgba(126,179,245,0.04);
+}
+.contact-box-icon {
+  color: #7eb3f5;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.contact-box-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #e8eaf0;
+  margin-bottom: 0.4rem;
+}
+.contact-box-text {
+  font-size: 0.88rem;
+  color: #aab0be;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+.contact-box-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #7eb3f5;
+  border: 1px solid #7eb3f5;
+  padding: 0.35rem 1rem;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.contact-box-btn:hover {
+  background: #7eb3f5;
+  color: #1a1a2e;
+  text-decoration: none;
+}
+</style>
