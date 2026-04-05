@@ -165,7 +165,7 @@ redirect_from:
   <div class="contact-box-content">
     <div class="contact-box-title">Get in Touch</div>
     <p class="contact-box-text">If you have any questions about my research projects, background, or prospective collaborations, I'd be happy to have a chat — feel free to reach out!</p>
-    <a href="mailto:kasranobahar"gmail.com" class="contact-box-btn">Send me an email</a>
+    <a href="mailto:kasranobahar@gmail.com" class="contact-box-btn">Send me an email</a>
   </div>
 </div>
 
