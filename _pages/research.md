@@ -209,38 +209,14 @@ author_profile: true
 <div class="rp-item">
   <div class="rp-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
   <div class="rp-content">
-    <div class="rp-title">Social Media, Dopamine and Compulsive Behaviour <span class="rp-badge badge-future">Planned</span></div>
-    <div class="rp-desc">Building on my dissertation, I aim to investigate the neurochemical basis of compulsive social media use — particularly the role of dopaminergic reward systems — combining behavioural paradigms with neuroimaging methods.</div>
+    <div class="rp-title">Person specific digital-phenotyping and well-being <span class="rp-badge badge-future">Planned</span></div>
+    <div class="rp-desc">Social media plays different roles in people’s lives. For each individual, patterns of use vary, bringing distinct benefits as well as potential risks to well-being. For this reason, a one-size-fits-all approach to reducing harm is unlikely to be effective.
+This project aims to classify users based on their patterns of social media use, develop a reinforcement learning model that incorporates emotional states into the learning process, and ultimately design personalised interventions tailored to each user. </div>
     <div class="rp-tags">
-      <span class="rp-tag">Dopamine</span>
-      <span class="rp-tag">fMRI</span>
       <span class="rp-tag">Social Media</span>
+      <span class="rp-tag">Digital Phenotyping</span>
+      <span class="rp-tag">Affective Decision-Making</span>
     </div>
   </div>
 </div>
 
-<div class="rp-item">
-  <div class="rp-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></svg></div>
-  <div class="rp-content">
-    <div class="rp-title">Neural Mechanisms of Decision-making Under Uncertainty <span class="rp-badge badge-future">Planned</span></div>
-    <div class="rp-desc">Continuing my work in the Philiastides Lab, I plan to deepen my understanding of how uncertainty shapes neural decision-making — integrating EEG, fMRI, and computational modelling to study reward processing and metacognition.</div>
-    <div class="rp-tags">
-      <span class="rp-tag">EEG</span>
-      <span class="rp-tag">fMRI</span>
-      <span class="rp-tag">Computational Modelling</span>
-    </div>
-  </div>
-</div>
-
-<div class="rp-item">
- <div class="rp-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></div>
-  <div class="rp-content">
-    <div class="rp-title">Behavioural Science and Public Policy <span class="rp-badge badge-future">Planned</span></div>
-    <div class="rp-desc">A longer-term goal is translating findings from behavioural and cognitive neuroscience into evidence-based policy — particularly around digital environments, screen time regulation, and population-level mental health interventions.</div>
-    <div class="rp-tags">
-      <span class="rp-tag">Policy</span>
-      <span class="rp-tag">Digital Health</span>
-      <span class="rp-tag">Interventions</span>
-    </div>
-  </div>
-</div>
