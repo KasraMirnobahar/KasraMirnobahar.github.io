@@ -4,647 +4,612 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kasra Mirnobahar</title>
-  <meta name="description" content="Research Assistant at the University of Glasgow. Studying decision-making, social media, and neural mechanisms of behaviour." />
-  <meta property="og:title" content="Kasra Mirnobahar" />
-  <meta property="og:description" content="Research Assistant at the University of Glasgow — decision-making, neuroimaging, computational models." />
-  <meta property="og:url" content="https://kasramirnobahar.github.io/" />
+  <meta name="description" content="Research Assistant at the University of Glasgow studying social media, decision-making, and the neural mechanisms of behaviour." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-
   <style>
-    /* ─── reset & tokens ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg:       #f5f4f0;
-      --bg2:      #eceae4;
-      --bg3:      #e2e0d8;
-      --ink:      #1a1917;
-      --ink2:     #4a4845;
-      --ink3:     #8a8680;
-      --accent:   #2d5be3;
-      --accent2:  #1a3ea8;
-      --teal:     #0e7c6b;
-      --purple:   #5c47c7;
-      --amber:    #c07b14;
-      --border:   rgba(26,25,23,.1);
-      --border2:  rgba(26,25,23,.18);
-      --radius:   12px;
-      --serif:    'DM Serif Display', Georgia, serif;
-      --sans:     'DM Sans', system-ui, sans-serif;
-      --ease:     cubic-bezier(.4,0,.2,1);
-      --trans:    .25s var(--ease);
+      --bg:      #f5f4f0;
+      --bg2:     #eceae4;
+      --bg3:     #e0ddd6;
+      --ink:     #1a1917;
+      --ink2:    #4a4845;
+      --ink3:    #8a8680;
+      --accent:  #2d5be3;
+      --teal:    #0e7c6b;
+      --purple:  #5c47c7;
+      --amber:   #b87214;
+      --border:  rgba(26,25,23,.1);
+      --border2: rgba(26,25,23,.2);
+      --r:       12px;
+      --serif:   'DM Serif Display', Georgia, serif;
+      --sans:    'DM Sans', system-ui, sans-serif;
+      --ease:    cubic-bezier(.4,0,.2,1);
     }
     [data-theme="dark"] {
-      --bg:    #141412;
-      --bg2:   #1e1d1b;
-      --bg3:   #272522;
+      --bg:    #131311;
+      --bg2:   #1d1c1a;
+      --bg3:   #252420;
       --ink:   #f0ede8;
-      --ink2:  #b0ada8;
-      --ink3:  #6a6762;
-      --accent: #6b8ef5;
-      --accent2:#4d70e8;
+      --ink2:  #aba8a2;
+      --ink3:  #656260;
+      --accent:#7090f8;
       --teal:  #2bbfa6;
-      --purple:#8b75e8;
-      --amber: #e09a35;
-      --border: rgba(240,237,232,.08);
-      --border2: rgba(240,237,232,.15);
+      --purple:#9b85f5;
+      --amber: #d4933a;
+      --border: rgba(240,237,232,.09);
+      --border2:rgba(240,237,232,.18);
     }
-
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
       font-family: var(--sans);
       background: var(--bg);
       color: var(--ink);
       line-height: 1.7;
-      transition: background var(--trans), color var(--trans);
       overflow-x: hidden;
+      transition: background .3s, color .3s;
     }
-
-    /* ─── scrollbar ─── */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 2px; }
 
-    /* ─── nav ─── */
+    #bg-canvas {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
+    }
+
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem;
-      background: transparent;
-      transition: background var(--trans), backdrop-filter var(--trans), box-shadow var(--trans);
+      padding: .9rem 2.5rem;
+      transition: background .3s, box-shadow .3s;
     }
     nav.scrolled {
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(18px);
       box-shadow: 0 1px 0 var(--border);
     }
-    .nav-logo {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      color: var(--ink);
-      text-decoration: none;
-      letter-spacing: -.01em;
+    .nav-logo { font-family: var(--serif); font-size: 1rem; color: var(--ink); text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: .2rem; }
+    .nav-right a, #theme-btn {
+      font-size: .78rem; color: var(--ink2); text-decoration: none;
+      padding: .32rem .75rem; border-radius: 20px;
+      border: none; background: none; font-family: var(--sans);
+      cursor: pointer; transition: background .18s, color .18s;
     }
-    .nav-links { display: flex; align-items: center; gap: .25rem; }
-    .nav-links a {
-      font-size: .8rem;
-      font-weight: 400;
-      color: var(--ink2);
-      text-decoration: none;
-      padding: .35rem .75rem;
-      border-radius: 20px;
-      transition: background var(--trans), color var(--trans);
-    }
-    .nav-links a:hover { background: var(--bg2); color: var(--ink); }
-    #theme-btn {
-      background: none; border: 1px solid var(--border2);
-      color: var(--ink2); cursor: pointer; border-radius: 20px;
-      padding: .35rem .75rem; font-size: .8rem; font-family: var(--sans);
-      transition: background var(--trans), color var(--trans);
-    }
-    #theme-btn:hover { background: var(--bg2); color: var(--ink); }
+    .nav-right a:hover, #theme-btn:hover { background: var(--bg2); color: var(--ink); }
+    @media (max-width:600px) { .nav-right a { display:none; } nav { padding:.85rem 1.25rem; } }
 
-    /* ─── hero ─── */
+    .page { position: relative; z-index: 1; }
+
+    /* HERO */
     #hero {
       min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 8rem 2rem 5rem;
-      max-width: 860px; margin: 0 auto;
-      position: relative;
+      display: grid;
+      grid-template-columns: 55% 45%;
+      align-items: center;
+      max-width: 1020px; margin: 0 auto;
+      padding: 7rem 2.5rem 4rem;
+      gap: 2rem;
+    }
+    @media (max-width: 740px) {
+      #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+      .hero-visual { display: none; }
     }
     .hero-eyebrow {
-      font-size: .75rem; font-weight: 500; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--ink3);
-      margin-bottom: 1.5rem;
-      opacity: 0; transform: translateY(12px);
-      animation: fadeUp .6s var(--ease) .1s forwards;
+      font-size: .72rem; font-weight: 500; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--ink3); margin-bottom: 1.1rem;
+      opacity: 0; animation: fadeUp .5s var(--ease) .1s forwards;
     }
-    .hero-eyebrow span { color: var(--accent); }
+    .hero-eyebrow b { color: var(--accent); font-weight: 500; }
     h1 {
       font-family: var(--serif);
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      line-height: 1.05;
-      letter-spacing: -.02em;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-      opacity: 0; transform: translateY(16px);
-      animation: fadeUp .7s var(--ease) .2s forwards;
+      font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+      line-height: 1.06; letter-spacing: -.025em;
+      margin-bottom: 1.15rem;
+      opacity: 0; animation: fadeUp .6s var(--ease) .2s forwards;
     }
     h1 em { font-style: italic; color: var(--ink2); }
     .hero-bio {
-      font-size: 1.05rem; color: var(--ink2); line-height: 1.75;
-      max-width: 560px; margin-bottom: 2.5rem;
-      opacity: 0; transform: translateY(12px);
-      animation: fadeUp .6s var(--ease) .35s forwards;
+      font-size: .94rem; color: var(--ink2); line-height: 1.82;
+      max-width: 430px; margin-bottom: 1.75rem;
+      opacity: 0; animation: fadeUp .5s var(--ease) .35s forwards;
     }
     .hero-bio strong { color: var(--ink); font-weight: 500; }
     .hero-chips {
-      display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.5rem;
-      opacity: 0; transform: translateY(10px);
-      animation: fadeUp .6s var(--ease) .5s forwards;
+      display: flex; flex-wrap: wrap; gap: .42rem; margin-bottom: 1.75rem;
+      opacity: 0; animation: fadeUp .5s var(--ease) .45s forwards;
     }
     .chip {
-      font-size: .72rem; font-weight: 500; letter-spacing: .04em;
-      padding: .3rem .85rem; border-radius: 20px;
-      border: 1px solid var(--border2);
-      color: var(--ink2); background: var(--bg2);
+      font-size: .7rem; font-weight: 500; letter-spacing: .04em;
+      padding: .28rem .8rem; border-radius: 20px;
+      border: 1px solid var(--border2); color: var(--ink2); background: var(--bg2);
     }
-    .chip.c-blue   { border-color: color-mix(in srgb, var(--accent) 35%, transparent); color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); }
-    .chip.c-teal   { border-color: color-mix(in srgb, var(--teal) 35%, transparent);   color: var(--teal);   background: color-mix(in srgb, var(--teal) 7%, transparent); }
-    .chip.c-purple { border-color: color-mix(in srgb, var(--purple) 35%, transparent); color: var(--purple); background: color-mix(in srgb, var(--purple) 7%, transparent); }
-    .chip.c-amber  { border-color: color-mix(in srgb, var(--amber) 35%, transparent);  color: var(--amber);  background: color-mix(in srgb, var(--amber) 7%, transparent); }
-    .hero-cta {
-      display: flex; gap: .75rem; flex-wrap: wrap;
-      opacity: 0; transform: translateY(10px);
-      animation: fadeUp .6s var(--ease) .6s forwards;
+    .chip.ca { border-color:color-mix(in srgb,var(--accent)35%,transparent); color:var(--accent); background:color-mix(in srgb,var(--accent)8%,transparent); }
+    .chip.ct { border-color:color-mix(in srgb,var(--teal)35%,transparent);   color:var(--teal);   background:color-mix(in srgb,var(--teal)8%,transparent); }
+    .chip.cp { border-color:color-mix(in srgb,var(--purple)35%,transparent); color:var(--purple); background:color-mix(in srgb,var(--purple)8%,transparent); }
+    .chip.cm { border-color:color-mix(in srgb,var(--amber)35%,transparent);  color:var(--amber);  background:color-mix(in srgb,var(--amber)8%,transparent); }
+    .hero-btns {
+      display: flex; gap: .6rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp .5s var(--ease) .55s forwards;
     }
     .btn {
-      display: inline-flex; align-items: center; gap: .45rem;
-      font-size: .85rem; font-weight: 500; font-family: var(--sans);
-      padding: .65rem 1.4rem; border-radius: 24px;
-      text-decoration: none; cursor: pointer; border: none;
-      transition: transform .15s var(--ease), opacity .15s;
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .82rem; font-weight: 500; font-family: var(--sans);
+      padding: .6rem 1.3rem; border-radius: 22px; text-decoration: none;
+      cursor: pointer; border: none; transition: transform .15s, opacity .15s;
     }
-    .btn:hover { transform: translateY(-1px); opacity: .88; }
-    .btn-primary { background: var(--ink); color: var(--bg); }
-    .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--border2); }
-    .btn-outline:hover { background: var(--bg2); }
-    .hero-scroll {
-      position: absolute; bottom: 2.5rem; left: 2rem;
-      font-size: .72rem; color: var(--ink3); letter-spacing: .08em;
-      text-transform: uppercase; display: flex; align-items: center; gap: .6rem;
-      opacity: 0; animation: fadeUp .6s var(--ease) .9s forwards;
-    }
-    .scroll-line {
-      width: 32px; height: 1px; background: var(--ink3);
-      transform-origin: left;
-      animation: growLine 1.2s var(--ease) 1.1s forwards;
-      transform: scaleX(0);
-    }
+    .btn:hover { transform: translateY(-1px); opacity: .85; }
+    .btn-p { background: var(--ink); color: var(--bg); }
+    .btn-o { background: transparent; color: var(--ink); border: 1px solid var(--border2); }
+    .btn-o:hover { background: var(--bg2); }
 
-    /* ─── canvas neural bg ─── */
-    #neural-canvas {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: 0; opacity: .45;
-      transition: opacity .5s;
+    .hero-visual {
+      opacity: 0; animation: fadeUp .7s var(--ease) .25s forwards;
+      display: flex; justify-content: center; align-items: center;
     }
-    [data-theme="dark"] #neural-canvas { opacity: .25; }
-    #hero, section, footer { position: relative; z-index: 1; }
+    #icon-canvas { width: 100%; max-width: 320px; height: 320px; }
 
-    /* ─── section base ─── */
+    /* SECTIONS */
     section {
-      max-width: 860px; margin: 0 auto;
-      padding: 5rem 2rem;
+      max-width: 900px; margin: 0 auto;
+      padding: 5rem 2.5rem;
       border-top: 1px solid var(--border);
     }
-    .section-label {
-      font-size: .72rem; font-weight: 500; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--ink3); margin-bottom: 1.5rem;
+    @media (max-width:600px) { section { padding: 3.5rem 1.5rem; } }
+
+    .sec-label {
+      font-size: .7rem; font-weight: 500; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--ink3); margin-bottom: 1.2rem;
       display: flex; align-items: center; gap: .75rem;
     }
-    .section-label::after {
-      content: ''; flex: 1; height: 1px; background: var(--border);
-    }
+    .sec-label::after { content:''; flex:1; height:1px; background:var(--border); }
     h2 {
       font-family: var(--serif);
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height: 1.15; letter-spacing: -.02em;
-      margin-bottom: 1rem;
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      line-height: 1.15; letter-spacing: -.02em; margin-bottom: .85rem;
     }
     h2 em { font-style: italic; color: var(--ink2); }
-    .section-intro { font-size: 1rem; color: var(--ink2); max-width: 520px; margin-bottom: 2.5rem; line-height: 1.7; }
+    .sec-intro { font-size: .92rem; color: var(--ink2); max-width: 520px; margin-bottom: 2rem; line-height: 1.75; }
 
-    /* ─── research pillars ─── */
-    .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    @media (max-width: 600px) { .pillars { grid-template-columns: 1fr; } }
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s var(--ease),transform .6s var(--ease); }
+    .reveal.vis { opacity:1; transform:none; }
+
+    /* PILLARS */
+    .pillars { display:grid; grid-template-columns:repeat(2,1fr); gap:.85rem; }
+    @media (max-width:560px) { .pillars { grid-template-columns:1fr; } }
     .pillar {
-      padding: 1.5rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--bg2);
-      cursor: default;
-      transition: transform .2s var(--ease), border-color .2s, box-shadow .2s;
+      padding:1.35rem 1.5rem; border-radius:var(--r);
+      border:1px solid var(--border); background:var(--bg2);
+      transition:transform .2s var(--ease),border-color .2s,box-shadow .2s;
     }
-    .pillar:hover {
-      transform: translateY(-3px);
-      border-color: var(--border2);
-      box-shadow: 0 8px 32px -8px rgba(0,0,0,.12);
+    .pillar:hover { transform:translateY(-3px); border-color:var(--border2); box-shadow:0 8px 28px -8px rgba(0,0,0,.1); }
+    .pillar-bar { width:26px; height:3px; border-radius:2px; margin-bottom:.9rem; }
+    .pillar h3 { font-size:.88rem; font-weight:500; margin-bottom:.38rem; }
+    .pillar p  { font-size:.81rem; color:var(--ink2); line-height:1.65; }
+    .ptag {
+      display:inline-block; margin-top:.65rem;
+      font-size:.67rem; font-weight:500; letter-spacing:.04em;
+      padding:.17rem .58rem; border-radius:20px;
     }
-    .pillar-icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; margin-bottom: 1rem;
-    }
-    .pi-blue   { background: color-mix(in srgb, var(--accent) 12%, transparent); }
-    .pi-teal   { background: color-mix(in srgb, var(--teal) 12%, transparent); }
-    .pi-purple { background: color-mix(in srgb, var(--purple) 12%, transparent); }
-    .pi-amber  { background: color-mix(in srgb, var(--amber) 12%, transparent); }
-    .pillar h3 { font-size: .95rem; font-weight: 500; margin-bottom: .4rem; }
-    .pillar p { font-size: .85rem; color: var(--ink2); line-height: 1.6; }
-    .pillar-tag {
-      display: inline-block; margin-top: .75rem;
-      font-size: .7rem; font-weight: 500; letter-spacing: .04em;
-      padding: .2rem .65rem; border-radius: 20px;
-    }
-    .pt-blue   { color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); }
-    .pt-teal   { color: var(--teal);   background: color-mix(in srgb, var(--teal) 9%, transparent);   border: 1px solid color-mix(in srgb, var(--teal) 25%, transparent); }
-    .pt-purple { color: var(--purple); background: color-mix(in srgb, var(--purple) 9%, transparent); border: 1px solid color-mix(in srgb, var(--purple) 25%, transparent); }
-    .pt-amber  { color: var(--amber);  background: color-mix(in srgb, var(--amber) 9%, transparent);  border: 1px solid color-mix(in srgb, var(--amber) 25%, transparent); }
+    .ta { color:var(--accent); background:color-mix(in srgb,var(--accent)9%,transparent); border:1px solid color-mix(in srgb,var(--accent)22%,transparent); }
+    .tt { color:var(--teal);   background:color-mix(in srgb,var(--teal)9%,transparent);   border:1px solid color-mix(in srgb,var(--teal)22%,transparent); }
+    .tp { color:var(--purple); background:color-mix(in srgb,var(--purple)9%,transparent); border:1px solid color-mix(in srgb,var(--purple)22%,transparent); }
+    .tm { color:var(--amber);  background:color-mix(in srgb,var(--amber)9%,transparent);  border:1px solid color-mix(in srgb,var(--amber)22%,transparent); }
 
-    /* ─── timeline ─── */
-    .timeline { position: relative; padding-left: 1.5rem; }
-    .timeline::before {
-      content: ''; position: absolute; left: 0; top: 6px; bottom: 6px;
-      width: 1px; background: var(--border2);
+    /* SPOTLIGHT */
+    .spotlight {
+      border:1px solid var(--border); border-radius:var(--r);
+      padding:1.75rem 2rem; background:var(--bg2);
+      transition:border-color .2s;
     }
-    .tl-item {
-      position: relative; padding: 0 0 2.5rem 1.5rem;
-    }
+    .spotlight:hover { border-color:var(--border2); }
+    .spot-kicker { font-size:.7rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); margin-bottom:.6rem; }
+    .spot-title { font-family:var(--serif); font-size:1.2rem; line-height:1.3; margin-bottom:.8rem; }
+    .spot-desc { font-size:.84rem; color:var(--ink2); line-height:1.78; margin-bottom:1rem; }
+    .spot-tags { display:flex; flex-wrap:wrap; gap:.38rem; }
+
+    /* TIMELINE */
+    .tl { position:relative; padding-left:1.5rem; }
+    .tl::before { content:''; position:absolute; left:0; top:8px; bottom:0; width:1px; background:var(--border2); }
+    .tl-item { position:relative; padding-bottom:2.1rem; }
+    .tl-item:last-child { padding-bottom:0; }
     .tl-item::before {
-      content: ''; position: absolute; left: -4.5px; top: 6px;
-      width: 9px; height: 9px; border-radius: 50%;
-      background: var(--bg); border: 2px solid var(--border2);
-      transition: border-color .2s, background .2s;
+      content:''; position:absolute; left:-5.5px; top:7px;
+      width:10px; height:10px; border-radius:50%;
+      background:var(--bg); border:2px solid var(--border2);
+      transition:border-color .2s,background .2s;
     }
-    .tl-item:hover::before { border-color: var(--accent); background: var(--accent); }
-    .tl-year {
-      font-size: .72rem; font-weight: 500; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--ink3); margin-bottom: .3rem;
-    }
-    .tl-title { font-size: .95rem; font-weight: 500; margin-bottom: .2rem; }
-    .tl-place { font-size: .85rem; color: var(--ink2); margin-bottom: .5rem; }
-    .tl-desc  { font-size: .85rem; color: var(--ink3); line-height: 1.6; }
+    .tl-item:hover::before { border-color:var(--accent); background:var(--accent); }
+    .tl-year  { font-size:.7rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3); margin-bottom:.22rem; }
+    .tl-title { font-size:.9rem; font-weight:500; margin-bottom:.14rem; }
+    .tl-place { font-size:.81rem; color:var(--ink2); margin-bottom:.35rem; }
+    .tl-desc  { font-size:.81rem; color:var(--ink3); line-height:1.65; }
+    .tl-tags  { display:flex; flex-wrap:wrap; gap:.3rem; margin-top:.5rem; }
+    .tl-tag   { font-size:.65rem; font-weight:500; padding:.14rem .52rem; border-radius:20px; }
 
-    /* ─── publications ─── */
-    .pub-list { display: flex; flex-direction: column; gap: .75rem; }
+    .awards { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.65rem; }
+    .award-chip {
+      font-size:.7rem; font-weight:500; padding:.22rem .7rem;
+      border-radius:20px; background:color-mix(in srgb,var(--amber)10%,transparent);
+      color:var(--amber); border:1px solid color-mix(in srgb,var(--amber)25%,transparent);
+    }
+
+    /* PUBLICATIONS */
+    .pub-list { display:flex; flex-direction:column; gap:.65rem; }
     .pub-item {
-      display: grid; grid-template-columns: 2.5rem 1fr;
-      gap: .75rem; align-items: start;
-      padding: 1rem 1.25rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--bg);
-      transition: background .2s, border-color .2s, transform .2s var(--ease);
-      text-decoration: none; color: inherit;
+      display:grid; grid-template-columns:2.8rem 1fr; gap:.65rem;
+      padding:.9rem 1.1rem; border-radius:var(--r);
+      border:1px solid var(--border); background:var(--bg);
+      text-decoration:none; color:inherit;
+      transition:background .2s,border-color .2s,transform .2s var(--ease);
     }
-    .pub-item:hover {
-      background: var(--bg2);
-      border-color: var(--border2);
-      transform: translateX(3px);
-    }
-    .pub-year {
-      font-size: .72rem; font-weight: 500; color: var(--ink3);
-      padding-top: 3px; text-align: right;
-    }
-    .pub-body {}
-    .pub-title { font-size: .9rem; font-weight: 500; margin-bottom: .25rem; line-height: 1.45; }
-    .pub-venue { font-size: .8rem; color: var(--ink3); margin-bottom: .4rem; }
-    .pub-tags  { display: flex; flex-wrap: wrap; gap: .3rem; }
-    .pub-tag {
-      font-size: .68rem; font-weight: 500; padding: .15rem .55rem;
-      border-radius: 20px;
-    }
+    .pub-item:hover { background:var(--bg2); border-color:var(--border2); transform:translateX(3px); }
+    .pub-item-static { cursor:default; }
+    .pub-item-static:hover { transform:none; background:var(--bg); border-color:var(--border); }
+    .pub-y   { font-size:.7rem; font-weight:500; color:var(--ink3); padding-top:2px; text-align:right; }
+    .pub-title { font-size:.86rem; font-weight:500; line-height:1.45; margin-bottom:.18rem; }
+    .pub-venue { font-size:.77rem; color:var(--ink3); margin-bottom:.32rem; }
+    .pub-tags  { display:flex; flex-wrap:wrap; gap:.28rem; }
+    .pub-tag   { font-size:.65rem; font-weight:500; padding:.14rem .52rem; border-radius:20px; }
+    .pta { color:var(--accent); background:color-mix(in srgb,var(--accent)9%,transparent); border:1px solid color-mix(in srgb,var(--accent)22%,transparent); }
+    .ptt { color:var(--teal);   background:color-mix(in srgb,var(--teal)9%,transparent);   border:1px solid color-mix(in srgb,var(--teal)22%,transparent); }
+    .ptp { color:var(--purple); background:color-mix(in srgb,var(--purple)9%,transparent); border:1px solid color-mix(in srgb,var(--purple)22%,transparent); }
+    .ptm { color:var(--amber);  background:color-mix(in srgb,var(--amber)9%,transparent);  border:1px solid color-mix(in srgb,var(--amber)22%,transparent); }
 
-    /* ─── skills / methods ─── */
-    .methods-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem;
+    /* METHODS */
+    .methods { display:grid; grid-template-columns:repeat(3,1fr); gap:.52rem; }
+    @media (max-width:500px) { .methods { grid-template-columns:repeat(2,1fr); } }
+    .mchip {
+      padding:.72rem 1rem; border-radius:10px;
+      border:1px solid var(--border); background:var(--bg2);
+      font-size:.77rem; font-weight:500; color:var(--ink2); text-align:center;
+      transition:background .18s,border-color .18s,color .18s;
     }
-    @media (max-width: 560px) { .methods-grid { grid-template-columns: repeat(2,1fr); } }
-    .method-chip {
-      padding: .7rem 1rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--bg2);
-      font-size: .8rem; font-weight: 500;
-      color: var(--ink2);
-      text-align: center;
-      transition: background .2s, border-color .2s, color .2s;
-    }
-    .method-chip:hover { background: var(--bg3); border-color: var(--border2); color: var(--ink); }
-    .method-chip small { display: block; font-size: .68rem; font-weight: 400; color: var(--ink3); margin-top: .15rem; }
+    .mchip:hover { background:var(--bg3); border-color:var(--border2); color:var(--ink); }
+    .mchip small { display:block; font-size:.66rem; font-weight:400; color:var(--ink3); margin-top:.1rem; }
 
-    /* ─── contact ─── */
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
+    /* CONTACT */
+    .contact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin-top:1.6rem; }
+    @media (max-width:600px) { .contact-grid { grid-template-columns:repeat(2,1fr); } }
+    .cc {
+      padding:1rem 1.15rem; border-radius:var(--r);
+      border:1px solid var(--border); background:var(--bg2);
+      text-decoration:none; color:inherit;
+      display:flex; align-items:center; gap:.8rem;
+      transition:transform .18s var(--ease),border-color .18s,background .18s;
     }
-    @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
-    .contact-card {
-      padding: 1.25rem 1.5rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--bg2);
-      text-decoration: none; color: inherit;
-      display: flex; align-items: center; gap: 1rem;
-      transition: transform .2s var(--ease), border-color .2s, background .2s;
-    }
-    .contact-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--border2);
-      background: var(--bg3);
-    }
-    .cc-icon {
-      width: 36px; height: 36px; flex-shrink: 0;
-      border-radius: 9px; background: var(--bg3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-    }
-    .cc-label { font-size: .75rem; color: var(--ink3); }
-    .cc-value { font-size: .88rem; font-weight: 500; }
+    .cc:hover { transform:translateY(-2px); border-color:var(--border2); background:var(--bg3); }
+    .cc-ico { width:32px; height:32px; flex-shrink:0; border-radius:8px; background:var(--bg3); display:flex; align-items:center; justify-content:center; font-size:.95rem; }
+    .cc-l { font-size:.68rem; color:var(--ink3); }
+    .cc-v { font-size:.8rem; font-weight:500; }
 
-    /* ─── footer ─── */
+    /* CV */
+    .cv-grid { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; margin-top:1.5rem; }
+    @media (max-width:540px) { .cv-grid { grid-template-columns:1fr; } }
+
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem;
-      text-align: center;
-      font-size: .78rem;
-      color: var(--ink3);
-      max-width: 860px; margin: 0 auto;
+      border-top:1px solid var(--border); padding:1.6rem 2.5rem;
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem;
+      max-width:900px; margin:0 auto;
+      font-size:.74rem; color:var(--ink3);
     }
-    footer a { color: var(--ink2); text-decoration: none; }
-    footer a:hover { color: var(--ink); }
+    footer a { color:var(--ink2); text-decoration:none; }
+    footer a:hover { color:var(--ink); }
 
-    /* ─── reveal animations ─── */
-    .reveal {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity .6s var(--ease), transform .6s var(--ease);
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* keyframes */
-    @keyframes fadeUp {
-      to { opacity: 1; transform: none; }
-    }
-    @keyframes growLine {
-      to { transform: scaleX(1); }
-    }
-
-    /* ─── mobile nav ─── */
-    @media (max-width: 600px) {
-      nav { padding: .85rem 1.25rem; }
-      .nav-links a { display: none; }
-      #hero { padding: 7rem 1.25rem 4rem; }
-      section { padding: 3.5rem 1.25rem; }
-    }
+    @keyframes fadeUp { to { opacity:1; transform:none; } }
   </style>
 </head>
 <body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-<!-- neural background canvas -->
-<canvas id="neural-canvas" aria-hidden="true"></canvas>
-
-<!-- nav -->
-<nav id="main-nav">
+<nav id="nav">
   <a href="#" class="nav-logo">Kasra Mirnobahar</a>
-  <div class="nav-links">
+  <div class="nav-right">
     <a href="#research">Research</a>
     <a href="#experience">Experience</a>
     <a href="#publications">Publications</a>
+    <a href="#cv">CV</a>
     <a href="#contact">Contact</a>
-    <button id="theme-btn" aria-label="Toggle dark mode">◐</button>
+    <button id="theme-btn" title="Toggle dark mode">◐</button>
   </div>
 </nav>
 
-<!-- hero -->
-<div id="hero">
-  <p class="hero-eyebrow">Research Assistant · <span>University of Glasgow</span></p>
-  <h1>Kasra<br><em>Mirnobahar</em></h1>
-  <p class="hero-bio">
-    I study how the brain makes decisions — and what happens when those decisions are shaped by <strong>digital environments</strong>. My work sits at the intersection of <strong>social media</strong>, <strong>neuroimaging</strong>, and <strong>computational modelling</strong>.
-  </p>
-  <div class="hero-chips">
-    <span class="chip c-blue">Social media &amp; behaviour</span>
-    <span class="chip c-teal">fMRI · EEG</span>
-    <span class="chip c-purple">Computational models</span>
-    <span class="chip c-amber">Decision-making</span>
+<div class="page">
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Research Assistant · <b>University of Glasgow</b></p>
+      <h1>Kasra<br><em>Mirnobahar</em></h1>
+      <p class="hero-bio">
+        I study how the brain makes decisions — and what happens when those decisions are shaped by <strong>digital environments</strong>. My work bridges <strong>social media</strong>, <strong>neuroimaging</strong>, and <strong>computational modelling</strong>.
+      </p>
+      <div class="hero-chips">
+        <span class="chip ca">Social media &amp; behaviour</span>
+        <span class="chip ct">fMRI · EEG</span>
+        <span class="chip cp">Computational models</span>
+        <span class="chip cm">Decision-making</span>
+      </div>
+      <div class="hero-btns">
+        <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk" class="btn btn-p">Get in touch</a>
+        <a href="#research" class="btn btn-o">View research</a>
+        <a href="#cv" class="btn btn-o">CV</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <canvas id="icon-canvas" aria-hidden="true"></canvas>
+    </div>
   </div>
-  <div class="hero-cta">
-    <a href="mailto:kasranobahar@gmail.com" class="btn btn-primary">Get in touch</a>
-    <a href="#research" class="btn btn-outline">View research</a>
-    <a href="https://kasramirnobahar.github.io/cv/" class="btn btn-outline" target="_blank" rel="noopener">CV</a>
-  </div>
-  <div class="hero-scroll">
-    <span class="scroll-line"></span>
-    Scroll to explore
-  </div>
+
+  <!-- RESEARCH PILLARS -->
+  <section id="research">
+    <p class="sec-label">What I study</p>
+    <h2>Research <em>themes</em></h2>
+    <p class="sec-intro">Understanding the cognitive and neural mechanisms that drive behaviour — from the pull of a notification to the circuitry of reward.</p>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <div class="pillar-bar" style="background:var(--accent)"></div>
+        <h3>Social media &amp; mental health</h3>
+        <p>How uncertainty and variable reward drive compulsive checking in digital environments. My MSc dissertation examined how reward timing predictability shapes social media use via an explore/exploit framework.</p>
+        <span class="ptag ta">Gorilla · R</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-bar" style="background:var(--teal)"></div>
+        <h3>Neuroimaging</h3>
+        <p>Applying EEG and fMRI to uncover neural signatures of perceptual decision-making, metacognition of confidence, and cardiac-cycle influences on cognition — at the Philiastides Lab.</p>
+        <span class="ptag tt">EEG · fMRI · MATLAB</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-bar" style="background:var(--purple)"></div>
+        <h3>Computational modelling</h3>
+        <p>Reinforcement learning accounts of reward-sensitive behaviour in digital environments. Interested in Bayesian modelling, Dynamic Structural Equation Models, and person-specific network approaches (GIMME).</p>
+        <span class="ptag tp">RL · Bayesian · DSEM</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-bar" style="background:var(--amber)"></div>
+        <h3>Behaviour &amp; intervention</h3>
+        <p>Translating neuroscience insights into personalised, evidence-based interventions for digital mental health — moving beyond crude screen-time metrics and one-size-fits-all policies.</p>
+        <span class="ptag tm">Digital phenotyping</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH SPOTLIGHT -->
+  <section id="spotlight">
+    <p class="sec-label">Current project</p>
+    <h2>Research <em>spotlight</em></h2>
+    <div class="spotlight reveal">
+      <p class="spot-kicker">PhD Research Proposal · 2026</p>
+      <p class="spot-title">Person-Specific Digital Phenotyping of Social Media Use and Digital Well-Being</p>
+      <p class="spot-desc">
+        Despite growing public concern, research on social media and mental health remains inconsistent — largely because it treats users as a homogeneous group and relies on crude screen-time metrics. This project proposes a multi-modal approach integrating <strong>data donation</strong> (TikTok behavioural logs via GDPR data portability), <strong>Ecological Momentary Assessment</strong> through the How We Feel platform, and <strong>computational behavioural metrics</strong> (persistence, checking frequency, content exploration, temporal adaptation) to build person-specific affective-behavioural profiles. Dynamic Structural Equation Modelling (DSEM) and data-driven clustering (GIMME) will identify individual-level patterns linking mood to digital engagement — informing personalised interventions rather than blanket policy restrictions.
+      </p>
+      <div class="spot-tags">
+        <span class="ptag ta">Data donation · TikTok</span>
+        <span class="ptag tt">EMA · How We Feel</span>
+        <span class="ptag tp">DSEM · GIMME</span>
+        <span class="ptag tm">Digital phenotyping</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE / EDUCATION -->
+  <section id="experience">
+    <p class="sec-label">Background</p>
+    <h2>Education &amp; <em>experience</em></h2>
+
+    <div class="tl reveal">
+
+      <div class="tl-item">
+        <p class="tl-year">Feb 2026 – Ongoing</p>
+        <p class="tl-title">Research Assistant (EEG/ECG) — Decision-making, Learning &amp; Cardiac Cycle</p>
+        <p class="tl-place">Philiastides Lab · University of Glasgow, School of Psychology &amp; Neuroscience</p>
+        <p class="tl-desc">EEG and ECG data collection; participant recruitment; data cleaning and analysis in Python.</p>
+        <div class="tl-tags"><span class="tl-tag tt">EEG</span><span class="tl-tag tt">ECG</span><span class="tl-tag ptp">Python</span></div>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-year">June 2025 – March 2026</p>
+        <p class="tl-title">Research Assistant (EEG/fMRI) — Decision-making &amp; Metacognition of Confidence</p>
+        <p class="tl-place">Philiastides Lab · University of Glasgow</p>
+        <p class="tl-desc">fMRI and EEG setup for perceptual decision-making studies; data quality control and EEG preprocessing using MATLAB and EEGLab.</p>
+        <div class="tl-tags"><span class="tl-tag tt">fMRI</span><span class="tl-tag tt">EEG</span><span class="tl-tag ptp">MATLAB · EEGLab</span></div>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-year">June – Sep 2025</p>
+        <p class="tl-title">Primary Researcher — Social Media &amp; Uncertainty (MSc Dissertation, Grade A3)</p>
+        <p class="tl-place">Adam Smith Business School · University of Glasgow</p>
+        <p class="tl-desc">Independently designed a multi-component Gorilla.sc experiment (simulated social media feed with likes and uploads); led ethics approval, recruitment, and full quantitative analysis in R. Examined how reward timing predictability shapes social media checking behaviour via explore/exploit frameworks.</p>
+        <div class="tl-tags"><span class="tl-tag ta">Gorilla.sc</span><span class="tl-tag ta">R</span><span class="tl-tag ta">Explore/exploit</span></div>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-year">Sep 2024 – Sep 2025</p>
+        <p class="tl-title">MSc Behavioural Sciences — Merit</p>
+        <p class="tl-place">University of Glasgow</p>
+        <p class="tl-desc">Awarded Behavioural Sciences Scholarship.</p>
+        <div class="awards"><span class="award-chip">🏅 Behavioural Sciences Scholarship</span></div>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-year">Aug 2019 – Oct 2023</p>
+        <p class="tl-title">BSc Psychology — First Class Honours (GPA 3.71/4)</p>
+        <p class="tl-place">University of Social Welfare &amp; Rehabilitation Sciences</p>
+        <p class="tl-desc">Dissertation on poly-victimisation, impulsivity, and behavioural problems (Grade A1). Findings published in two peer-reviewed international journals.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <p class="sec-label">Publications &amp; presentations</p>
+    <h2>Research <em>output</em></h2>
+
+    <div class="pub-list reveal">
+
+      <a href="https://doi.org/10.5812/ijhrba-163153" class="pub-item" target="_blank" rel="noopener">
+        <span class="pub-y">2025</span>
+        <div>
+          <p class="pub-title">Assessing Childhood Trauma: Iranian Validation of the Juvenile Polyvictimization Questionnaire and Its Link to Psychiatric Symptoms</p>
+          <p class="pub-venue">International Journal of High Risk Behaviors &amp; Addiction — Pourmohamadreza-Tajrishi M, Mirnobahar K, Mohammadi Bytamar J.</p>
+          <div class="pub-tags"><span class="pub-tag ptp">Psychometrics</span><span class="pub-tag pta">Trauma</span><span class="pub-tag ptm">Validation</span></div>
+        </div>
+      </a>
+
+      <a href="https://doi.org/10.5812/ijpbs-159188" class="pub-item" target="_blank" rel="noopener">
+        <span class="pub-y">2025</span>
+        <div>
+          <p class="pub-title">Impact of Childhood Poly-victimization on Impulsivity and Behavioral Problems in Iranian Adults: A Regression Analysis</p>
+          <p class="pub-venue">Iranian Journal of Psychiatry and Behavioral Sciences — Mirnobahar K, Pourmohamadreza-Tajrishi M, Mohammadi Bytamar J.</p>
+          <div class="pub-tags"><span class="pub-tag ptm">Impulsivity</span><span class="pub-tag pta">Regression</span><span class="pub-tag ptp">Clinical</span></div>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="margin-top:1.35rem;margin-bottom:2.25rem">
+      <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="btn btn-o" target="_blank" rel="noopener" style="font-size:.8rem">View on Google Scholar →</a>
+    </div>
+
+    <p class="sec-label">Invited talks</p>
+    <div class="pub-list">
+      <div class="pub-item pub-item-static">
+        <span class="pub-y">2026</span>
+        <div>
+          <p class="pub-title">Does Uncertainty Drive Compulsive Checking? Causal Evidence from a Simulated Social Media Task</p>
+          <p class="pub-venue">BPS Cyberpsychology Annual Conference · York St John University
+            <span class="ptag tm" style="margin-left:.5rem;font-size:.65rem">Upcoming</span>
+          </p>
+        </div>
+      </div>
+      <div class="pub-item pub-item-static">
+        <span class="pub-y">2025</span>
+        <div>
+          <p class="pub-title">Social Media and Uncertainty: How Reward Timing Predictability Shapes Checking Behaviour</p>
+          <p class="pub-venue">Connected Minds Lab · University of Amsterdam</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODS -->
+  <section id="methods">
+    <p class="sec-label">Methods &amp; tools</p>
+    <h2>How I <em>work</em></h2>
+    <div class="methods reveal">
+      <div class="mchip">fMRI<small>Data acquisition &amp; QC</small></div>
+      <div class="mchip">EEG / ECG<small>Setup, preprocessing, EEGLab</small></div>
+      <div class="mchip">R<small>Regression, quantitative analysis</small></div>
+      <div class="mchip">Python<small>Data cleaning &amp; analysis</small></div>
+      <div class="mchip">MATLAB<small>EEG preprocessing</small></div>
+      <div class="mchip">Gorilla.sc<small>Online experiments</small></div>
+      <div class="mchip">SPSS<small>Psychometric &amp; clinical data</small></div>
+      <div class="mchip">Bayesian modelling<small>Statistical inference</small></div>
+      <div class="mchip">DSEM / GIMME<small>Longitudinal N=1 methods</small></div>
+    </div>
+  </section>
+
+  <!-- CV SECTION -->
+  <section id="cv">
+    <p class="sec-label">Curriculum Vitae</p>
+    <h2>Full <em>CV</em></h2>
+    <p class="sec-intro">Download the full CV or browse highlights below.</p>
+    <a href="Kasra_Mirnobahar_CV_May_2026.pdf" class="btn btn-p" download style="margin-bottom:1.75rem;display:inline-flex">⬇ Download CV</a>
+
+    <div class="cv-grid reveal">
+      <div class="pillar">
+        <div class="pillar-bar" style="background:var(--teal)"></div>
+        <h3>Languages</h3>
+        <p style="font-size:.82rem;color:var(--ink2);margin-top:.3rem">Persian — Native<br>English — C1<br>German — A2</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-bar" style="background:var(--purple)"></div>
+        <h3>Volunteering</h3>
+        <p style="font-size:.82rem;color:var(--ink2);margin-top:.3rem">Suicide Crisis Counsellor, Iran Hotline NGO (1 year)<br>Peer-Reviewer, InFrame Project (UofG / Edinburgh / St Andrews)<br>Mentorship Coordinator, USWR</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="sec-label">Get in touch</p>
+    <h2>Let's <em>connect</em></h2>
+    <p class="sec-intro">Open to PhD opportunities, research collaborations, and conversations about decision-making, social media, and computational neuroscience.</p>
+    <div class="contact-grid reveal">
+      <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk" class="cc">
+        <div class="cc-ico">✉</div>
+        <div><p class="cc-l">University email</p><p class="cc-v">Kasra.Mirnobahar@glasgow.ac.uk</p></div>
+      </a>
+      <a href="mailto:kasranobahar@gmail.com" class="cc">
+        <div class="cc-ico">✉</div>
+        <div><p class="cc-l">Personal email</p><p class="cc-v">kasranobahar@gmail.com</p></div>
+      </a>
+      <a href="https://www.linkedin.com/in/kasra-mirnobahar-339b09107" class="cc" target="_blank" rel="noopener">
+        <div class="cc-ico">in</div>
+        <div><p class="cc-l">LinkedIn</p><p class="cc-v">kasra-mirnobahar</p></div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="cc" target="_blank" rel="noopener">
+        <div class="cc-ico">𝒢</div>
+        <div><p class="cc-l">Google Scholar</p><p class="cc-v">Publications</p></div>
+      </a>
+      <a href="https://orcid.org/0009-0001-2363-6381" class="cc" target="_blank" rel="noopener">
+        <div class="cc-ico">⊙</div>
+        <div><p class="cc-l">ORCID</p><p class="cc-v">0009-0001-2363-6381</p></div>
+      </a>
+      <a href="https://bsky.app/profile/kasramn.bsky.social" class="cc" target="_blank" rel="noopener">
+        <div class="cc-ico">☁</div>
+        <div><p class="cc-l">Bluesky</p><p class="cc-v">@kasramn.bsky.social</p></div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Kasra Mirnobahar · University of Glasgow · 2026</span>
+    <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk">Kasra.Mirnobahar@glasgow.ac.uk</a>
+  </footer>
+
 </div>
 
-<!-- research pillars -->
-<section id="research">
-  <p class="section-label">What I study</p>
-  <h2>Research <em>themes</em></h2>
-  <p class="section-intro">Understanding the cognitive and neural mechanisms that drive behaviour — from the pull of a notification to the circuitry of reward.</p>
-  <div class="pillars reveal">
-    <div class="pillar">
-      <div class="pillar-icon pi-blue">📱</div>
-      <h3>Social media &amp; mental health</h3>
-      <p>How uncertainty and variable reward drive compulsive checking behaviour in digital environments — and what this means for wellbeing.</p>
-      <span class="pillar-tag pt-blue">Gorilla experiments</span>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon pi-teal">🧠</div>
-      <h3>Neuroimaging methods</h3>
-      <p>Applying EEG and fMRI to uncover the neural signatures of reward processing, impulsivity, and decision-making under uncertainty.</p>
-      <span class="pillar-tag pt-teal">EEG · fMRI</span>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon pi-purple">⚙</div>
-      <h3>Computational models</h3>
-      <p>Reinforcement learning models and dopaminergic system accounts of behaviour — bridging formal theory and empirical data.</p>
-      <span class="pillar-tag pt-purple">Reinforcement learning</span>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon pi-amber">🔬</div>
-      <h3>Behaviour &amp; intervention</h3>
-      <p>Translating insights from cognitive neuroscience into effective, evidence-based interventions for digital mental health and public policy.</p>
-      <span class="pillar-tag pt-amber">Policy · Behaviour change</span>
-    </div>
-  </div>
-</section>
-
-<!-- experience / education timeline -->
-<section id="experience">
-  <p class="section-label">Background</p>
-  <h2>Education &amp; <em>experience</em></h2>
-  <p class="section-intro">A path from clinical psychology through behavioural science to computational and neuroscientific methods.</p>
-
-  <div class="timeline reveal">
-
-    <div class="tl-item">
-      <p class="tl-year">2024 – present</p>
-      <p class="tl-title">Research Assistant</p>
-      <p class="tl-place">Decision-Making Lab · University of Glasgow (PI: Marios Philiastides)</p>
-      <p class="tl-desc">EEG/fMRI data collection and analysis; designing behavioural experiments on social media checking and uncertainty; Gorilla experiment development.</p>
-    </div>
-
-    <div class="tl-item">
-      <p class="tl-year">2023 – 2025</p>
-      <p class="tl-title">MSc Behavioural Sciences</p>
-      <p class="tl-place">University of Glasgow</p>
-      <p class="tl-desc">Thesis on neural correlates of uncertainty-driven checking behaviour in social media use. Methods: fMRI, computational modelling, online behavioural experiments.</p>
-    </div>
-
-    <div class="tl-item">
-      <p class="tl-year">2019 – 2023</p>
-      <p class="tl-title">BSc Psychology</p>
-      <p class="tl-place">University of Social Welfare &amp; Rehabilitation Sciences</p>
-      <p class="tl-desc">Clinical and research foundations — reward processing, impulsive behaviour, and the neural mechanisms of hedonic pleasure across eating, stress, gambling, and social media.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- methods -->
-<section id="methods">
-  <p class="section-label">Methods &amp; tools</p>
-  <h2>How I <em>work</em></h2>
-  <p class="section-intro">A range of empirical and computational approaches for studying behaviour and its neural underpinnings.</p>
-  <div class="methods-grid reveal">
-    <div class="method-chip">fMRI<small>BOLD signal analysis</small></div>
-    <div class="method-chip">EEG<small>Time-frequency, ERP</small></div>
-    <div class="method-chip">Reinforcement learning<small>Computational modelling</small></div>
-    <div class="method-chip">Gorilla<small>Online experiments</small></div>
-    <div class="method-chip">Python / R<small>Data analysis</small></div>
-    <div class="method-chip">Behavioural experiments<small>Decision tasks</small></div>
-  </div>
-</section>
-
-<!-- publications -->
-<section id="publications">
-  <p class="section-label">Publications &amp; projects</p>
-  <h2>Research <em>output</em></h2>
-  <p class="section-intro">Selected work — update this section as new papers and projects are published.</p>
-  <div class="pub-list reveal">
-
-    <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="pub-item" target="_blank" rel="noopener">
-      <span class="pub-year">2025</span>
-      <div class="pub-body">
-        <p class="pub-title">Neural correlates of uncertainty-driven checking behaviour in social media use</p>
-        <p class="pub-venue">MSc Thesis · University of Glasgow</p>
-        <div class="pub-tags">
-          <span class="pub-tag pt-teal">fMRI</span>
-          <span class="pub-tag pt-blue">Social media</span>
-          <span class="pub-tag pt-purple">Computational</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="pub-item" target="_blank" rel="noopener">
-      <span class="pub-year">2023</span>
-      <div class="pub-body">
-        <p class="pub-title">Reward processing and impulsive behaviour: neural mechanisms of hedonic pleasure</p>
-        <p class="pub-venue">BSc Thesis · USWR Sciences</p>
-        <div class="pub-tags">
-          <span class="pub-tag pt-amber">Reward</span>
-          <span class="pub-tag pt-teal">EEG</span>
-          <span class="pub-tag pt-blue">Behaviour</span>
-        </div>
-      </div>
-    </a>
-
-  </div>
-
-  <div style="margin-top:1.5rem">
-    <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="btn btn-outline" target="_blank" rel="noopener" style="font-size:.82rem">
-      View all on Google Scholar →
-    </a>
-  </div>
-</section>
-
-<!-- contact -->
-<section id="contact">
-  <p class="section-label">Get in touch</p>
-  <h2>Let's <em>connect</em></h2>
-  <p class="section-intro">Open to PhD opportunities, research collaborations, and conversations about decision-making, social media, and computational neuroscience.</p>
-  <div class="contact-grid reveal">
-    <a href="mailto:kasranobahar@gmail.com" class="contact-card">
-      <div class="cc-icon">✉</div>
-      <div>
-        <p class="cc-label">Email</p>
-        <p class="cc-value">kasranobahar@gmail.com</p>
-      </div>
-    </a>
-    <a href="https://www.linkedin.com/in/kasra-mirnobahar-339b09107" class="contact-card" target="_blank" rel="noopener">
-      <div class="cc-icon">in</div>
-      <div>
-        <p class="cc-label">LinkedIn</p>
-        <p class="cc-value">kasra-mirnobahar</p>
-      </div>
-    </a>
-    <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="contact-card" target="_blank" rel="noopener">
-      <div class="cc-icon">𝒢</div>
-      <div>
-        <p class="cc-label">Google Scholar</p>
-        <p class="cc-value">Research publications</p>
-      </div>
-    </a>
-    <a href="https://orcid.org/0009-0001-2363-6381" class="contact-card" target="_blank" rel="noopener">
-      <div class="cc-icon">⊙</div>
-      <div>
-        <p class="cc-label">ORCID</p>
-        <p class="cc-value">0009-0001-2363-6381</p>
-      </div>
-    </a>
-    <a href="https://bsky.app/profile/kasramn.bsky.social" class="contact-card" target="_blank" rel="noopener">
-      <div class="cc-icon">☁</div>
-      <div>
-        <p class="cc-label">Bluesky</p>
-        <p class="cc-value">@kasramn.bsky.social</p>
-      </div>
-    </a>
-    <a href="https://github.com/KasraMirnobahar" class="contact-card" target="_blank" rel="noopener">
-      <div class="cc-icon">⌥</div>
-      <div>
-        <p class="cc-label">GitHub</p>
-        <p class="cc-value">KasraMirnobahar</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-<footer>
-  <p>Kasra Mirnobahar · University of Glasgow · 2026</p>
-  <p style="margin-top:.4rem">
-    <a href="mailto:kasranobahar@gmail.com">kasranobahar@gmail.com</a>
-  </p>
-</footer>
-
 <script>
-/* ── dark mode ── */
+/* dark mode */
 const html = document.documentElement;
 const btn  = document.getElementById('theme-btn');
-const saved = localStorage.getItem('theme');
+const saved = localStorage.getItem('km-theme');
 if (saved) html.dataset.theme = saved;
 btn.addEventListener('click', () => {
   const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
   html.dataset.theme = next;
-  localStorage.setItem('theme', next);
+  localStorage.setItem('km-theme', next);
 });
 
-/* ── nav scroll ── */
-const nav = document.getElementById('main-nav');
+/* nav */
+const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-/* ── reveal on scroll ── */
-const revealEls = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      e.target.style.transitionDelay = (i * 0.04) + 's';
-      e.target.classList.add('visible');
-      obs.unobserve(e.target);
-    }
+/* reveal */
+const revEls = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('vis'); ro.unobserve(e.target); }
   });
-}, { threshold: 0.1 });
-revealEls.forEach(el => obs.observe(el));
+}, { threshold: 0.07 });
+revEls.forEach(el => ro.observe(el));
 
-/* ── neural canvas ── */
-(function () {
-  const canvas = document.getElementById('neural-canvas');
-  const ctx    = canvas.getContext('2d');
-  let W, H, nodes, raf;
+/* ════════════════════
+   BACKGROUND CANVAS
+════════════════════ */
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes;
 
   function resize() {
     W = canvas.width  = window.innerWidth;
@@ -655,65 +620,194 @@ revealEls.forEach(el => obs.observe(el));
     return Array.from({ length: n }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
-      vx: (Math.random() - .5) * .28,
-      vy: (Math.random() - .5) * .28,
-      r:  Math.random() * 2 + 1.5
+      vx: (Math.random() - .5) * .3,
+      vy: (Math.random() - .5) * .3,
+      r: Math.random() * 2.2 + 1.8,
+      p: Math.random() * Math.PI * 2
     }));
   }
 
-  function getColor(dark) {
-    return dark
-      ? { node: 'rgba(130,160,255,.5)', line: 'rgba(130,160,255,' }
-      : { node: 'rgba(45,91,227,.35)', line: 'rgba(45,91,227,' };
-  }
+  function isDark() { return html.dataset.theme === 'dark'; }
 
   function draw() {
-    const dark = html.dataset.theme === 'dark';
-    const col  = getColor(dark);
+    const dark = isDark();
     ctx.clearRect(0, 0, W, H);
 
-    // update
     nodes.forEach(n => {
-      n.x += n.vx; n.y += n.vy;
+      n.x += n.vx; n.y += n.vy; n.p += .011;
       if (n.x < 0 || n.x > W) n.vx *= -1;
       if (n.y < 0 || n.y > H) n.vy *= -1;
     });
 
-    // edges
+    const maxD = 150;
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const dx = nodes[i].x - nodes[j].x;
         const dy = nodes[i].y - nodes[j].y;
         const d  = Math.sqrt(dx * dx + dy * dy);
-        if (d < 140) {
+        if (d < maxD) {
+          const a = (1 - d / maxD) * (dark ? .45 : .28);
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = col.line + (1 - d / 140) * .25 + ')';
-          ctx.lineWidth = .7;
+          ctx.strokeStyle = dark ? `rgba(140,170,255,${a})` : `rgba(45,91,227,${a})`;
+          ctx.lineWidth = dark ? 1.1 : 1.0;
           ctx.stroke();
         }
       }
     }
 
-    // nodes
     nodes.forEach(n => {
+      const r = n.r + Math.sin(n.p) * .55;
       ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      ctx.fillStyle = col.node;
+      ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = dark ? 'rgba(160,185,255,.72)' : 'rgba(45,91,227,.5)';
       ctx.fill();
     });
 
-    raf = requestAnimationFrame(draw);
+    requestAnimationFrame(draw);
   }
 
   resize();
-  nodes = makeNodes(55);
+  nodes = makeNodes(65);
   draw();
-  window.addEventListener('resize', () => {
-    resize();
-    nodes = makeNodes(55);
-  }, { passive: true });
+  window.addEventListener('resize', () => { resize(); nodes = makeNodes(65); }, { passive: true });
+})();
+
+/* ════════════════════
+   HERO ICON CANVAS
+════════════════════ */
+(function() {
+  const canvas = document.getElementById('icon-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  canvas.width = 320; canvas.height = 320;
+
+  const icons = [
+    { bx:160, by:72,  type:'brain', phase:0.0  },
+    { bx:55,  by:170, type:'phone', phase:1.3  },
+    { bx:278, by:158, type:'phone', phase:2.6  },
+    { bx:120, by:268, type:'node',  phase:0.7  },
+    { bx:215, by:262, type:'node',  phase:2.1  },
+    { bx:82,  by:105, type:'dot',   phase:3.2  },
+    { bx:255, by:92,  type:'dot',   phase:1.0  },
+    { bx:160, by:198, type:'wave',  phase:1.85 },
+  ];
+  icons.forEach(ic => { ic.t = ic.phase; });
+
+  const conns = [[0,1],[0,2],[0,7],[1,3],[2,4],[3,4],[5,0],[6,0]];
+
+  function isDark() { return document.documentElement.dataset.theme === 'dark'; }
+
+  function drawBrain(cx, cy, s, dark) {
+    const c  = dark ? 'rgba(150,175,255,.9)' : 'rgba(45,91,227,.82)';
+    const cf = dark ? 'rgba(150,175,255,.13)': 'rgba(45,91,227,.1)';
+    ctx.strokeStyle = c; ctx.lineWidth = 1.9; ctx.fillStyle = cf;
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, s*.88, s*.68, 0, 0, Math.PI*2);
+    ctx.fill(); ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - s*.62);
+    ctx.bezierCurveTo(cx-s*.08, cy, cx+s*.08, cy, cx, cy+s*.62);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(cx-s*.36, cy-s*.12, s*.26, Math.PI*.35, Math.PI*1.65);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(cx+s*.36, cy-s*.12, s*.26, Math.PI*-.65, Math.PI*.65);
+    ctx.stroke();
+  }
+
+  function drawPhone(cx, cy, s, dark) {
+    const c  = dark ? 'rgba(95,215,185,.9)' : 'rgba(14,124,107,.75)';
+    const cf = dark ? 'rgba(95,215,185,.11)': 'rgba(14,124,107,.08)';
+    ctx.strokeStyle = c; ctx.lineWidth = 1.9; ctx.fillStyle = cf;
+    const w=s*.52, h=s*.92;
+    ctx.beginPath();
+    ctx.roundRect(cx-w/2, cy-h/2, w, h, s*.11);
+    ctx.fill(); ctx.stroke();
+    ctx.fillStyle = dark ? 'rgba(95,215,185,.22)':'rgba(14,124,107,.16)';
+    ctx.beginPath();
+    ctx.roundRect(cx-w/2+3, cy-h/2+s*.13, w-6, h-s*.26, 3);
+    ctx.fill();
+    ctx.fillStyle = c;
+    ctx.beginPath();
+    ctx.roundRect(cx-s*.09, cy+h/2-s*.09, s*.18, 3, 2);
+    ctx.fill();
+    for (let i=0;i<3;i++) {
+      ctx.beginPath();
+      ctx.arc(cx-s*.1+i*s*.1, cy-s*.06, 2, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  function drawNode(cx, cy, s, dark) {
+    const c = dark ? 'rgba(175,145,255,.9)' : 'rgba(92,71,199,.75)';
+    ctx.fillStyle = c;
+    ctx.beginPath();
+    ctx.arc(cx, cy, s*.36, 0, Math.PI*2);
+    ctx.fill();
+    ctx.strokeStyle = c; ctx.lineWidth = 1.1;
+    ctx.globalAlpha = .32;
+    ctx.beginPath();
+    ctx.arc(cx, cy, s*.62, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+  }
+
+  function drawDot(cx, cy, dark) {
+    ctx.fillStyle = dark ? 'rgba(200,210,255,.58)' : 'rgba(45,91,227,.38)';
+    ctx.beginPath();
+    ctx.arc(cx, cy, 4.5, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  function drawWave(cx, cy, s, dark) {
+    ctx.strokeStyle = dark ? 'rgba(240,175,85,.75)' : 'rgba(184,114,20,.65)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i=0; i<=44; i++) {
+      const x = cx - s + (i/44)*s*2;
+      const y = cy + Math.sin((i/44)*Math.PI*4)*s*.26;
+      i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+  }
+
+  function getPos(ic) {
+    const spd = .013 + icons.indexOf(ic)*.002;
+    ic.t += spd;
+    return { x: ic.bx + Math.sin(ic.t)*7.5, y: ic.by + Math.cos(ic.t*.72)*5.5 };
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, 320, 320);
+    const dark = isDark();
+    const positions = icons.map(ic => getPos(ic));
+
+    conns.forEach(([a,b]) => {
+      ctx.beginPath();
+      ctx.moveTo(positions[a].x, positions[a].y);
+      ctx.lineTo(positions[b].x, positions[b].y);
+      ctx.strokeStyle = dark ? 'rgba(180,200,255,.2)' : 'rgba(45,91,227,.15)';
+      ctx.lineWidth = .85;
+      ctx.stroke();
+    });
+
+    icons.forEach((ic, i) => {
+      const {x, y} = positions[i];
+      const s = 22;
+      if (ic.type==='brain') drawBrain(x,y,s,dark);
+      else if (ic.type==='phone') drawPhone(x,y,s,dark);
+      else if (ic.type==='node')  drawNode(x,y,s,dark);
+      else if (ic.type==='dot')   drawDot(x,y,dark);
+      else if (ic.type==='wave')  drawWave(x,y,s,dark);
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
 })();
 </script>
 </body>
