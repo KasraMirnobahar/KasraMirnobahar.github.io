@@ -213,12 +213,12 @@
     .spot-tags { display:flex; flex-wrap:wrap; gap:.38rem; }
 
     /* TIMELINE */
-    .tl { position:relative; padding-left:1.5rem; }
-    .tl::before { content:''; position:absolute; left:0; top:8px; bottom:0; width:1px; background:var(--border2); }
+    .tl { position:relative; padding-left:2rem; }
+    .tl::before { content:''; position:absolute; left:.35rem; top:8px; bottom:0; width:1px; background:var(--border2); }
     .tl-item { position:relative; padding-bottom:2.1rem; }
     .tl-item:last-child { padding-bottom:0; }
     .tl-item::before {
-      content:''; position:absolute; left:-5.5px; top:7px;
+      content:''; position:absolute; left:calc(.35rem - 5px); top:7px;
       width:10px; height:10px; border-radius:50%;
       background:var(--bg); border:2px solid var(--border2);
       transition:border-color .2s,background .2s;
@@ -273,19 +273,33 @@
     .mchip small { display:block; font-size:.66rem; font-weight:400; color:var(--ink3); margin-top:.1rem; }
 
     /* CONTACT */
-    .contact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin-top:1.6rem; }
-    @media (max-width:600px) { .contact-grid { grid-template-columns:repeat(2,1fr); } }
-    .cc {
-      padding:1rem 1.15rem; border-radius:var(--r);
-      border:1px solid var(--border); background:var(--bg2);
-      text-decoration:none; color:inherit;
-      display:flex; align-items:center; gap:.8rem;
-      transition:transform .18s var(--ease),border-color .18s,background .18s;
+    .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:2rem; align-items:start; }
+    @media (max-width:620px) { .contact-wrap { grid-template-columns:1fr; gap:2rem; } }
+    .contact-cta-email {
+      font-family:var(--serif); font-size:1.5rem; line-height:1.3;
+      color:var(--ink); text-decoration:none;
+      border-bottom:2px solid var(--accent);
+      padding-bottom:.15rem;
+      display:inline-block;
+      transition:color .18s, border-color .18s;
     }
-    .cc:hover { transform:translateY(-2px); border-color:var(--border2); background:var(--bg3); }
-    .cc-ico { width:32px; height:32px; flex-shrink:0; border-radius:8px; background:var(--bg3); display:flex; align-items:center; justify-content:center; font-size:.95rem; }
-    .cc-l { font-size:.68rem; color:var(--ink3); }
-    .cc-v { font-size:.8rem; font-weight:500; }
+    .contact-cta-email:hover { color:var(--accent); }
+    .contact-note { font-size:.82rem; color:var(--ink3); margin-top:.75rem; line-height:1.65; }
+    .contact-links { display:flex; flex-direction:column; gap:0; }
+    .cl {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.7rem 0;
+      border-bottom:1px solid var(--border);
+      text-decoration:none; color:inherit;
+      transition:color .15s;
+    }
+    .cl:first-child { border-top:1px solid var(--border); }
+    .cl:hover { color:var(--accent); }
+    .cl-name { font-size:.85rem; font-weight:500; }
+    .cl-handle { font-size:.78rem; color:var(--ink3); transition:color .15s; }
+    .cl:hover .cl-handle { color:var(--accent); }
+    .cl-arrow { font-size:.75rem; color:var(--ink3); margin-left:.5rem; transition:transform .15s, color .15s; }
+    .cl:hover .cl-arrow { transform:translateX(3px); color:var(--accent); }
 
     /* CV */
     .cv-grid { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; margin-top:1.5rem; }
@@ -477,7 +491,8 @@
       <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="btn btn-o" target="_blank" rel="noopener" style="font-size:.8rem">View on Google Scholar →</a>
     </div>
 
-    <p class="sec-label">Invited talks</p>
+    <p class="sec-label" style="margin-top:2.5rem">Invited talks &amp; conferences</p>
+    <h2 style="margin-bottom:1.25rem">Talks &amp; <em>presentations</em></h2>
     <div class="pub-list">
       <div class="pub-item pub-item-static">
         <span class="pub-y">2026</span>
@@ -520,7 +535,7 @@
     <p class="sec-label">Curriculum Vitae</p>
     <h2>Full <em>CV</em></h2>
     <p class="sec-intro">Download the full CV or browse highlights below.</p>
-    <a href="files/Kasra_Mirnobahar_CV.pdf" class="btn btn-p" download style="margin-bottom:1.75rem;display:inline-flex">⬇ Download CV</a>
+    <a href="files/Kasra_MIrnobahar_CV.pdf" class="btn btn-p" download style="margin-bottom:1.75rem;display:inline-flex">⬇ Download CV</a>
 
     <div class="cv-grid reveal">
       <div class="pillar">
@@ -541,31 +556,37 @@
     <p class="sec-label">Get in touch</p>
     <h2>Let's <em>connect</em></h2>
     <p class="sec-intro">Open to PhD opportunities, research collaborations, and conversations about decision-making, social media, and computational neuroscience.</p>
-    <div class="contact-grid reveal">
-      <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk" class="cc">
-        <div class="cc-ico">✉</div>
-        <div><p class="cc-l">University email</p><p class="cc-v">Kasra.Mirnobahar@glasgow.ac.uk</p></div>
-      </a>
-      <a href="mailto:kasranobahar@gmail.com" class="cc">
-        <div class="cc-ico">✉</div>
-        <div><p class="cc-l">Personal email</p><p class="cc-v">kasranobahar@gmail.com</p></div>
-      </a>
-      <a href="https://www.linkedin.com/in/kasra-mirnobahar-339b09107" class="cc" target="_blank" rel="noopener">
-        <div class="cc-ico">in</div>
-        <div><p class="cc-l">LinkedIn</p><p class="cc-v">kasra-mirnobahar</p></div>
-      </a>
-      <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="cc" target="_blank" rel="noopener">
-        <div class="cc-ico">𝒢</div>
-        <div><p class="cc-l">Google Scholar</p><p class="cc-v">Publications</p></div>
-      </a>
-      <a href="https://orcid.org/0009-0001-2363-6381" class="cc" target="_blank" rel="noopener">
-        <div class="cc-ico">⊙</div>
-        <div><p class="cc-l">ORCID</p><p class="cc-v">0009-0001-2363-6381</p></div>
-      </a>
-      <a href="https://bsky.app/profile/kasramn.bsky.social" class="cc" target="_blank" rel="noopener">
-        <div class="cc-ico">☁</div>
-        <div><p class="cc-l">Bluesky</p><p class="cc-v">@kasramn.bsky.social</p></div>
-      </a>
+    <div class="contact-wrap reveal">
+      <div>
+        <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk" class="contact-cta-email">Kasra.Mirnobahar<br>@glasgow.ac.uk</a>
+        <p class="contact-note">Or reach me personally at<br><a href="mailto:kasranobahar@gmail.com" style="color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--border2)">kasranobahar@gmail.com</a></p>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/kasra-mirnobahar-339b09107" class="cl" target="_blank" rel="noopener">
+          <span class="cl-name">LinkedIn</span>
+          <span><span class="cl-handle">kasra-mirnobahar</span><span class="cl-arrow">→</span></span>
+        </a>
+        <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="cl" target="_blank" rel="noopener">
+          <span class="cl-name">Google Scholar</span>
+          <span><span class="cl-handle">Publications</span><span class="cl-arrow">→</span></span>
+        </a>
+        <a href="https://orcid.org/0009-0001-2363-6381" class="cl" target="_blank" rel="noopener">
+          <span class="cl-name">ORCID</span>
+          <span><span class="cl-handle">0009-0001-2363-6381</span><span class="cl-arrow">→</span></span>
+        </a>
+        <a href="https://bsky.app/profile/kasramn.bsky.social" class="cl" target="_blank" rel="noopener">
+          <span class="cl-name">Bluesky</span>
+          <span><span class="cl-handle">@kasramn.bsky.social</span><span class="cl-arrow">→</span></span>
+        </a>
+        <a href="https://github.com/KasraMirnobahar" class="cl" target="_blank" rel="noopener">
+          <span class="cl-name">GitHub</span>
+          <span><span class="cl-handle">KasraMirnobahar</span><span class="cl-arrow">→</span></span>
+        </a>
+        <a href="https://www.gla.ac.uk/schools/psychologyneuroscience/" class="cl" target="_blank" rel="noopener">
+          <span class="cl-name">University of Glasgow</span>
+          <span><span class="cl-handle">School of Psychology &amp; Neuroscience</span><span class="cl-arrow">→</span></span>
+        </a>
+      </div>
     </div>
   </section>
 
