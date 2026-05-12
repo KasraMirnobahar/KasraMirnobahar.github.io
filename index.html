@@ -284,17 +284,36 @@
     .ptp { color:var(--purple); background:color-mix(in srgb,var(--purple)9%,transparent); border:1px solid color-mix(in srgb,var(--purple)22%,transparent); }
     .ptm { color:var(--amber);  background:color-mix(in srgb,var(--amber)9%,transparent);  border:1px solid color-mix(in srgb,var(--amber)22%,transparent); }
 
-    /* METHODS */
-    .methods { display:grid; grid-template-columns:repeat(3,1fr); gap:.52rem; }
-    @media (max-width:500px) { .methods { grid-template-columns:repeat(2,1fr); } }
-    .mchip {
-      padding:.72rem 1rem; border-radius:10px;
-      border:1px solid var(--border); background:var(--bg2);
-      font-size:.77rem; font-weight:500; color:var(--ink2); text-align:center;
-      transition:background .18s,border-color .18s,color .18s;
+    /* PROJECT CARDS */
+    .proj-list { display:flex; flex-direction:column; gap:.85rem; }
+    .proj-card {
+      padding:1.35rem 1.5rem; border-radius:var(--r);
+      border:1px solid var(--border); background:var(--bg);
+      transition:background .2s,border-color .2s,transform .2s var(--ease);
     }
-    .mchip:hover { background:var(--bg3); border-color:var(--border2); color:var(--ink); }
-    .mchip small { display:block; font-size:.66rem; font-weight:400; color:var(--ink3); margin-top:.1rem; }
+    .proj-card:hover { background:var(--bg2); border-color:var(--border2); transform:translateX(3px); }
+    .proj-head { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:.65rem; }
+    .proj-date { font-size:.68rem; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); display:block; margin-bottom:.2rem; }
+    .proj-title { font-size:.9rem; font-weight:500; margin-bottom:.15rem; }
+    .proj-place { font-size:.8rem; color:var(--ink2); }
+    .proj-desc  { font-size:.82rem; color:var(--ink2); line-height:1.72; margin-bottom:.65rem; }
+
+    /* SKILLS GROUPS */
+    .skills-groups { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+    @media (max-width:580px) { .skills-groups { grid-template-columns:1fr; } }
+    .skill-group {
+      border:1px solid var(--border); border-radius:var(--r);
+      padding:1.25rem 1.4rem; background:var(--bg2);
+    }
+    .sg-label {
+      font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--ink3); margin-bottom:.85rem;
+      padding-bottom:.5rem; border-bottom:1px solid var(--border);
+    }
+    .sg-items { display:flex; flex-direction:column; gap:.55rem; }
+    .sg-item { display:flex; flex-direction:column; gap:.08rem; }
+    .sg-name   { font-size:.84rem; font-weight:500; color:var(--ink); }
+    .sg-detail { font-size:.75rem; color:var(--ink3); line-height:1.4; }
 
     /* CONTACT */
     .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:2rem; align-items:start; }
@@ -348,8 +367,11 @@
   <a href="#" class="nav-logo">Kasra Mirnobahar</a>
   <div class="nav-right">
     <a href="#research">Research</a>
-    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
     <a href="#publications">Publications</a>
+    <a href="#talks">Talks</a>
+    <a href="#skills">Skills</a>
     <a href="#cv">CV</a>
     <a href="#contact">Contact</a>
     <button id="theme-btn" title="Toggle dark mode">◐</button>
@@ -435,49 +457,108 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE / EDUCATION -->
-  <section id="experience">
-    <p class="sec-label">Background</p>
-    <h2>Education &amp; <em>experience</em></h2>
+  <!-- RESEARCH PROJECTS -->
+  <section id="projects">
+    <p class="sec-label">Research projects</p>
+    <h2>Projects &amp; <em>experience</em></h2>
+    <p class="sec-intro">Research assistant and primary investigator roles across neuroimaging, social media, and clinical psychology.</p>
+
+    <div class="proj-list reveal">
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <div>
+            <span class="proj-date">Feb 2026 – Ongoing</span>
+            <p class="proj-title">Decision-making, Learning &amp; Cardiac Cycle</p>
+            <p class="proj-place">Philiastides Lab · University of Glasgow</p>
+          </div>
+          <span class="ptag tt">RA · EEG/ECG</span>
+        </div>
+        <p class="proj-desc">Contributing to a study examining how the cardiac cycle influences learning and decision-making. Responsibilities include EEG and ECG data collection, participant recruitment, and data cleaning and analysis in Python.</p>
+        <div class="tl-tags"><span class="tl-tag tt">EEG</span><span class="tl-tag tt">ECG</span><span class="tl-tag ptp">Python</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <div>
+            <span class="proj-date">June 2025 – March 2026</span>
+            <p class="proj-title">Decision-making &amp; Metacognition of Confidence</p>
+            <p class="proj-place">Philiastides Lab · University of Glasgow</p>
+          </div>
+          <span class="ptag tt">RA · EEG/fMRI</span>
+        </div>
+        <p class="proj-desc">Supported data collection for a perceptual decision-making study using simultaneous EEG and fMRI. Responsibilities included experimental setup, participant testing, data quality control, and EEG preprocessing using MATLAB and EEGLab.</p>
+        <div class="tl-tags"><span class="tl-tag tt">fMRI</span><span class="tl-tag tt">EEG</span><span class="tl-tag ptp">MATLAB · EEGLab</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <div>
+            <span class="proj-date">June 2025 – Sep 2025</span>
+            <p class="proj-title">Social Media &amp; Uncertainty — Reward Timing Predictability</p>
+            <p class="proj-place">Adam Smith Business School · University of Glasgow</p>
+          </div>
+          <span class="ptag ta">Primary Researcher</span>
+        </div>
+        <p class="proj-desc">Independently conceptualised and designed a study examining how reward timing predictability shapes social media checking behaviour, directly engaging with explore/exploit decision-making frameworks. Designed a multi-component Gorilla.sc task including a simulated social media feed where participants could explore content, upload posts, and receive likes. Led ethics approval, recruited and screened participants, conducted full quantitative analysis in R, and wrote the dissertation manuscript (Grade A3).</p>
+        <div class="tl-tags"><span class="tl-tag ta">Gorilla.sc</span><span class="tl-tag ta">R</span><span class="tl-tag ta">Explore/exploit</span><span class="tl-tag ta">MSc dissertation</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <div>
+            <span class="proj-date">Feb 2023 – Sep 2023</span>
+            <p class="proj-title">Problematic Social Media Use</p>
+            <p class="proj-place">Dept. of Clinical Psychology · USWR Sciences</p>
+          </div>
+          <span class="ptag ta">Research Assistant</span>
+        </div>
+        <p class="proj-desc">Coordinated participant recruitment across clinical and non-clinical samples for studies on problematic social media use. Conducted online and in-person data collection, managed and cleaned datasets, performed data wrangling and quality checks, and contributed to manuscript drafting and editing for peer-reviewed publication.</p>
+        <div class="tl-tags"><span class="tl-tag ta">Social media</span><span class="tl-tag ptp">SPSS</span><span class="tl-tag ta">Clinical</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <div>
+            <span class="proj-date">March 2023 – Sep 2023</span>
+            <p class="proj-title">Childhood Poly-victimisation, Impulsivity &amp; Behavioural Problems</p>
+            <p class="proj-place">Dept. of Clinical Psychology · USWR Sciences</p>
+          </div>
+          <span class="ptag tp">Primary Researcher</span>
+        </div>
+        <p class="proj-desc">Independently conceptualised and designed a study on childhood poly-victimisation and its relationship to impulsivity and behavioural problems in adults. Led full ethics approval, conducted data collection with clinical and community samples, performed regression analysis and psychometric validation in SPSS and R. Findings published in two peer-reviewed international journals.</p>
+        <div class="tl-tags"><span class="tl-tag tp">Regression</span><span class="tl-tag ptp">SPSS · R</span><span class="tl-tag tp">BSc dissertation</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-head">
+          <div>
+            <span class="proj-date">June 2022 – Feb 2023</span>
+            <p class="proj-title">Cognitive HTKS Task among Children</p>
+            <p class="proj-place">Dept. of Psychology &amp; Education · USWR Sciences</p>
+          </div>
+          <span class="ptag tm">Research Assistant</span>
+        </div>
+        <p class="proj-desc">Coordinated participant recruitment from school settings for children aged 5–8, liaising with school administrators and teachers. Managed informed consent and assent processes, administered cognitive and behavioural tasks in classroom environments across multiple school visits, and organised and coded structured participant datasets in SPSS. Led the full ethics approval process with governmental and educational authorities.</p>
+        <div class="tl-tags"><span class="tl-tag tm">Cognitive tasks</span><span class="tl-tag ptp">SPSS</span><span class="tl-tag tm">Child research</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="sec-label">Education</p>
+    <h2>Academic <em>background</em></h2>
 
     <div class="tl reveal">
-
-      <div class="tl-item">
-        <div class="tl-left"><p class="tl-year">Feb 2026<br>Ongoing</p></div>
-        <div class="tl-right">
-          <p class="tl-title">Research Assistant (EEG/ECG) — Decision-making, Learning &amp; Cardiac Cycle</p>
-          <p class="tl-place">Philiastides Lab · University of Glasgow, School of Psychology &amp; Neuroscience</p>
-          <p class="tl-desc">EEG and ECG data collection; participant recruitment; data cleaning and analysis in Python.</p>
-          <div class="tl-tags"><span class="tl-tag tt">EEG</span><span class="tl-tag tt">ECG</span><span class="tl-tag ptp">Python</span></div>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-left"><p class="tl-year">June 2025<br>Mar 2026</p></div>
-        <div class="tl-right">
-          <p class="tl-title">Research Assistant (EEG/fMRI) — Decision-making &amp; Metacognition of Confidence</p>
-          <p class="tl-place">Philiastides Lab · University of Glasgow</p>
-          <p class="tl-desc">fMRI and EEG setup for perceptual decision-making studies; data quality control and EEG preprocessing using MATLAB and EEGLab.</p>
-          <div class="tl-tags"><span class="tl-tag tt">fMRI</span><span class="tl-tag tt">EEG</span><span class="tl-tag ptp">MATLAB · EEGLab</span></div>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-left"><p class="tl-year">June 2025<br>Sep 2025</p></div>
-        <div class="tl-right">
-          <p class="tl-title">Primary Researcher — Social Media &amp; Uncertainty (MSc Dissertation, Grade A3)</p>
-          <p class="tl-place">Adam Smith Business School · University of Glasgow</p>
-          <p class="tl-desc">Independently designed a multi-component Gorilla.sc experiment (simulated social media feed with likes and uploads); led ethics approval, recruitment, and full quantitative analysis in R. Examined how reward timing predictability shapes social media checking behaviour via explore/exploit frameworks.</p>
-          <div class="tl-tags"><span class="tl-tag ta">Gorilla.sc</span><span class="tl-tag ta">R</span><span class="tl-tag ta">Explore/exploit</span></div>
-        </div>
-      </div>
 
       <div class="tl-item">
         <div class="tl-left"><p class="tl-year">Sep 2024<br>Sep 2025</p></div>
         <div class="tl-right">
           <p class="tl-title">MSc Behavioural Sciences — Merit</p>
           <p class="tl-place">University of Glasgow</p>
-          <p class="tl-desc">Awarded Behavioural Sciences Scholarship.</p>
+          <p class="tl-desc">Dissertation: The Impact of Reward Timing Predictability on Checking Behaviour in Social Media (Grade A3). Awarded Behavioural Sciences Scholarship.</p>
           <div class="awards"><span class="award-chip">🏅 Behavioural Sciences Scholarship</span></div>
         </div>
       </div>
@@ -485,9 +566,9 @@
       <div class="tl-item">
         <div class="tl-left"><p class="tl-year">Aug 2019<br>Oct 2023</p></div>
         <div class="tl-right">
-          <p class="tl-title">BSc Psychology — First Class Honours (GPA 3.71/4)</p>
+          <p class="tl-title">BSc Psychology — First Class Honours</p>
           <p class="tl-place">University of Social Welfare &amp; Rehabilitation Sciences</p>
-          <p class="tl-desc">Dissertation on poly-victimisation, impulsivity, and behavioural problems (Grade A1). Findings published in two peer-reviewed international journals.</p>
+          <p class="tl-desc">GPA 3.71/4. Dissertation: The relationship between Poly-Victimisation and Behavioural Problems Among Individuals with Psychiatric Disorders (Grade A1). Published in two peer-reviewed international journals.</p>
         </div>
       </div>
 
@@ -521,13 +602,16 @@
 
     </div>
 
-    <div style="margin-top:1.35rem;margin-bottom:2.25rem">
+    <div style="margin-top:1.35rem;margin-bottom:1rem">
       <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="btn btn-o" target="_blank" rel="noopener" style="font-size:.8rem">View on Google Scholar →</a>
     </div>
+  </section>
 
-    <p class="sec-label" style="margin-top:2.5rem">Invited talks &amp; conferences</p>
-    <h2 style="margin-bottom:1.25rem">Talks &amp; <em>presentations</em></h2>
-    <div class="pub-list">
+  <!-- TALKS -->
+  <section id="talks">
+    <p class="sec-label">Invited talks &amp; conferences</p>
+    <h2>Talks &amp; <em>presentations</em></h2>
+    <div class="pub-list reveal">
       <div class="pub-item pub-item-static">
         <span class="pub-y">2026</span>
         <div>
@@ -547,20 +631,53 @@
     </div>
   </section>
 
-  <!-- METHODS -->
-  <section id="methods">
-    <p class="sec-label">Methods &amp; tools</p>
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="sec-label">Methods &amp; skills</p>
     <h2>How I <em>work</em></h2>
-    <div class="methods reveal">
-      <div class="mchip">fMRI<small>Data acquisition &amp; QC</small></div>
-      <div class="mchip">EEG / ECG<small>Setup, preprocessing, EEGLab</small></div>
-      <div class="mchip">R<small>Regression, quantitative analysis</small></div>
-      <div class="mchip">Python<small>Data cleaning &amp; analysis</small></div>
-      <div class="mchip">MATLAB<small>EEG preprocessing</small></div>
-      <div class="mchip">Gorilla.sc<small>Online experiments</small></div>
-      <div class="mchip">SPSS<small>Psychometric &amp; clinical data</small></div>
-      <div class="mchip">Bayesian modelling<small>Statistical inference</small></div>
-      <div class="mchip">DSEM / GIMME<small>Longitudinal N=1 methods</small></div>
+    <p class="sec-intro">Empirical, computational, and analytical approaches across neuroimaging, online experiments, and statistical modelling.</p>
+
+    <div class="skills-groups reveal">
+
+      <div class="skill-group">
+        <p class="sg-label">Neuroimaging</p>
+        <div class="sg-items">
+          <div class="sg-item"><span class="sg-name">fMRI</span><span class="sg-detail">Data acquisition, QC, experimental setup</span></div>
+          <div class="sg-item"><span class="sg-name">EEG</span><span class="sg-detail">Setup, preprocessing, ERP, time-frequency</span></div>
+          <div class="sg-item"><span class="sg-name">ECG</span><span class="sg-detail">Cardiac cycle data collection</span></div>
+          <div class="sg-item"><span class="sg-name">EEGLab</span><span class="sg-detail">Preprocessing pipelines in MATLAB</span></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <p class="sg-label">Programming &amp; analysis</p>
+        <div class="sg-items">
+          <div class="sg-item"><span class="sg-name">R</span><span class="sg-detail">Regression, quantitative &amp; psychometric analysis</span></div>
+          <div class="sg-item"><span class="sg-name">Python</span><span class="sg-detail">Data cleaning, wrangling, analysis</span></div>
+          <div class="sg-item"><span class="sg-name">MATLAB</span><span class="sg-detail">EEG preprocessing, scripting</span></div>
+          <div class="sg-item"><span class="sg-name">SPSS</span><span class="sg-detail">Clinical &amp; psychometric datasets</span></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <p class="sg-label">Experimental design</p>
+        <div class="sg-items">
+          <div class="sg-item"><span class="sg-name">Gorilla.sc</span><span class="sg-detail">Online behavioural experiments</span></div>
+          <div class="sg-item"><span class="sg-name">Survey &amp; EMA</span><span class="sg-detail">Ecological momentary assessment</span></div>
+          <div class="sg-item"><span class="sg-name">Ethics &amp; recruitment</span><span class="sg-detail">Full ethics approval, participant management</span></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <p class="sg-label">Computational &amp; statistical</p>
+        <div class="sg-items">
+          <div class="sg-item"><span class="sg-name">Bayesian modelling</span><span class="sg-detail">Statistical inference</span></div>
+          <div class="sg-item"><span class="sg-name">DSEM</span><span class="sg-detail">Dynamic structural equation modelling</span></div>
+          <div class="sg-item"><span class="sg-name">GIMME</span><span class="sg-detail">Person-specific longitudinal network models</span></div>
+          <div class="sg-item"><span class="sg-name">ANOVA &amp; regression</span><span class="sg-detail">General linear modelling</span></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
