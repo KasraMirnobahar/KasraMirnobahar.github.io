@@ -298,6 +298,15 @@
     .proj-place { font-size:.8rem; color:var(--ink2); }
     .proj-desc  { font-size:.82rem; color:var(--ink2); line-height:1.72; margin-bottom:.65rem; }
 
+    .proj-card-link { text-decoration:none; color:inherit; display:block; cursor:pointer; }
+    .proj-card-link:hover { background:var(--bg2); border-color:var(--border2); transform:translateX(3px); }
+    .proj-view-icon {
+      font-size:1rem; color:var(--ink3);
+      transition:color .18s, transform .18s;
+      line-height:1; padding-top:2px;
+    }
+    .proj-card-link:hover .proj-view-icon { color:var(--accent); transform:scale(1.15); }
+
     /* SKILLS GROUPS */
     .skills-groups { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
     @media (max-width:580px) { .skills-groups { grid-template-columns:1fr; } }
@@ -314,38 +323,6 @@
     .sg-item { display:flex; flex-direction:column; gap:.08rem; }
     .sg-name   { font-size:.84rem; font-weight:500; color:var(--ink); }
     .sg-detail { font-size:.75rem; color:var(--ink3); line-height:1.4; }
-
-    /* VOLUNTEERING */
-    .vol-list { display:flex; flex-direction:column; gap:.75rem; }
-    .vol-card {
-      display:grid; grid-template-columns:200px 1fr;
-      border-radius:var(--r);
-      border:1px solid var(--border);
-      background:var(--bg2);
-      overflow:hidden;
-      transition:border-color .2s, transform .2s var(--ease);
-    }
-    .vol-card:hover { border-color:var(--border2); transform:translateX(3px); }
-    .vol-left {
-      padding:1.1rem 1.25rem;
-      border-right:1px solid var(--border);
-      display:flex; flex-direction:column; justify-content:space-between;
-    }
-    .vol-accent { width:24px; height:2.5px; border-radius:2px; margin-bottom:.65rem; }
-    .vol-role { font-size:.86rem; font-weight:500; color:var(--ink); line-height:1.4; margin-bottom:.3rem; }
-    .vol-org  { font-size:.76rem; color:var(--ink2); line-height:1.45; }
-    .vol-date { font-size:.67rem; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); margin-top:.6rem; }
-    .vol-right { padding:1.1rem 1.35rem; display:flex; align-items:center; }
-    .vol-desc  { font-size:.82rem; color:var(--ink2); line-height:1.72; }
-    .vol-tag {
-      display:inline-block; margin-top:.6rem;
-      font-size:.67rem; font-weight:500; padding:.16rem .58rem;
-      border-radius:20px;
-    }
-    @media (max-width:580px) {
-      .vol-card { grid-template-columns:1fr; }
-      .vol-left { border-right:none; border-bottom:1px solid var(--border); }
-    }
 
     /* CONTACT */
     .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:2rem; align-items:start; }
@@ -403,7 +380,6 @@
     <a href="#education">Education</a>
     <a href="#publications">Publications</a>
     <a href="#talks">Talks</a>
-    <a href="#volunteering">Volunteering</a>
     <a href="#skills">Skills</a>
     <a href="#cv">CV</a>
     <a href="#contact">Contact</a>
@@ -419,7 +395,7 @@
       <p class="hero-eyebrow">Research Assistant · <b>University of Glasgow</b></p>
       <h1>Kasra<br><em>Mirnobahar</em></h1>
       <p class="hero-bio">
-        I study how behaviour and decision-making are shaped by <strong>digital environments</strong>. My work explores the interaction between <strong>social media</strong>, <strong>mental health and well-being</strong>, and the brain using <strong>neuroimaging</strong> and <strong>computational modelling</strong>.
+        I study how the brain makes decisions — and what happens when those decisions are shaped by <strong>digital environments</strong>. My work bridges <strong>social media</strong>, <strong>neuroimaging</strong>, and <strong>computational modelling</strong>.
       </p>
       <div class="hero-chips">
         <span class="chip ca">Social media &amp; behaviour</span>
@@ -523,18 +499,21 @@
         <div class="tl-tags"><span class="tl-tag tt">fMRI</span><span class="tl-tag ta">PsychoPy</span><span class="tl-tag tp">EEG</span><span class="tl-tag tm">MATLAB · EEGLab</span><span class="tl-tag ptp">FSL</span></div>
       </div>
 
-      <div class="proj-card">
+      <a class="proj-card proj-card-link" href="social-media-uncertainty.html" target="_blank" rel="noopener">
         <div class="proj-head">
           <div>
             <span class="proj-date">June 2025 – Sep 2025</span>
             <p class="proj-title">Social Media &amp; Uncertainty — Reward Timing Predictability</p>
             <p class="proj-place">Adam Smith Business School · University of Glasgow</p>
           </div>
-          <span class="ptag ta">Primary Researcher</span>
+          <div style="display:flex;align-items:flex-start;gap:.5rem">
+            <span class="ptag ta">Primary Researcher</span>
+            <span class="proj-view-icon" title="View project">&#x2315;</span>
+          </div>
         </div>
         <p class="proj-desc">Independently conceptualised and designed a study examining how reward timing predictability shapes social media checking behaviour. Designed a multi-component Gorilla.sc task including a simulated social media feed where participants could explore content, upload posts, and receive likes. Led ethics approval, recruited and screened participants, conducted full quantitative analysis in R, and wrote the dissertation manuscript.</p>
         <div class="tl-tags"><span class="tl-tag tt">Experimental Design . Gorilla.sc</span><span class="tl-tag ta">R</span><span class="tl-tag tp">Bayesian Analysis . Regression </span><span class="tl-tag tm">Social Media</span><span class="tl-tag ptp">Uncertainty</span></div>
-      </div>
+      </a>
 
       <div class="proj-card">
         <div class="proj-head">
@@ -695,11 +674,9 @@
       <div class="skill-group">
         <p class="sg-label">Experimental design</p>
         <div class="sg-items">
-          <div class="sg-item"><span class="sg-name">Gorilla.sc &amp; PsychoPy</span><span class="sg-detail">Design behavioural experiments</span></div>
+          <div class="sg-item"><span class="sg-name">Gorilla.sc</span><span class="sg-detail">Online behavioural experiments</span></div>
           <div class="sg-item"><span class="sg-name">Survey &amp; EMA</span><span class="sg-detail">Ecological momentary assessment</span></div>
           <div class="sg-item"><span class="sg-name">Ethics &amp; recruitment</span><span class="sg-detail">Full ethics approval, participant management</span></div>
-          <div class="sg-item"><span class="sg-name">Interviews</span><span class="sg-detail">Structured &amp; semi-structured Interviews </span></div>
-        </div>
         </div>
       </div>
 
@@ -710,68 +687,6 @@
           <div class="sg-item"><span class="sg-name">DSEM</span><span class="sg-detail">Dynamic structural equation modelling</span></div>
           <div class="sg-item"><span class="sg-name">GIMME</span><span class="sg-detail">Person-specific longitudinal network models</span></div>
           <div class="sg-item"><span class="sg-name">ANOVA &amp; regression</span><span class="sg-detail">General linear modelling</span></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- VOLUNTEERING -->
-  <section id="volunteering">
-    <p class="sec-label">Volunteering</p>
-    <h2>Giving <em>back</em></h2>
-    <p class="sec-intro">Beyond research: contributing to mental health support, scientific peer review, and community mentorship.</p>
-
-    <div class="vol-list reveal">
-
-      <div class="vol-card">
-        <div class="vol-left">
-          <div>
-            <div class="vol-accent" style="background:var(--accent)"></div>
-            <p class="vol-role">Peer-Reviewer</p>
-            <p class="vol-org">InFrame Project · University of Glasgow, Edinburgh &amp; St Andrews</p>
-          </div>
-          <p class="vol-date">Jan 2025</p>
-        </div>
-        <div class="vol-right">
-          <div>
-            <p class="vol-desc">Reviewed and evaluated research proposals for scientific merit, feasibility, and alignment with project objectives. Provided structured feedback to applicants to improve methodological clarity and impact. Collaborated with a multidisciplinary review panel to support research quality and inclusivity.</p>
-            <span class="vol-tag" style="color:var(--accent);background:color-mix(in srgb,var(--accent)9%,transparent);border:1px solid color-mix(in srgb,var(--accent)25%,transparent)">Research quality · Peer review</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="vol-card">
-        <div class="vol-left">
-          <div>
-            <div class="vol-accent" style="background:var(--teal)"></div>
-            <p class="vol-role">Mentorship Programme Coordinator</p>
-            <p class="vol-org">Underprivileged Children · USWR</p>
-          </div>
-          <p class="vol-date">Aug – Oct 2023</p>
-        </div>
-        <div class="vol-right">
-          <div>
-            <p class="vol-desc">Coordinated and facilitated a mentorship programme supporting children's academic performance and social development across multiple school settings. Managed scheduling, volunteer coordination, and direct engagement with children and families.</p>
-            <span class="vol-tag" style="color:var(--teal);background:color-mix(in srgb,var(--teal)9%,transparent);border:1px solid color-mix(in srgb,var(--teal)25%,transparent)">Education · Community</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="vol-card">
-        <div class="vol-left">
-          <div>
-            <div class="vol-accent" style="background:#e05555"></div>
-            <p class="vol-role">Suicide Crisis Counsellor</p>
-            <p class="vol-org">Iran Hotline Suicide Prevention · NGO</p>
-          </div>
-          <p class="vol-date">June 2023 – June 2024</p>
-        </div>
-        <div class="vol-right">
-          <div>
-            <p class="vol-desc">Provided crisis support and intervention for individuals experiencing acute suicidal ideation, following structured clinical safeguarding protocols including escalation procedures. Developed trauma-informed communication skills with vulnerable individuals in distress, maintaining professional boundaries and accurate case documentation.</p>
-            <span class="vol-tag" style="color:#e05555;background:rgba(224,85,85,.09);border:1px solid rgba(224,85,85,.25)">Mental health · Crisis support</span>
-          </div>
         </div>
       </div>
 
@@ -790,6 +705,11 @@
         <div class="pillar-bar" style="background:var(--teal)"></div>
         <h3>Languages</h3>
         <p style="font-size:.82rem;color:var(--ink2);margin-top:.3rem">Persian — Native<br>English — C1<br>German — A2</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-bar" style="background:var(--purple)"></div>
+        <h3>Volunteering</h3>
+        <p style="font-size:.82rem;color:var(--ink2);margin-top:.3rem">Suicide Crisis Counsellor, Iran Hotline NGO (1 year)<br>Peer-Reviewer, InFrame Project (UofG / Edinburgh / St Andrews)<br>Mentorship Coordinator, USWR</p>
       </div>
     </div>
   </section>
