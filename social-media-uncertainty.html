@@ -9,9 +9,30 @@
 <meta name="author" content="Kasra Mirnobahar">
 
 
-<div style="padding:.85rem 2rem .25rem;font-family:'DM Sans',system-ui,sans-serif;">
-  <a href="index.html" style="font-size:.8rem;font-weight:500;color:#4a4845;text-decoration:none;padding:.3rem .75rem;border-radius:20px;border:1px solid rgba(26,25,23,.2);transition:background .15s;" onmouseover="this.style.background='#eceae4'" onmouseout="this.style.background='transparent'">← Back to main page</a>
+<div id="km-back" style="position:sticky;top:0;z-index:50;padding:.7rem 2rem;font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;">
+  <a href="index.html" id="km-back-link" style="font-size:.8rem;font-weight:500;text-decoration:none;padding:.3rem .75rem;border-radius:20px;transition:background .15s,color .15s;">← Back to portfolio</a>
 </div>
+<script>
+  (function() {
+    function updateBar() {
+      const dark = document.body.classList.contains('quarto-dark');
+      const bar  = document.getElementById('km-back');
+      const link = document.getElementById('km-back-link');
+      if (!bar || !link) return;
+      bar.style.background  = dark ? 'rgba(19,19,17,.88)' : 'rgba(245,244,240,.88)';
+      bar.style.backdropFilter = 'blur(14px)';
+      bar.style.borderBottom = dark ? '1px solid rgba(240,237,232,.1)' : '1px solid rgba(26,25,23,.1)';
+      link.style.color  = dark ? '#aba8a2' : '#4a4845';
+      link.style.border = dark ? '1px solid rgba(240,237,232,.2)' : '1px solid rgba(26,25,23,.2)';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      updateBar();
+      // watch for Quarto toggling dark/light class on body
+      const observer = new MutationObserver(updateBar);
+      observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    });
+  })();
+</script>
  
 <title>Experimental Social Media Study: Reward Timing &amp; Uncertainty</title>
 <style>
