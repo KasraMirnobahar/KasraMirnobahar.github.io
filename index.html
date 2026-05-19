@@ -298,8 +298,18 @@
     .proj-place { font-size:.8rem; color:var(--ink2); }
     .proj-desc  { font-size:.82rem; color:var(--ink2); line-height:1.72; margin-bottom:.65rem; }
 
-    .proj-card-link { text-decoration:none; color:inherit; display:block; cursor:pointer; }
+    .proj-card-link { text-decoration:none; color:inherit; display:block; cursor:pointer; position:relative; }
     .proj-card-link:hover { background:var(--bg2); border-color:var(--border2); transform:translateX(3px); }
+    .proj-card-link::after {
+      content:'Click to view project';
+      position:absolute; bottom:.85rem; right:1rem;
+      font-size:.68rem; font-weight:500; letter-spacing:.04em;
+      color:var(--accent);
+      opacity:0; transform:translateY(4px);
+      transition:opacity .2s var(--ease), transform .2s var(--ease);
+      pointer-events:none;
+    }
+    .proj-card-link:hover::after { opacity:1; transform:translateY(0); }
     .proj-view-icon {
       font-size:1rem; color:var(--ink3);
       transition:color .18s, transform .18s;
