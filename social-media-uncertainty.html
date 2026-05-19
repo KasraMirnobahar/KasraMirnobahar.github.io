@@ -9,6 +9,156 @@
 <meta name="author" content="Kasra Mirnobahar">
 
 <title>Experimental Social Media Study: Reward Timing &amp; Uncertainty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:     #f5f4f0;
+    --bg2:    #eceae4;
+    --bg3:    #e0ddd6;
+    --ink:    #1a1917;
+    --ink2:   #4a4845;
+    --ink3:   #8a8680;
+    --accent: #2d5be3;
+    --teal:   #0e7c6b;
+    --border: rgba(26,25,23,.1);
+    --border2:rgba(26,25,23,.2);
+    --serif:  'DM Serif Display', Georgia, serif;
+    --sans:   'DM Sans', system-ui, sans-serif;
+    --r:      10px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+
+  /* override all quarto/bootstrap */
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans) !important;
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    line-height: 1.75 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* back bar */
+  #km-topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: .7rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--sans);
+  }
+  #km-topbar a {
+    font-size: .8rem; font-weight: 500; color: var(--ink2);
+    text-decoration: none; display: flex; align-items: center; gap: .4rem;
+    padding: .3rem .7rem; border-radius: 20px;
+    border: 1px solid var(--border2);
+    transition: background .15s, color .15s;
+  }
+  #km-topbar a:hover { background: var(--bg2); color: var(--ink); }
+  #km-topbar .km-title { font-family: var(--serif); font-size: .95rem; color: var(--ink); }
+
+  /* main content wrapper */
+  #quarto-content, div#quarto-content, body > div, #content, main {
+    max-width: 780px !important;
+    margin: 0 auto !important;
+    padding: 3rem 2rem 5rem !important;
+  }
+
+  /* headings */
+  h1 { font-family: var(--serif) !important; font-size: clamp(1.8rem,4vw,2.8rem) !important; font-weight:400 !important; letter-spacing:-.02em !important; line-height:1.15 !important; margin-bottom:1rem !important; color: var(--ink) !important; }
+  h2 { font-family: var(--serif) !important; font-size: 1.55rem !important; font-weight:400 !important; letter-spacing:-.015em !important; margin-top:2.5rem !important; margin-bottom:.65rem !important; color: var(--ink) !important; padding-bottom:.5rem !important; border-bottom: 1px solid var(--border) !important; }
+  h3 { font-size: 1rem !important; font-weight: 500 !important; margin-top:1.75rem !important; margin-bottom:.4rem !important; color: var(--ink) !important; }
+  h4, h5 { font-size: .9rem !important; font-weight: 500 !important; color: var(--ink2) !important; }
+
+  /* body text */
+  p { font-size: .92rem !important; color: var(--ink2) !important; line-height: 1.8 !important; margin-bottom: .85rem !important; }
+  p strong { color: var(--ink) !important; }
+  li { font-size: .92rem !important; color: var(--ink2) !important; line-height: 1.75 !important; }
+
+  /* links */
+  a { color: var(--accent) !important; text-decoration: none !important; }
+  a:hover { text-decoration: underline !important; }
+
+  /* author / date line */
+  .quarto-title-meta, #title-block-header { margin-bottom: 2rem !important; }
+  .quarto-title-meta-heading { font-size: .7rem !important; font-weight: 500 !important; letter-spacing: .1em !important; text-transform: uppercase !important; color: var(--ink3) !important; }
+  .quarto-title-meta-contents { font-size: .88rem !important; color: var(--ink2) !important; }
+
+  /* code blocks */
+  pre, pre.sourceCode {
+    background: var(--bg2) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--r) !important;
+    padding: 1.1rem 1.25rem !important;
+    font-size: .8rem !important;
+    line-height: 1.6 !important;
+    overflow-x: auto !important;
+    margin: 1rem 0 !important;
+  }
+  code {
+    font-size: .82rem !important;
+    background: var(--bg2) !important;
+    padding: .1rem .38rem !important;
+    border-radius: 5px !important;
+    color: var(--ink) !important;
+  }
+  pre code { background: transparent !important; padding: 0 !important; }
+
+  /* tables */
+  table {
+    width: 100% !important; border-collapse: collapse !important;
+    font-size: .84rem !important; margin: 1.25rem 0 !important;
+  }
+  thead th {
+    background: var(--bg2) !important; font-weight: 500 !important;
+    padding: .6rem .85rem !important; text-align: left !important;
+    border-bottom: 2px solid var(--border2) !important; color: var(--ink) !important;
+  }
+  tbody td {
+    padding: .55rem .85rem !important; border-bottom: 1px solid var(--border) !important;
+    color: var(--ink2) !important;
+  }
+  tbody tr:last-child td { border-bottom: none !important; }
+
+  /* callout / info boxes */
+  .callout, div.callout {
+    border-radius: var(--r) !important;
+    border: 1px solid var(--border) !important;
+    background: var(--bg2) !important;
+    padding: 1rem 1.25rem !important;
+    margin: 1.25rem 0 !important;
+  }
+  .callout-important, div.callout-important {
+    border-left: 3px solid var(--accent) !important;
+  }
+  .callout-note { border-left: 3px solid var(--teal) !important; }
+
+  /* figures and plots */
+  img, figure { max-width: 100% !important; border-radius: var(--r) !important; }
+  figcaption { font-size: .78rem !important; color: var(--ink3) !important; text-align: center !important; margin-top:.4rem !important; }
+
+  /* TOC */
+  #toc, nav#TOC {
+    background: var(--bg2) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--r) !important;
+    padding: 1.1rem 1.35rem !important;
+    margin-bottom: 2.5rem !important;
+    font-size: .82rem !important;
+  }
+  nav#TOC ul { padding-left: 1rem !important; }
+  nav#TOC a { color: var(--ink2) !important; }
+  nav#TOC a:hover { color: var(--accent) !important; }
+
+  /* hide quarto chrome we don't need */
+  .quarto-title-banner, #quarto-sidebar, #quarto-margin-sidebar,
+  .navbar, .nav-footer, #quarto-header,
+  .quarto-color-scheme-toggle { display: none !important; }
+</style>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -81,7 +231,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="quarto-light">
+<div id="km-topbar">
+  <a href="index.html">← Back to portfolio</a>
+  <span class="km-title">Kasra Mirnobahar</span>
+</div><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -1041,7 +1195,3 @@ Note
 
 
 </body></html>
-<div id="km-topbar" style="position:sticky;top:0;z-index:9999;background:rgba(245,244,240,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(26,25,23,.1);padding:.7rem 2rem;display:flex;align-items:center;justify-content:space-between;font-family:'DM Sans',system-ui,sans-serif;">
-  <a href="index.html" style="font-size:.8rem;font-weight:500;color:#4a4845;text-decoration:none;display:flex;align-items:center;gap:.4rem;padding:.3rem .75rem;border-radius:20px;border:1px solid rgba(26,25,23,.2);transition:background .15s;" onmouseover="this.style.background='#eceae4'" onmouseout="this.style.background='transparent'">← Back to portfolio</a>
-  <span style="font-family:'DM Serif Display',Georgia,serif;font-size:.95rem;color:#1a1917;">Kasra Mirnobahar</span>
-</div>
