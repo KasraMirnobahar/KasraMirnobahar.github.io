@@ -8,6 +8,24 @@
 
 <meta name="author" content="Kasra Mirnobahar">
 
+<div style="padding:.85rem 2rem .25rem;font-family:'DM Sans',system-ui,sans-serif;">
+  <a id="km-back" href="index.html" style="font-size:.8rem;font-weight:500;color:#4a4845;text-decoration:none;padding:.3rem .75rem;border-radius:20px;border:1px solid rgba(26,25,23,.2);transition:background .15s,color .15s,border-color .15s;" onmouseover="this.style.background='#eceae4'" onmouseout="this.style.background='transparent'">← Back to portfolio</a>
+</div>
+<script>
+  function kmUpdateBack() {
+    const a = document.getElementById('km-back');
+    if (!a) return;
+    const dark = document.body.classList.contains('quarto-dark');
+    a.style.color  = dark ? '#aba8a2' : '#4a4845';
+    a.style.border = dark ? '1px solid rgba(240,237,232,.2)' : '1px solid rgba(26,25,23,.2)';
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    kmUpdateBack();
+    new MutationObserver(kmUpdateBack).observe(document.body, { attributes:true, attributeFilter:['class'] });
+  });
+</script>
+
+  
 <title>Experimental Social Media Study: Reward Timing &amp; Uncertainty</title>
 <style>
 /* Default styles provided by pandoc.
