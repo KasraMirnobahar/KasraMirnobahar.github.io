@@ -8,7 +8,8 @@ I am a Research Assistant at the University of Glasgow (Philiastides Lab, School
 
 ## Built with
 
-Plain HTML, CSS, and JavaScript — no frameworks, no build tools, no dependencies. Deploys directly via GitHub Pages.
+Plain HTML, CSS, and JavaScript, no frameworks, no build tools, no dependencies. Deploys directly via GitHub Pages.
+**Designed with Claude.ai**
 
 ## Structure
 
@@ -22,11 +23,7 @@ images/                         — figures used in the R document
 
 ## Contact
 
-- Email: [Kasra.Mirnobahar@glasgow.ac.uk](mailto:Kasra.Mirnobahar@glasgow.ac.uk)
+- Email: [Kasra.Mirnobahar@glasgow.ac.uk](mailto:kasranobahar@gmail.com)
 - LinkedIn: [kasra-mirnobahar](https://www.linkedin.com/in/kasra-mirnobahar-339b09107)
 - Google Scholar: [publications](https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en)
 - ORCID: [0009-0001-2363-6381](https://orcid.org/0009-0001-2363-6381)
-
-## License
-
-MIT
