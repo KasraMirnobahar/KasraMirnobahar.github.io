@@ -1,0 +1,96 @@
+/* ── Blockquotes ───────────────────────────────────────────────── */
+blockquote {
+  border-left: 4px solid #298c8c;
+  background: rgba(41, 140, 140, 0.08);
+  border-radius: 0 6px 6px 0;
+  padding: 0.85rem 1.2rem;
+  margin: 1.2rem 0;
+  color: inherit;
+}
+
+blockquote p {
+  margin: 0;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+/* dark mode — superhero theme body gets data-bs-theme="dark" */
+[data-bs-theme="dark"] blockquote {
+  border-left-color: #3dbdbd;
+  background: rgba(61, 189, 189, 0.12);
+  color: #e0e0e0;
+}
+
+/* ── Code blocks ───────────────────────────────────────────────── */
+[data-bs-theme="dark"] pre.sourceCode {
+  background: #1a1f2e !important;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+}
+
+[data-bs-theme="light"] pre.sourceCode {
+  background: #f5f7fa !important;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 6px;
+}
+
+/* ── Tables ────────────────────────────────────────────────────── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+thead tr {
+  background: rgba(41, 140, 140, 0.15);
+}
+
+[data-bs-theme="dark"] thead tr {
+  background: rgba(61, 189, 189, 0.18);
+}
+
+th, td {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid rgba(128,128,128,0.2);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(0,0,0,0.03);
+}
+
+[data-bs-theme="dark"] tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.03);
+}
+
+/* ── TOC ───────────────────────────────────────────────────────── */
+#TOC a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+#TOC a:hover {
+  color: #298c8c;
+}
+
+[data-bs-theme="dark"] #TOC a:hover {
+  color: #3dbdbd;
+}
+
+/* ── Section headings ──────────────────────────────────────────── */
+h1, h2 {
+  border-bottom: 2px solid rgba(41, 140, 140, 0.3);
+  padding-bottom: 0.3rem;
+}
+
+[data-bs-theme="dark"] h1,
+[data-bs-theme="dark"] h2 {
+  border-bottom-color: rgba(61, 189, 189, 0.35);
+}
+
+/* ── Horizontal rule ───────────────────────────────────────────── */
+hr {
+  border: none;
+  border-top: 1px solid rgba(41, 140, 140, 0.25);
+  margin: 2rem 0;
+}
