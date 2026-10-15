@@ -4,248 +4,330 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kasra Mirnobahar</title>
-<meta name="description" content="Kasra Mirnobahar, University of Glasgow. Research on social media, decision-making and mental health.">
+<meta name="description" content="Kasra Mirnobahar, University of Glasgow. How I came to study why we keep checking social media, and where I want to take it next.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
 <style>
-  html { background: #fbf8f1; }
+  :root {
+    --navy: #0d1b2e;
+    --navy-2: #13253d;
+    --ink: #ece4d3;
+    --ink-2: #b9b3a6;
+    --ink-3: #8a8a88;
+    --rule: rgba(236, 228, 211, .18);
+    --brass: #e0a84f;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--navy); scroll-behavior: smooth; }
   body {
-    max-width: 44rem;
-    margin: 0 auto;
-    padding: 2.5rem 1rem 3rem;
-    background: #fbf8f1;
-    color: #222;
-    font-family: "EB Garamond", Garamond, Georgia, "Times New Roman", serif;
-    font-size: 19px;
-    line-height: 1.5;
+    margin: 0;
+    background: var(--navy);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.55;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
   }
-  a { color: #1f3f8a; }
-  a:visited { color: #5b2a7a; }
-  a:hover { color: #8a1f1f; }
+  #bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .wrap { position: relative; z-index: 1; max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
 
-  h1 { font-weight: 500; font-size: 2rem; margin: 0 0 .2rem; letter-spacing: .01em; }
-  h2 {
-    font-weight: 500;
-    font-size: 1.15rem;
-    font-variant: small-caps;
-    letter-spacing: .06em;
-    margin: 2.2rem 0 .7rem;
-    padding-bottom: .15rem;
-    border-bottom: 1px solid #b9b2a3;
-  }
-  p { margin: 0 0 .8rem; }
+  a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+  a:hover { color: var(--brass); }
+  em, i { font-style: italic; }
+  b, strong { font-weight: 500; }
 
-  .affil { margin: 0 0 .6rem; color: #444; }
-  .links { margin: .6rem 0 0; font-size: .95rem; }
-  .links a { white-space: nowrap; }
-  .sep { color: #999; padding: 0 .25rem; }
-  hr.top { border: 0; border-top: 1px solid #b9b2a3; margin: 1.4rem 0 1.6rem; }
+  /* top line */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; padding: 1.4rem 0 0; font-size: .85rem; color: var(--ink-2); }
+  .top .name { color: var(--ink); text-decoration: none; font-weight: 400; letter-spacing: .02em; }
+  .top nav a { margin-left: 1.1rem; color: var(--ink-2); text-decoration: none; }
+  .top nav a:hover { color: var(--brass); }
 
-  ul { margin: 0 0 .8rem; padding-left: 1.2rem; }
-  li { margin-bottom: .45rem; }
+  /* opening */
+  .opening { padding: 18vh 0 14vh; max-width: 46rem; }
+  .opening .kicker { font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin: 0 0 1.4rem; font-weight: 400; }
+  .opening h1 { font-size: clamp(2.6rem, 6.5vw, 4.6rem); line-height: 1.04; font-weight: 300; margin: 0 0 2rem; letter-spacing: -.01em; }
+  .opening h1 em { color: var(--brass); }
+  .opening p { font-size: 1.15rem; color: var(--ink-2); max-width: 38rem; margin: 0 0 1rem; }
+  .opening p b { color: var(--ink); font-weight: 400; }
 
-  /* dated entries: date on the left, text on the right */
-  dl.cv { margin: 0; display: grid; grid-template-columns: 8.5rem 1fr; column-gap: 1rem; }
-  dl.cv dt { color: #555; font-size: .92rem; padding-top: .12rem; }
-  dl.cv dd { margin: 0 0 .9rem; }
-  dl.cv .what { font-style: italic; }
-  dl.cv .note { display: block; font-size: .95rem; color: #333; }
+  /* the story: a thin thread with a node per chapter */
+  .story { position: relative; padding-bottom: 2rem; }
+  .story::before { content: ""; position: absolute; left: 9.25rem; top: .6rem; bottom: 0; width: 1px; background: var(--rule); }
+  .chapter { display: grid; grid-template-columns: 8.5rem 1fr; column-gap: 3rem; padding: 0 0 5.5rem; position: relative; }
+  .chapter::before { content: ""; position: absolute; left: calc(9.25rem - 4px); top: .62rem; width: 9px; height: 9px; border-radius: 50%; background: var(--navy); border: 1px solid var(--brass); }
+  .chapter.now::before { background: var(--brass); }
+  .chapter .when { text-align: right; padding-top: .1rem; }
+  .chapter .num { display: block; font-style: italic; font-size: 2.2rem; line-height: 1; color: var(--brass); font-weight: 300; }
+  .chapter .years { display: block; margin-top: .5rem; font-size: .85rem; color: var(--ink-3); letter-spacing: .04em; }
+  .chapter .place { display: block; font-size: .85rem; color: var(--ink-3); font-style: italic; }
+  .chapter h2 { font-weight: 400; font-size: 1.9rem; line-height: 1.15; margin: 0 0 1.2rem; max-width: 34rem; }
+  .chapter p { margin: 0 0 1rem; max-width: 38rem; }
+  .chapter .aside { font-size: .9rem; color: var(--ink-2); border-left: 1px solid var(--brass); padding-left: 1rem; margin-top: 1.4rem; max-width: 36rem; }
+  .chapter .aside span { display: block; }
+  blockquote { margin: 1.6rem 0; font-size: 1.45rem; line-height: 1.35; font-style: italic; color: var(--ink); max-width: 34rem; }
 
-  ol.pubs { padding-left: 1.4rem; }
-  ol.pubs li { margin-bottom: .7rem; }
-  .status { font-size: .92rem; color: #555; }
+  /* reference section */
+  .record { border-top: 1px solid var(--rule); padding: 3rem 0 1rem; }
+  .record > h2 { font-weight: 300; font-size: 2.2rem; margin: 0 0 .4rem; }
+  .record > p.lead { color: var(--ink-2); margin: 0 0 2.5rem; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 4rem; }
+  .block { margin-bottom: 2.4rem; }
+  .block h3 { font-size: .85rem; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin: 0 0 1rem; }
+  .block ul { list-style: none; margin: 0; padding: 0; }
+  .block li { margin: 0 0 1rem; font-size: .95rem; color: var(--ink-2); }
+  .block li b { color: var(--ink); font-weight: 400; }
+  .block li .t { color: var(--ink); display: block; }
+  .block li .d { color: var(--ink-3); font-size: .85rem; }
+  .block p { font-size: .95rem; color: var(--ink-2); margin: 0 0 .6rem; }
+  .block p i { color: var(--ink); }
 
-  .small { font-size: .9rem; color: #555; }
-  footer { margin-top: 2.5rem; padding-top: .6rem; border-top: 1px solid #b9b2a3; font-size: .85rem; color: #666; }
+  .contact { border-top: 1px solid var(--rule); padding: 3rem 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem; }
+  .contact .big { font-size: clamp(1.5rem, 3.4vw, 2.3rem); font-weight: 300; line-height: 1.2; margin: 0 0 1rem; }
+  .contact .big a { text-decoration-thickness: 1px; }
+  .contact p { color: var(--ink-2); margin: 0 0 .5rem; font-size: .95rem; }
+  .contact ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 2rem; }
+  .contact li { margin: 0 0 .6rem; font-size: .95rem; }
+  footer { padding: 1rem 0 2.5rem; font-size: .8rem; color: var(--ink-3); }
 
-  @media (max-width: 34rem) {
-    body { font-size: 18px; padding-top: 1.5rem; }
-    dl.cv { display: block; }
-    dl.cv dt { padding-top: 0; }
-    dl.cv dd { margin-bottom: 1rem; }
+  @media (max-width: 46rem) {
+    body { font-size: 18px; }
+    .top nav { display: none; }
+    .opening { padding: 12vh 0 9vh; }
+    .story::before { left: 4px; }
+    .chapter { grid-template-columns: 1fr; padding: 0 0 3.5rem 1.6rem; }
+    .chapter::before { left: 0; }
+    .chapter .when { text-align: left; margin-bottom: .8rem; }
+    .chapter .num { display: inline; font-size: 1.6rem; margin-right: .6rem; }
+    .chapter .years, .chapter .place { display: inline; margin: 0 .4rem 0 0; }
+    .chapter h2 { font-size: 1.55rem; }
+    blockquote { font-size: 1.25rem; }
+    .cols, .contact { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
+<canvas id="bg" aria-hidden="true"></canvas>
 
-<header>
-  <h1>Kasra Mirnobahar</h1>
-  <p class="affil">
-    School of Psychology and Neuroscience, University of Glasgow<br>
-    <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk">Kasra.Mirnobahar@glasgow.ac.uk</a>
-  </p>
-  <p class="links">
-    <a href="files/Kasra_Mirnobahar_CV.pdf">CV (pdf)</a><span class="sep">|</span>
-    <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&amp;hl=en">Google Scholar</a><span class="sep">|</span>
-    <a href="https://orcid.org/0009-0001-2363-6381">ORCID</a><span class="sep">|</span>
-    <a href="https://github.com/KasraMirnobahar">GitHub</a><span class="sep">|</span>
-    <a href="https://www.linkedin.com/in/kasra-mirnobahar-339b09107">LinkedIn</a><span class="sep">|</span>
-    <a href="https://bsky.app/profile/kasramn.bsky.social">Bluesky</a><span class="sep">|</span>
-    <a href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/index.html/staffcontact/person/33dce7e18697">University page</a>
-  </p>
+<div class="wrap">
+
+<header class="top">
+  <a class="name" href="#">Kasra Mirnobahar</a>
+  <nav>
+    <a href="#story">Story</a>
+    <a href="#next">Next</a>
+    <a href="#record">Publications &amp; talks</a>
+    <a href="files/Kasra_Mirnobahar_CV.pdf">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<hr class="top">
+<section class="opening">
+  <p class="kicker">University of Glasgow</p>
+  <h1>Why do we keep checking our phones, <em>even when nothing is there?</em></h1>
+  <p>I'm <b>Kasra Mirnobahar</b>. I study how social media, reward and decision-making shape behaviour and mental health, using experiments, computational models, real-world data and brain imaging.</p>
+  <p>This page is the story of how I got to that question, and where I would like to take it next.</p>
+</section>
 
-<p>
-  I am interested in how digital environments, decision-making and behaviour come together to affect mental health.
-  Most of my work is about social media: why we keep checking it, and how the way rewards (likes, replies, new posts)
-  arrive shapes what we do. To study this I use experimental tasks, computational and reinforcement learning models,
-  real-world and donated data, and neuroimaging.
-</p>
-<p>
-  At the moment I work with collaborators in Glasgow, Cambridge, Amsterdam and the Max Planck Institute on social media
-  and emotion, and on causal inference with NHS health records in psychosis. Before that I was a research assistant in the
-  Philiastides Lab,
-  running EEG, fMRI and ECG studies on decision-making. I did my MSc in Behavioural Sciences at Glasgow and my BSc in
-  Psychology at the University of Social Welfare and Rehabilitation Sciences in Tehran.
-</p>
-<p>
-  In the longer run I would like to help design interventions and policy that actually improve digital well-being.
-  I am looking for PhD positions and am always happy to talk about possible collaborations.
-</p>
+<main class="story" id="story">
 
-<h2>Proposed PhD project</h2>
-<p>
-  <i>Person-specific digital phenotyping of social media use and digital well-being.</i>
-  Research on social media and mental health keeps giving mixed answers, partly because it treats users as one group and
-  measures use as plain screen time. I would like to combine data donation, ecological momentary assessment and
-  computational measures of behaviour to build profiles for individual people: how their own use and their own mood move
-  together over time. A poster on this proposal will be at the Digital Mental Health Conference in Cambridge in December 2026.
-</p>
+  <article class="chapter">
+    <div class="when"><span class="num">i.</span><span class="years">2019 &ndash; 2023</span><span class="place">Tehran</span></div>
+    <div>
+      <h2>Starting with people, and with what goes wrong</h2>
+      <p>I studied psychology at the University of Social Welfare and Rehabilitation Sciences in Tehran and finished with first-class honours. Most of my time there was spent close to clinical work. For my dissertation I designed a study with 600 adults on childhood poly-victimisation, which means being exposed to several kinds of harm while growing up, and how it relates to impulsivity and behaviour problems later in life. That work became my first two papers.</p>
+      <p>Alongside it I ran cognitive tasks with five-to-eight-year-olds in schools, and for a year I volunteered as a counsellor on a suicide crisis line. Those years gave me a feel for running studies from ethics to analysis. They also showed me that the numbers in a mental health dataset are people.</p>
+      <div class="aside">
+        <span>BSc Psychology, USWR, first class (17.58/20)</span>
+        <span>Two papers, 2025: <a href="https://doi.org/10.5812/ijpbs-159188">Iran J Psychiatry Behav Sci</a> and <a href="https://doi.org/10.5812/ijhrba-163153">Int J High Risk Behav Addict</a></span>
+      </div>
+    </div>
+  </article>
 
-<h2>Publications</h2>
-<ol class="pubs">
-  <li>
-    Pourmohamadreza-Tajrishi, M., <b>Mirnobahar, K.</b>, &amp; Mohammadi Bytamar, J. (2025).
-    Assessing childhood trauma: The Iranian validation of the Juvenile Polyvictimization Questionnaire and its link to psychiatric symptoms.
-    <i>International Journal of High Risk Behaviors and Addiction</i>, 14(3), e163153.
-    [<a href="https://doi.org/10.5812/ijhrba-163153">doi</a>]
-    [<a href="https://brieflands.com/journals/ijhrba/articles/163153.pdf">pdf</a>]
-  </li>
-  <li>
-    <b>Mirnobahar, K.</b>, Pourmohamadreza-Tajrishi, M., &amp; Mohammadi Bytamar, J. (2025).
-    Impact of childhood poly-victimization on impulsivity and behavioral problems in Iranian adults: A regression analysis.
-    <i>Iranian Journal of Psychiatry and Behavioral Sciences</i>, 19(3), e159188.
-    [<a href="https://doi.org/10.5812/ijpbs-159188">doi</a>]
-    [<a href="https://brieflands.com/journals/ijpbs/articles/159188.pdf">pdf</a>]
-  </li>
-  <li>
-    The impact of FoMO and belonging on problematic social media use: Social isolation as a mediating factor.
-    <span class="status">Under review at <i>Scientific Reports</i>.</span>
-  </li>
-  <li>
-    The social media Skinner box: Uncertain reward invigorates social media checking.
-    <span class="status">In preparation.</span>
-  </li>
-</ol>
+  <article class="chapter">
+    <div class="when"><span class="num">ii.</span><span class="years">2023</span><span class="place">Tehran</span></div>
+    <div>
+      <h2>The question shows up</h2>
+      <p>In my last year I worked as a research assistant on a project about problematic social media use. We recruited clinical and non-clinical samples, and I helped collect and clean the data and write it up. A paper from that line of work, on fear of missing out, belonging and social isolation, is now under review at <i>Scientific Reports</i>.</p>
+      <p>What stayed with me was how blunt the tools were. Most studies asked how many hours people spent on their phones. Hours don't explain the urge to pick the phone up again a minute after putting it down.</p>
+    </div>
+  </article>
 
-<h2>Talks and posters</h2>
-<dl class="cv">
-  <dt>Dec 2026</dt>
-  <dd>Person-specific digital phenotyping of social media use and digital well-being (poster, upcoming).
-    <span class="note">Digital Mental Health Conference 2026, University of Cambridge.</span></dd>
-  <dt>Jul 2026</dt>
-  <dd>Does uncertainty drive compulsive checking? Causal evidence from a simulated social media task (poster).
-    <span class="note">BPS Cyberpsychology Annual Conference 2026, York St John University.</span></dd>
-  <dt>Nov 2025</dt>
-  <dd>Social media and uncertainty: How reward timing predictability shapes checking behaviour (invited talk).
-    <span class="note">Connected Minds Lab, University of Amsterdam.</span></dd>
-</dl>
+  <article class="chapter">
+    <div class="when"><span class="num">iii.</span><span class="years">2024 &ndash; 2025</span><span class="place">Glasgow</span></div>
+    <div>
+      <h2>Building a social media feed in the lab</h2>
+      <p>I came to Glasgow on a Behavioural Sciences Scholarship for an MSc in Behavioural Sciences. For my dissertation, supervised by Federica Farolfi and Georgia Turner, I wanted to test an old idea from learning theory: that rewards arriving at unpredictable times keep us coming back.</p>
+      <p>So I built a simulated social media feed in Gorilla. People could scroll, post their own content and receive likes. I then varied whether the likes arrived at predictable or unpredictable times. I recruited 110 people and analysed the data in R.</p>
+      <blockquote>When the rewards were unpredictable, people checked more.</blockquote>
+      <p>I presented this at the Connected Minds Lab in Amsterdam and at the BPS Cyberpsychology conference, and I am writing it up as <i>The Social Media Skinner Box</i>.</p>
+      <div class="aside">
+        <span><a href="social-media-uncertainty.html">Read the full project, with analysis and code</a></span>
+        <span>MSc Behavioural Sciences, University of Glasgow, Merit</span>
+      </div>
+    </div>
+  </article>
 
-<h2>Research</h2>
-<dl class="cv">
-  <dt>Aug 2026 &ndash; now</dt>
-  <dd><span class="what">How does social media make us feel?</span> Research collaborator.
-    <span class="note">With David Grüning, Georgia Turner, Wouter van den Bos, Myranda.ai and How We Feel
-    (Max Planck Institute, University of Cambridge, University of Amsterdam). We combine people's real social media data
-    with experience sampling to see how emotion and social media use shape each other.</span></dd>
+  <article class="chapter">
+    <div class="when"><span class="num">iv.</span><span class="years">2025 &ndash; 2026</span><span class="place">Glasgow</span></div>
+    <div>
+      <h2>Looking at the brain while it decides</h2>
+      <p>Behaviour is half the picture, so I joined the Philiastides Lab as a research assistant. With Dr Gina Brunner I collected simultaneous EEG and fMRI from 45 participants on perceptual decisions and how confident people feel about them, and preprocessed the EEG in MATLAB and EEGLAB. With Dr Hamed Ghane I ran 30 EEG and ECG sessions on how the heartbeat affects learning and choice, and cleaned and analysed that data in Python.</p>
+    </div>
+  </article>
 
-  <dt>Jun 2026 &ndash; now</dt>
-  <dd><span class="what">Causal inference with psychosis health records.</span> Research collaborator.
-    <span class="note">With Dr Samuel Leighton (School of Health and Wellbeing, Glasgow) and Rajeev Krishnadas (Cambridge).
-    Writing a target trial emulation protocol on longitudinal NHS Greater Glasgow and Clyde records (Esteem project, Safe Haven):
-    data cleaning, survival analysis, inverse probability weighting, and handling of confounding and censoring.
-    Also contributing to related work on antipsychotic medication and obesity.</span></dd>
+  <article class="chapter now">
+    <div class="when"><span class="num">v.</span><span class="years">2026 &ndash; now</span><span class="place">Glasgow, Cambridge, Amsterdam</span></div>
+    <div>
+      <h2>Out of the lab, into real lives</h2>
+      <p>Lab tasks can only go so far, so my current work uses real-world data. With David Grüning, Georgia Turner, Wouter van den Bos, Myranda.ai and How We Feel (Max Planck Institute, Cambridge and Amsterdam), I am combining people's actual social media data with short daily mood surveys to see how emotion and scrolling feed into each other.</p>
+      <p>With Dr Samuel Leighton and Rajeev Krishnadas I am working on NHS Greater Glasgow and Clyde health records from people with psychosis. We are writing a target trial emulation protocol, a way of asking causal questions of routine data, and using it on related questions about antipsychotic medication and weight gain. It is a different topic, and it gives me the causal methods I want for social media research.</p>
+    </div>
+  </article>
 
-  <dt>Feb &ndash; Jun 2026</dt>
-  <dd><span class="what">Decision-making, learning and the cardiac cycle.</span> Research assistant (EEG/ECG).
-    <span class="note">Philiastides Lab, University of Glasgow, with Dr Hamed Ghane. EEG and ECG data collection over
-    30 sessions, recruitment, data cleaning and analysis in Python.</span></dd>
+  <article class="chapter now" id="next">
+    <div class="when"><span class="num">vi.</span><span class="years">next</span><span class="place">PhD</span></div>
+    <div>
+      <h2>One person at a time</h2>
+      <p>Social media research keeps giving mixed answers, partly because it treats billions of users as one group. My proposed PhD project, <i>person-specific digital phenotyping of social media use and digital well-being</i>, brings the threads above together. It combines donated social media data, experience sampling and computational measures of behaviour to model how each person's own use and mood move together over time.</p>
+      <p>The goal is interventions and policy that fit the person, not an average user who doesn't exist. I'll present the proposal at the Digital Mental Health Conference in Cambridge in December 2026, and <a href="#contact">I am looking for a PhD position</a> to do it.</p>
+    </div>
+  </article>
 
-  <dt>Jun 2025 &ndash; Mar 2026</dt>
-  <dd><span class="what">Decision-making and metacognition of confidence.</span> Research assistant (EEG/fMRI).
-    <span class="note">Philiastides Lab, University of Glasgow, with Dr Gina Brunner. Simultaneous EEG and fMRI with
-    45 participants: setup, testing, quality control and EEG preprocessing in MATLAB/EEGLAB.</span></dd>
+</main>
 
-  <dt>Jun &ndash; Sep 2025</dt>
-  <dd><span class="what">Social media and uncertainty</span> (MSc dissertation).
-    [<a href="social-media-uncertainty.html">project page</a>]
-    <span class="note">Supervised by Federica Farolfi (Adam Smith Business School) and Georgia Turner (MRC CBU, Cambridge).
-    I designed a task in Gorilla with a simulated social media feed where people could browse, post and get likes,
-    and tested whether unpredictable reward timing makes people check more. 110 participants; analysis in R.</span></dd>
+<section class="record" id="record">
+  <h2>The record</h2>
+  <p class="lead">The same story as a list. The full version is in my <a href="files/Kasra_Mirnobahar_CV.pdf">CV (pdf)</a>.</p>
 
-  <dt>Mar &ndash; Sep 2023</dt>
-  <dd><span class="what">Childhood poly-victimisation, impulsivity and behavioural problems</span> (BSc dissertation).
-    <span class="note">University of Social Welfare and Rehabilitation Sciences. Designed the study and ran it with
-    600 adults; regression and psychometric analysis in SPSS and R. Published as the two papers above.</span></dd>
+  <div class="cols">
+    <div>
+      <div class="block">
+        <h3>Publications</h3>
+        <ul>
+          <li><span class="t">Impact of childhood poly-victimization on impulsivity and behavioral problems in Iranian adults: A regression analysis.</span>
+            <b>Mirnobahar, K.</b>, Pourmohamadreza-Tajrishi, M., &amp; Mohammadi Bytamar, J. (2025). <i>Iranian Journal of Psychiatry and Behavioral Sciences</i>, 19(3). <a href="https://doi.org/10.5812/ijpbs-159188">doi</a></li>
+          <li><span class="t">Assessing childhood trauma: The Iranian validation of the Juvenile Polyvictimization Questionnaire and its link to psychiatric symptoms.</span>
+            Pourmohamadreza-Tajrishi, M., <b>Mirnobahar, K.</b>, &amp; Mohammadi Bytamar, J. (2025). <i>International Journal of High Risk Behaviors and Addiction</i>, 14(3). <a href="https://doi.org/10.5812/ijhrba-163153">doi</a></li>
+          <li><span class="t">The impact of FoMO and belonging on problematic social media use: Social isolation as a mediating factor.</span>
+            <span class="d">Under review, Scientific Reports</span></li>
+          <li><span class="t">The social media Skinner box: Uncertain reward invigorates social media checking.</span>
+            <span class="d">In preparation</span></li>
+        </ul>
+        <p><a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&amp;hl=en">Google Scholar</a></p>
+      </div>
+    </div>
+    <div>
+      <div class="block">
+        <h3>Talks and posters</h3>
+        <ul>
+          <li><span class="t">Person-specific digital phenotyping of social media use and digital well-being</span>
+            <span class="d">Poster, Digital Mental Health Conference, University of Cambridge, Dec 2026 (upcoming)</span></li>
+          <li><span class="t">Does uncertainty drive compulsive checking? Causal evidence from a simulated social media task</span>
+            <span class="d">Poster, BPS Cyberpsychology Annual Conference, York St John University, Jul 2026</span></li>
+          <li><span class="t">Social media and uncertainty: How reward timing predictability shapes checking behaviour</span>
+            <span class="d">Invited talk, Connected Minds Lab, University of Amsterdam, Nov 2025</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Also</h3>
+        <ul>
+          <li><span class="t">Peer reviewer, InFrame Project</span><span class="d">Glasgow, Edinburgh and St Andrews, 2025. Reviewed eight research proposals.</span></li>
+          <li><span class="t">Suicide crisis counsellor, Iran Hotline Suicide Prevention</span><span class="d">2023&ndash;2024</span></li>
+          <li><span class="t">Researcher, Jahan Majd Basir Co.</span><span class="d">2023</span></li>
+          <li><span class="t">Administrative coordinator, USWR Counselling Centre</span><span class="d">2023</span></li>
+          <li><span class="t">Science communicator, Varan Psychology School</span><span class="d">2021&ndash;2022</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Methods and tools</h3>
+        <p><i>Analysis:</i> regression, Bayesian models, survival analysis, causal inference and target trial emulation, longitudinal data, reinforcement learning models.</p>
+        <p><i>Software:</i> R, Python, MATLAB/EEGLAB, SPSS, Gorilla, PsychoPy, FSL, Git.</p>
+        <p><i>Lab:</i> EEG, fMRI, ECG.</p>
+        <p><i>Languages:</i> Persian (native), English (fluent), German (basic).</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <dt>Feb &ndash; Sep 2023</dt>
-  <dd><span class="what">Problematic social media use.</span> Research assistant.
-    [<a href="https://link.springer.com/article/10.1007/s11469-024-01418-6">related paper</a>]
-    <span class="note">Department of Clinical Psychology, USWR. Recruitment and data collection with clinical and
-    non-clinical samples, data management, and help with the manuscript.</span></dd>
+<section class="contact" id="contact">
+  <div>
+    <p class="big"><a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk">Kasra.Mirnobahar@glasgow.ac.uk</a></p>
+    <p>If you work on any part of this story, or have a PhD position it might fit, I would like to hear from you. Personal email: <a href="mailto:kasranobahar@gmail.com">kasranobahar@gmail.com</a></p>
+  </div>
+  <ul>
+    <li><a href="files/Kasra_Mirnobahar_CV.pdf">CV (pdf)</a></li>
+    <li><a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&amp;hl=en">Google Scholar</a></li>
+    <li><a href="https://orcid.org/0009-0001-2363-6381">ORCID</a></li>
+    <li><a href="https://github.com/KasraMirnobahar">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/kasra-mirnobahar-339b09107">LinkedIn</a></li>
+    <li><a href="https://bsky.app/profile/kasramn.bsky.social">Bluesky</a></li>
+    <li><a href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/index.html/staffcontact/person/33dce7e18697">University page</a></li>
+  </ul>
+</section>
 
-  <dt>Jun 2022 &ndash; Feb 2023</dt>
-  <dd><span class="what">The HTKS self-regulation task in children.</span> Research assistant.
-    [<a href="https://pubmed.ncbi.nlm.nih.gov/40195088/">related paper</a>]
-    <span class="note">Department of Psychology and Education of Exceptional Children, USWR. Ran cognitive tasks with
-    children aged 5&ndash;8 in schools, handled consent with families and the ethics process with education authorities.</span></dd>
-</dl>
+<footer>Kasra Mirnobahar, Glasgow. Last updated October 2026.</footer>
 
-<h2>Education</h2>
-<dl class="cv">
-  <dt>2024 &ndash; 2025</dt>
-  <dd>MSc Behavioural Sciences, University of Glasgow. Merit.
-    <span class="note">Dissertation: The impact of reward timing predictability on checking behaviour in social media (A3).
-    Funded by the Behavioural Sciences Scholarship.</span></dd>
-  <dt>2019 &ndash; 2023</dt>
-  <dd>BSc Psychology, University of Social Welfare and Rehabilitation Sciences, Tehran. First class (17.58/20).
-    <span class="note">Dissertation: The relationship between poly-victimisation and behavioural problems among
-    individuals with psychiatric disorders (A1).</span></dd>
-</dl>
+</div>
 
-<h2>Other work and volunteering</h2>
-<dl class="cv">
-  <dt>Jan 2025</dt>
-  <dd>Peer reviewer, InFrame Project (Universities of Glasgow, Edinburgh and St Andrews). Reviewed eight research proposals.</dd>
-  <dt>2023 &ndash; 2024</dt>
-  <dd>Suicide crisis counsellor, Iran Hotline Suicide Prevention (NGO).</dd>
-  <dt>Aug &ndash; Dec 2023</dt>
-  <dd>Researcher, Jahan Majd Basir Co. Cross-cultural research on social and belief systems.</dd>
-  <dt>Jan &ndash; Jul 2023</dt>
-  <dd>Administrative coordinator, Counselling Centre, USWR.</dd>
-  <dt>2021 &ndash; 2022</dt>
-  <dd>Science communicator, Varan Psychology School. Wrote psychology content and organised workshops and guest lectures.</dd>
-</dl>
+<script>
+/* background: drifting nodes joined by lines when close */
+(function () {
+  var canvas = document.getElementById('bg');
+  var ctx = canvas.getContext('2d');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, nodes, dpr = window.devicePixelRatio || 1;
 
-<h2>Skills</h2>
-<p>
-  <i>Methods:</i> regression, Bayesian modelling, survival analysis, causal inference and target trial emulation,
-  longitudinal data, experimental and survey design, computational and reinforcement learning modelling.<br>
-  <i>Software:</i> R, Python, MATLAB/EEGLAB, SPSS, Gorilla, PsychoPy, FSL, Git.<br>
-  <i>Lab:</i> EEG setup and preprocessing, fMRI data acquisition, ECG recording.<br>
-  <i>Languages:</i> Persian (native), English (fluent), German (basic).
-</p>
+  function setup() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.min(70, W * H / 16000));
+    nodes = [];
+    for (var i = 0; i < n; i++) {
+      nodes.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25,
+        r: Math.random() * 1.6 + 1.2, p: Math.random() * Math.PI * 2,
+        warm: Math.random() < .12
+      });
+    }
+  }
 
-<h2>Contact</h2>
-<p>
-  University: <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk">Kasra.Mirnobahar@glasgow.ac.uk</a><br>
-  Personal: <a href="mailto:kasranobahar@gmail.com">kasranobahar@gmail.com</a>
-</p>
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    var maxD = 150, i, j, a, b, dx, dy, d;
+    for (i = 0; i < nodes.length; i++) {
+      a = nodes[i];
+      if (!still) {
+        a.x += a.vx; a.y += a.vy; a.p += .01;
+        if (a.x < 0 || a.x > W) a.vx *= -1;
+        if (a.y < 0 || a.y > H) a.vy *= -1;
+      }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = a.x - b.x; dy = a.y - b.y; d = Math.sqrt(dx * dx + dy * dy);
+        if (d < maxD) {
+          ctx.strokeStyle = 'rgba(150,175,215,' + ((1 - d / maxD) * .28) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      a = nodes[i];
+      ctx.fillStyle = a.warm ? 'rgba(224,168,79,.75)' : 'rgba(190,205,230,.5)';
+      ctx.beginPath(); ctx.arc(a.x, a.y, a.r + Math.sin(a.p) * .4, 0, Math.PI * 2); ctx.fill();
+    }
+    if (!still) requestAnimationFrame(frame);
+  }
 
-<footer>Last updated October 2026.</footer>
-
+  setup(); frame();
+  window.addEventListener('resize', function () { setup(); if (still) frame(); });
+})();
+</script>
 </body>
 </html>
