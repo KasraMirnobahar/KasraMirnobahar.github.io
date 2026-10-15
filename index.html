@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kasra Mirnobahar</title>
-<meta name="description" content="Kasra Mirnobahar, University of Glasgow. How I came to study why we keep checking social media, and where I want to take it next.">
+<meta name="description" content="Kasra Mirnobahar, University of Glasgow. Research on social media, decision-making and mental health.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
@@ -89,6 +89,9 @@
   .contact p { color: var(--ink-2); margin: 0 0 .5rem; font-size: .95rem; }
   .contact ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 2rem; }
   .contact li { margin: 0 0 .6rem; font-size: .95rem; }
+  .declaration { border-top: 1px solid var(--rule); padding: 2rem 0 .5rem; max-width: 44rem; }
+  .declaration h3 { font-size: .85rem; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin: 0 0 .8rem; }
+  .declaration p { font-size: .9rem; color: var(--ink-2); margin: 0; }
   footer { padding: 1rem 0 2.5rem; font-size: .8rem; color: var(--ink-3); }
 
   @media (max-width: 46rem) {
@@ -115,8 +118,8 @@
 <header class="top">
   <a class="name" href="#">Kasra Mirnobahar</a>
   <nav>
-    <a href="#story">Story</a>
-    <a href="#next">Next</a>
+    <a href="#projects">Projects</a>
+    <a href="#proposal">PhD proposal</a>
     <a href="#record">Publications &amp; talks</a>
     <a href="files/Kasra_Mirnobahar_CV.pdf">CV</a>
     <a href="#contact">Contact</a>
@@ -125,84 +128,109 @@
 
 <section class="opening">
   <p class="kicker">University of Glasgow</p>
-  <h1>Why do we keep checking our phones, <em>even when nothing is there?</em></h1>
-  <p>I'm <b>Kasra Mirnobahar</b>. I study how social media, reward and decision-making shape behaviour and mental health, using experiments, computational models, real-world data and brain imaging.</p>
-  <p>This page is the story of how I got to that question, and where I would like to take it next.</p>
+  <h1>Kasra <em>Mirnobahar</em></h1>
+  <p>I am interested in how digital health, decision-making and behaviour interact to shape mental health outcomes. My work focuses particularly on social media, using experimental tasks, computational and reinforcement learning modelling, real-world data, data donation and neuroimaging to understand how reward systems shape behaviour.</p>
+  <p>My long-term goal is to better understand digital well-being and to design interventions and applied frameworks that can inform public policy and improve related mental health outcomes.</p>
 </section>
 
-<main class="story" id="story">
+<main class="story" id="projects">
 
-  <article class="chapter">
-    <div class="when"><span class="num">i.</span><span class="years">2019 &ndash; 2023</span><span class="place">Tehran</span></div>
+  <article class="chapter now">
+    <div class="when"><span class="years">Aug 2026 &ndash; now</span><span class="place">Research collaborator</span></div>
     <div>
-      <h2>Starting with people, and with what goes wrong</h2>
-      <p>I studied psychology at the University of Social Welfare and Rehabilitation Sciences in Tehran and finished with first-class honours. Most of my time there was spent close to clinical work. For my dissertation I designed a study with 600 adults on childhood poly-victimisation, which means being exposed to several kinds of harm while growing up, and how it relates to impulsivity and behaviour problems later in life. That work became my first two papers.</p>
-      <p>Alongside it I ran cognitive tasks with five-to-eight-year-olds in schools, and for a year I volunteered as a counsellor on a suicide crisis line. Those years gave me a feel for running studies from ethics to analysis. They also showed me that the numbers in a mental health dataset are people.</p>
-      <div class="aside">
-        <span>BSc Psychology, USWR, first class (17.58/20)</span>
-        <span>Two papers, 2025: <a href="https://doi.org/10.5812/ijpbs-159188">Iran J Psychiatry Behav Sci</a> and <a href="https://doi.org/10.5812/ijhrba-163153">Int J High Risk Behav Addict</a></span>
-      </div>
-    </div>
-  </article>
-
-  <article class="chapter">
-    <div class="when"><span class="num">ii.</span><span class="years">2023</span><span class="place">Tehran</span></div>
-    <div>
-      <h2>The question shows up</h2>
-      <p>In my last year I worked as a research assistant on a project about problematic social media use. We recruited clinical and non-clinical samples, and I helped collect and clean the data and write it up. A paper from that line of work, on fear of missing out, belonging and social isolation, is now under review at <i>Scientific Reports</i>.</p>
-      <p>What stayed with me was how blunt the tools were. Most studies asked how many hours people spent on their phones. Hours don't explain the urge to pick the phone up again a minute after putting it down.</p>
-    </div>
-  </article>
-
-  <article class="chapter">
-    <div class="when"><span class="num">iii.</span><span class="years">2024 &ndash; 2025</span><span class="place">Glasgow</span></div>
-    <div>
-      <h2>Building a social media feed in the lab</h2>
-      <p>I came to Glasgow on a Behavioural Sciences Scholarship for an MSc in Behavioural Sciences. For my dissertation, supervised by Federica Farolfi and Georgia Turner, I wanted to test an old idea from learning theory: that rewards arriving at unpredictable times keep us coming back.</p>
-      <p>So I built a simulated social media feed in Gorilla. People could scroll, post their own content and receive likes. I then varied whether the likes arrived at predictable or unpredictable times. I recruited 110 people and analysed the data in R.</p>
-      <blockquote>When the rewards were unpredictable, people checked more.</blockquote>
-      <p>I presented this at the Connected Minds Lab in Amsterdam and at the BPS Cyberpsychology conference, and I am writing it up as <i>The Social Media Skinner Box</i>.</p>
-      <div class="aside">
-        <span><a href="social-media-uncertainty.html">Read the full project, with analysis and code</a></span>
-        <span>MSc Behavioural Sciences, University of Glasgow, Merit</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="chapter">
-    <div class="when"><span class="num">iv.</span><span class="years">2025 &ndash; 2026</span><span class="place">Glasgow</span></div>
-    <div>
-      <h2>Looking at the brain while it decides</h2>
-      <p>Behaviour is half the picture, so I joined the Philiastides Lab as a research assistant. With Dr Gina Brunner I collected simultaneous EEG and fMRI from 45 participants on perceptual decisions and how confident people feel about them, and preprocessed the EEG in MATLAB and EEGLAB. With Dr Hamed Ghane I ran 30 EEG and ECG sessions on how the heartbeat affects learning and choice, and cleaned and analysed that data in Python.</p>
+      <h2>How does social media make us feel?</h2>
+      <p>Using real data from social media combined with ecological momentary assessment (EMA) to investigate how emotion and social media use shape people's online behaviour.</p>
+      <div class="aside"><span>With David Grüning, Georgia Turner, Wouter van den Bos, Myranda.ai and How We Feel</span><span>Max Planck Institute, University of Cambridge, University of Amsterdam</span></div>
     </div>
   </article>
 
   <article class="chapter now">
-    <div class="when"><span class="num">v.</span><span class="years">2026 &ndash; now</span><span class="place">Glasgow, Cambridge, Amsterdam</span></div>
+    <div class="when"><span class="years">Jun 2026 &ndash; now</span><span class="place">Research collaborator</span></div>
     <div>
-      <h2>Out of the lab, into real lives</h2>
-      <p>Lab tasks can only go so far, so my current work uses real-world data. With David Grüning, Georgia Turner, Wouter van den Bos, Myranda.ai and How We Feel (Max Planck Institute, Cambridge and Amsterdam), I am combining people's actual social media data with short daily mood surveys to see how emotion and scrolling feed into each other.</p>
-      <p>With Dr Samuel Leighton and Rajeev Krishnadas I am working on NHS Greater Glasgow and Clyde health records from people with psychosis. We are writing a target trial emulation protocol, a way of asking causal questions of routine data, and using it on related questions about antipsychotic medication and weight gain. It is a different topic, and it gives me the causal methods I want for social media research.</p>
+      <h2>Causal inference in psychosis electronic health records</h2>
+      <p>Developing a target trial emulation protocol using longitudinal electronic health records from patients with psychosis in NHS Greater Glasgow and Clyde (Esteem project, Safe Haven). The work involves data cleaning and causal inference methods, including target trial emulation and survival analysis, with planned analyses using inverse probability weighting, adjustment for baseline and time-varying clinical confounding, censoring mechanisms and sensitivity analyses.</p>
+      <p>I also contribute to related work on antipsychotic medication and obesity in people with psychosis.</p>
+      <div class="aside"><span>With Dr Samuel Leighton (School of Health &amp; Wellbeing, University of Glasgow) and Rajeev Krishnadas (University of Cambridge)</span></div>
     </div>
   </article>
 
-  <article class="chapter now" id="next">
-    <div class="when"><span class="num">vi.</span><span class="years">next</span><span class="place">PhD</span></div>
+  <article class="chapter">
+    <div class="when"><span class="years">Feb &ndash; Jun 2026</span><span class="place">Research assistant, EEG/ECG</span></div>
     <div>
-      <h2>One person at a time</h2>
-      <p>Social media research keeps giving mixed answers, partly because it treats billions of users as one group. My proposed PhD project, <i>person-specific digital phenotyping of social media use and digital well-being</i>, brings the threads above together. It combines donated social media data, experience sampling and computational measures of behaviour to model how each person's own use and mood move together over time.</p>
-      <p>The goal is interventions and policy that fit the person, not an average user who doesn't exist. I'll present the proposal at the Digital Mental Health Conference in Cambridge in December 2026, and <a href="#contact">I am looking for a PhD position</a> to do it.</p>
+      <h2>Decision-making, learning and the cardiac cycle</h2>
+      <p>Contributed to EEG and ECG data collection and participant recruitment across 30 testing sessions, supporting experimental setup, participant testing and data acquisition, and assisting with data quality control, data cleaning and analysis in Python.</p>
+      <div class="aside"><span>Philiastides Lab, School of Psychology and Neuroscience, University of Glasgow</span><span>With Dr Hamed Ghane</span></div>
+    </div>
+  </article>
+
+  <article class="chapter">
+    <div class="when"><span class="years">Jun 2025 &ndash; Mar 2026</span><span class="place">Research assistant, EEG/fMRI</span></div>
+    <div>
+      <h2>Decision-making and metacognition of confidence</h2>
+      <p>Contributed to EEG and fMRI data collection for 45 participants in a study on perceptual decision-making and metacognition, supporting experimental setup, participant testing and data acquisition, and assisting with data quality control and EEG preprocessing in MATLAB and EEGLAB.</p>
+      <div class="aside"><span>Philiastides Lab, School of Psychology and Neuroscience, University of Glasgow</span><span>With Dr Gina Brunner</span></div>
+    </div>
+  </article>
+
+  <article class="chapter">
+    <div class="when"><span class="years">Jun &ndash; Sep 2025</span><span class="place">Primary researcher, MSc dissertation</span></div>
+    <div>
+      <h2>Social media and uncertainty</h2>
+      <p>I conceptualised and designed a study examining how the predictability of reward timing shapes social media checking behaviour. I built a multi-component experimental task in Gorilla, including a simulated social media feed where participants could explore the feed, upload their own posts and receive likes.</p>
+      <p>I led the ethical approval process, recruited and screened 110 participants, coordinated data collection, carried out the full quantitative analysis in R, and wrote the dissertation. The analysis plan, pipeline and task materials are openly available on GitHub.</p>
+      <div class="aside"><span><a href="social-media-uncertainty.html">Read the full project, with analysis and code</a></span><span>Adam Smith Business School, University of Glasgow. Supervised by Federica Farolfi, with Georgia Turner (MRC Cognition and Brain Sciences Unit, University of Cambridge)</span></div>
+    </div>
+  </article>
+
+  <article class="chapter">
+    <div class="when"><span class="years">Mar &ndash; Sep 2023</span><span class="place">Primary researcher, BSc dissertation</span></div>
+    <div>
+      <h2>Childhood poly-victimisation, behavioural problems and impulsivity</h2>
+      <p>I conceptualised and designed the study and led the full ethical approval process. I collected data from 600 adults, performed regression analysis and psychometric validation in SPSS and R, and wrote and edited the manuscripts. The findings were published in two peer-reviewed journals.</p>
+      <div class="aside"><span>Department of Clinical Psychology, University of Social Welfare and Rehabilitation Sciences</span></div>
+    </div>
+  </article>
+
+  <article class="chapter">
+    <div class="when"><span class="years">Feb &ndash; Sep 2023</span><span class="place">Research assistant</span></div>
+    <div>
+      <h2>Problematic social media use</h2>
+      <p>Coordinated participant recruitment, screening and engagement for clinical and non-clinical samples, and carried out online and in-person data collection. I organised, cleaned and managed the datasets, and contributed to drafting, revising and editing the manuscript for peer-reviewed publication.</p>
+      <div class="aside"><span>Department of Clinical Psychology, University of Social Welfare and Rehabilitation Sciences</span><span><a href="https://link.springer.com/article/10.1007/s11469-024-01418-6">Related paper</a></span></div>
+    </div>
+  </article>
+
+  <article class="chapter">
+    <div class="when"><span class="years">Jun 2022 &ndash; Feb 2023</span><span class="place">Research assistant</span></div>
+    <div>
+      <h2>The HTKS cognitive task with children in schools</h2>
+      <p>Coordinated recruitment of children aged 5&ndash;8 through schools, working with administrators and teachers on access and scheduling. I managed informed consent and assent with parents and guardians, administered cognitive and behavioural tasks in classrooms across several school visits, and kept the participant records and datasets in SPSS. I also led the ethical approval process with governmental and educational authorities.</p>
+      <div class="aside"><span>Department of Psychology and Education of Exceptional Children, University of Social Welfare and Rehabilitation Sciences</span><span><a href="https://pubmed.ncbi.nlm.nih.gov/40195088/">Related paper</a></span></div>
     </div>
   </article>
 
 </main>
 
+<section class="record" id="proposal">
+  <h2>Proposed PhD project</h2>
+  <p class="lead" style="max-width:44rem"><i>Person-specific digital phenotyping of social media use and digital well-being.</i> Research on social media and mental health remains inconsistent, largely because it treats users as a homogeneous group and relies on crude screen-time measures. This project proposes combining data donation, ecological momentary assessment and computational behavioural measures to build person-specific profiles of how social media use and well-being relate. It will be presented as a poster at the Digital Mental Health Conference, University of Cambridge, in December 2026.</p>
+</section>
+
 <section class="record" id="record">
-  <h2>The record</h2>
-  <p class="lead">The same story as a list. The full version is in my <a href="files/Kasra_Mirnobahar_CV.pdf">CV (pdf)</a>.</p>
+  <h2>Publications, talks and more</h2>
+  <p class="lead">The full version is in my <a href="files/Kasra_Mirnobahar_CV.pdf">CV (pdf)</a>.</p>
 
   <div class="cols">
     <div>
+      <div class="block">
+        <h3>Education</h3>
+        <ul>
+          <li><span class="t">MSc Behavioural Sciences, University of Glasgow</span>
+            <span class="d">2024&ndash;2025, Merit. Behavioural Sciences Scholarship. Dissertation: The impact of reward timing predictability on checking behaviour in social media (A3).</span></li>
+          <li><span class="t">BSc Psychology, University of Social Welfare and Rehabilitation Sciences</span>
+            <span class="d">2019&ndash;2023, first class honours (17.58/20). Dissertation: The relationship between poly-victimisation and behavioural problems among individuals with psychiatric disorders (A1).</span></li>
+        </ul>
+      </div>
       <div class="block">
         <h3>Publications</h3>
         <ul>
@@ -253,8 +281,8 @@
 
 <section class="contact" id="contact">
   <div>
-    <p class="big"><a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk">Kasra.Mirnobahar@glasgow.ac.uk</a></p>
-    <p>If you work on any part of this story, or have a PhD position it might fit, I would like to hear from you. Personal email: <a href="mailto:kasranobahar@gmail.com">kasranobahar@gmail.com</a></p>
+    <p class="big"><a href="mailto:kasranobahar@gmail.com">kasranobahar@gmail.com</a></p>
+    <p>I am looking for PhD opportunities and am happy to hear about research collaborations.</p>
   </div>
   <ul>
     <li><a href="files/Kasra_Mirnobahar_CV.pdf">CV (pdf)</a></li>
@@ -265,6 +293,11 @@
     <li><a href="https://bsky.app/profile/kasramn.bsky.social">Bluesky</a></li>
     <li><a href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/index.html/staffcontact/person/33dce7e18697">University page</a></li>
   </ul>
+</section>
+
+<section class="declaration">
+  <h3>About this website</h3>
+  <p>This website was designed and built from scratch by Claude Opus 5.5, an AI model. I am not a web developer, so the design and structure of the site were produced by AI and I cannot take responsibility for them. The text and content, however, are entirely my own original work and are not AI-generated; I have checked and approved all of it.</p>
 </section>
 
 <footer>Kasra Mirnobahar, Glasgow. Last updated October 2026.</footer>

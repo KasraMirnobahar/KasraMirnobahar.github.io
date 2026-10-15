@@ -15,6 +15,6 @@ script_files/, images/          assets for the project page
 
 ## Contact
 
-- Email: [Kasra.Mirnobahar@glasgow.ac.uk](mailto:Kasra.Mirnobahar@glasgow.ac.uk)
+- Email: [kasranobahar@gmail.com](mailto:kasranobahar@gmail.com)
 - Google Scholar: [profile](https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en)
 - ORCID: [0009-0001-2363-6381](https://orcid.org/0009-0001-2363-6381)
