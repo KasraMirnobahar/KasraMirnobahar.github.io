@@ -1,1114 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kasra Mirnobahar</title>
-  <meta name="description" content="Research Assistant at the University of Glasgow studying social media, decision-making, and the neural mechanisms of behaviour." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg:      #f5f4f0;
-      --bg2:     #eceae4;
-      --bg3:     #e0ddd6;
-      --ink:     #1a1917;
-      --ink2:    #4a4845;
-      --ink3:    #8a8680;
-      --accent:  #2d5be3;
-      --teal:    #0e7c6b;
-      --purple:  #5c47c7;
-      --amber:   #b87214;
-      --border:  rgba(26,25,23,.1);
-      --border2: rgba(26,25,23,.2);
-      --r:       12px;
-      --serif:   'DM Serif Display', Georgia, serif;
-      --sans:    'DM Sans', system-ui, sans-serif;
-      --ease:    cubic-bezier(.4,0,.2,1);
-    }
-    [data-theme="dark"] {
-      --bg:    #131311;
-      --bg2:   #1d1c1a;
-      --bg3:   #252420;
-      --ink:   #f0ede8;
-      --ink2:  #aba8a2;
-      --ink3:  #656260;
-      --accent:#7090f8;
-      --teal:  #2bbfa6;
-      --purple:#9b85f5;
-      --amber: #d4933a;
-      --border: rgba(240,237,232,.09);
-      --border2:rgba(240,237,232,.18);
-    }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.7;
-      overflow-x: hidden;
-      transition: background .3s, color .3s;
-    }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 2px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kasra Mirnobahar</title>
+<meta name="description" content="Kasra Mirnobahar, University of Glasgow. How I came to study why we keep checking social media, and where I want to take it next.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2e;
+    --navy-2: #13253d;
+    --ink: #ece4d3;
+    --ink-2: #b9b3a6;
+    --ink-3: #8a8a88;
+    --rule: rgba(236, 228, 211, .18);
+    --brass: #e0a84f;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--navy); scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--navy);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.55;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  #bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .wrap { position: relative; z-index: 1; max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
 
-    #bg-canvas {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none; z-index: 0;
-    }
+  a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+  a:hover { color: var(--brass); }
+  em, i { font-style: italic; }
+  b, strong { font-weight: 500; }
 
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: .9rem 2.5rem;
-      transition: background .3s, box-shadow .3s;
-    }
-    nav.scrolled {
-      background: color-mix(in srgb, var(--bg) 85%, transparent);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 1px 0 var(--border);
-    }
-    .nav-logo { font-family: var(--serif); font-size: 1rem; color: var(--ink); text-decoration: none; }
-    .nav-right { display: flex; align-items: center; gap: .2rem; }
-    .nav-right a, #theme-btn {
-      font-size: .78rem; color: var(--ink2); text-decoration: none;
-      padding: .32rem .75rem; border-radius: 20px;
-      border: none; background: none; font-family: var(--sans);
-      cursor: pointer; transition: background .18s, color .18s;
-    }
-    .nav-right a:hover, #theme-btn:hover { background: var(--bg2); color: var(--ink); }
-    @media (max-width:600px) { .nav-right a { display:none; } nav { padding:.85rem 1.25rem; } }
+  /* top line */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; padding: 1.4rem 0 0; font-size: .85rem; color: var(--ink-2); }
+  .top .name { color: var(--ink); text-decoration: none; font-weight: 400; letter-spacing: .02em; }
+  .top nav a { margin-left: 1.1rem; color: var(--ink-2); text-decoration: none; }
+  .top nav a:hover { color: var(--brass); }
 
-    .page { position: relative; z-index: 1; }
+  /* opening */
+  .opening { padding: 18vh 0 14vh; max-width: 46rem; }
+  .opening .kicker { font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin: 0 0 1.4rem; font-weight: 400; }
+  .opening h1 { font-size: clamp(2.6rem, 6.5vw, 4.6rem); line-height: 1.04; font-weight: 300; margin: 0 0 2rem; letter-spacing: -.01em; }
+  .opening h1 em { color: var(--brass); }
+  .opening p { font-size: 1.15rem; color: var(--ink-2); max-width: 38rem; margin: 0 0 1rem; }
+  .opening p b { color: var(--ink); font-weight: 400; }
 
-    /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 55% 45%;
-      align-items: center;
-      max-width: 1020px; margin: 0 auto;
-      padding: 7rem 2.5rem 4rem;
-      gap: 2rem;
-    }
-    @media (max-width: 740px) {
-      #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
-      .hero-visual { display: none; }
-    }
-    .hero-eyebrow {
-      font-size: .72rem; font-weight: 500; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--ink3); margin-bottom: 1.1rem;
-      opacity: 0; animation: fadeUp .5s var(--ease) .1s forwards;
-    }
-    .hero-eyebrow b { color: var(--accent); font-weight: 500; }
-    h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 5.5vw, 4.4rem);
-      line-height: 1.06; letter-spacing: -.025em;
-      margin-bottom: 1.15rem;
-      opacity: 0; animation: fadeUp .6s var(--ease) .2s forwards;
-    }
-    h1 em { font-style: italic; color: var(--ink2); }
-    .hero-bio {
-      font-size: .94rem; color: var(--ink2); line-height: 1.82;
-      max-width: 430px; margin-bottom: 1.75rem;
-      opacity: 0; animation: fadeUp .5s var(--ease) .35s forwards;
-    }
-    .hero-bio strong { color: var(--ink); font-weight: 500; }
-    .hero-chips {
-      display: flex; flex-wrap: wrap; gap: .42rem; margin-bottom: 1.75rem;
-      opacity: 0; animation: fadeUp .5s var(--ease) .45s forwards;
-    }
-    .chip {
-      font-size: .7rem; font-weight: 500; letter-spacing: .04em;
-      padding: .28rem .8rem; border-radius: 20px;
-      border: 1px solid var(--border2); color: var(--ink2); background: var(--bg2);
-    }
-    .chip.ca { border-color:color-mix(in srgb,var(--accent)35%,transparent); color:var(--accent); background:color-mix(in srgb,var(--accent)8%,transparent); }
-    .chip.ct { border-color:color-mix(in srgb,var(--teal)35%,transparent);   color:var(--teal);   background:color-mix(in srgb,var(--teal)8%,transparent); }
-    .chip.cp { border-color:color-mix(in srgb,var(--purple)35%,transparent); color:var(--purple); background:color-mix(in srgb,var(--purple)8%,transparent); }
-    .chip.cm { border-color:color-mix(in srgb,var(--amber)35%,transparent);  color:var(--amber);  background:color-mix(in srgb,var(--amber)8%,transparent); }
-    .hero-btns {
-      display: flex; gap: .6rem; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp .5s var(--ease) .55s forwards;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: .4rem;
-      font-size: .82rem; font-weight: 500; font-family: var(--sans);
-      padding: .6rem 1.3rem; border-radius: 22px; text-decoration: none;
-      cursor: pointer; border: none; transition: transform .15s, opacity .15s;
-    }
-    .btn:hover { transform: translateY(-1px); opacity: .85; }
-    .btn-p { background: var(--ink); color: var(--bg); }
-    .btn-o { background: transparent; color: var(--ink); border: 1px solid var(--border2); }
-    .btn-o:hover { background: var(--bg2); }
+  /* the story: a thin thread with a node per chapter */
+  .story { position: relative; padding-bottom: 2rem; }
+  .story::before { content: ""; position: absolute; left: 9.25rem; top: .6rem; bottom: 0; width: 1px; background: var(--rule); }
+  .chapter { display: grid; grid-template-columns: 8.5rem 1fr; column-gap: 3rem; padding: 0 0 5.5rem; position: relative; }
+  .chapter::before { content: ""; position: absolute; left: calc(9.25rem - 4px); top: .62rem; width: 9px; height: 9px; border-radius: 50%; background: var(--navy); border: 1px solid var(--brass); }
+  .chapter.now::before { background: var(--brass); }
+  .chapter .when { text-align: right; padding-top: .1rem; }
+  .chapter .num { display: block; font-style: italic; font-size: 2.2rem; line-height: 1; color: var(--brass); font-weight: 300; }
+  .chapter .years { display: block; margin-top: .5rem; font-size: .85rem; color: var(--ink-3); letter-spacing: .04em; }
+  .chapter .place { display: block; font-size: .85rem; color: var(--ink-3); font-style: italic; }
+  .chapter h2 { font-weight: 400; font-size: 1.9rem; line-height: 1.15; margin: 0 0 1.2rem; max-width: 34rem; }
+  .chapter p { margin: 0 0 1rem; max-width: 38rem; }
+  .chapter .aside { font-size: .9rem; color: var(--ink-2); border-left: 1px solid var(--brass); padding-left: 1rem; margin-top: 1.4rem; max-width: 36rem; }
+  .chapter .aside span { display: block; }
+  blockquote { margin: 1.6rem 0; font-size: 1.45rem; line-height: 1.35; font-style: italic; color: var(--ink); max-width: 34rem; }
 
-    .hero-visual {
-      opacity: 0; animation: fadeUp .7s var(--ease) .25s forwards;
-      display: flex; justify-content: center; align-items: center;
-    }
-    #icon-canvas { width: 100%; max-width: 320px; height: 320px; }
+  /* reference section */
+  .record { border-top: 1px solid var(--rule); padding: 3rem 0 1rem; }
+  .record > h2 { font-weight: 300; font-size: 2.2rem; margin: 0 0 .4rem; }
+  .record > p.lead { color: var(--ink-2); margin: 0 0 2.5rem; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 4rem; }
+  .block { margin-bottom: 2.4rem; }
+  .block h3 { font-size: .85rem; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin: 0 0 1rem; }
+  .block ul { list-style: none; margin: 0; padding: 0; }
+  .block li { margin: 0 0 1rem; font-size: .95rem; color: var(--ink-2); }
+  .block li b { color: var(--ink); font-weight: 400; }
+  .block li .t { color: var(--ink); display: block; }
+  .block li .d { color: var(--ink-3); font-size: .85rem; }
+  .block p { font-size: .95rem; color: var(--ink-2); margin: 0 0 .6rem; }
+  .block p i { color: var(--ink); }
 
-    /* SECTIONS */
-    section {
-      max-width: 900px; margin: 0 auto;
-      padding: 5rem 2.5rem;
-      border-top: 1px solid var(--border);
-    }
-    @media (max-width:600px) { section { padding: 3.5rem 1.5rem; } }
+  .contact { border-top: 1px solid var(--rule); padding: 3rem 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem; }
+  .contact .big { font-size: clamp(1.5rem, 3.4vw, 2.3rem); font-weight: 300; line-height: 1.2; margin: 0 0 1rem; }
+  .contact .big a { text-decoration-thickness: 1px; }
+  .contact p { color: var(--ink-2); margin: 0 0 .5rem; font-size: .95rem; }
+  .contact ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 2rem; }
+  .contact li { margin: 0 0 .6rem; font-size: .95rem; }
+  footer { padding: 1rem 0 2.5rem; font-size: .8rem; color: var(--ink-3); }
 
-    .sec-label {
-      font-size: .7rem; font-weight: 500; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--ink3); margin-bottom: 1.2rem;
-      display: flex; align-items: center; gap: .75rem;
-    }
-    .sec-label::after { content:''; flex:1; height:1px; background:var(--border); }
-    h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
-      line-height: 1.15; letter-spacing: -.02em; margin-bottom: .85rem;
-    }
-    h2 em { font-style: italic; color: var(--ink2); }
-    .sec-intro { font-size: .92rem; color: var(--ink2); max-width: 520px; margin-bottom: 2rem; line-height: 1.75; }
-
-    .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s var(--ease),transform .6s var(--ease); }
-    .reveal.vis { opacity:1; transform:none; }
-
-    /* PILLARS */
-    .pillars { display:grid; grid-template-columns:repeat(2,1fr); gap:.85rem; }
-    @media (max-width:560px) { .pillars { grid-template-columns:1fr; } }
-    .pillar {
-      padding:1.35rem 1.5rem; border-radius:var(--r);
-      border:1px solid var(--border); background:var(--bg2);
-      transition:transform .2s var(--ease),border-color .2s,box-shadow .2s;
-    }
-    .pillar:hover { transform:translateY(-3px); border-color:var(--border2); box-shadow:0 8px 28px -8px rgba(0,0,0,.1); }
-    .pillar-bar { width:26px; height:3px; border-radius:2px; margin-bottom:.9rem; }
-    .pillar h3 { font-size:.88rem; font-weight:500; margin-bottom:.38rem; }
-    .pillar p  { font-size:.81rem; color:var(--ink2); line-height:1.65; }
-    .ptag {
-      display:inline-block; margin-top:.65rem;
-      font-size:.67rem; font-weight:500; letter-spacing:.04em;
-      padding:.17rem .58rem; border-radius:20px;
-    }
-    .ta { color:var(--accent); background:color-mix(in srgb,var(--accent)9%,transparent); border:1px solid color-mix(in srgb,var(--accent)22%,transparent); }
-    .tt { color:var(--teal);   background:color-mix(in srgb,var(--teal)9%,transparent);   border:1px solid color-mix(in srgb,var(--teal)22%,transparent); }
-    .tp { color:var(--purple); background:color-mix(in srgb,var(--purple)9%,transparent); border:1px solid color-mix(in srgb,var(--purple)22%,transparent); }
-    .tm { color:var(--amber);  background:color-mix(in srgb,var(--amber)9%,transparent);  border:1px solid color-mix(in srgb,var(--amber)22%,transparent); }
-
-    /* SPOTLIGHT */
-    .spotlight {
-      border:1px solid var(--border); border-radius:var(--r);
-      padding:1.75rem 2rem; background:var(--bg2);
-      transition:border-color .2s;
-    }
-    .spotlight:hover { border-color:var(--border2); }
-    .spot-kicker { font-size:.7rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); margin-bottom:.6rem; }
-    .spot-title { font-family:var(--serif); font-size:1.2rem; line-height:1.3; margin-bottom:.8rem; }
-    .spot-desc { font-size:.84rem; color:var(--ink2); line-height:1.78; margin-bottom:1rem; }
-    .spot-tags { display:flex; flex-wrap:wrap; gap:.38rem; }
-
-    /* TIMELINE */
-    .tl { display:flex; flex-direction:column; gap:0; }
-    .tl-item {
-      display:grid;
-      grid-template-columns:7rem 1fr;
-      gap:0 1.75rem;
-      padding-bottom:2.25rem;
-      position:relative;
-    }
-    .tl-item:last-child { padding-bottom:0; }
-    .tl-left {
-      text-align:right;
-      padding-top:.15rem;
-      position:relative;
-    }
-    .tl-left::after {
-      content:''; position:absolute;
-      right:-1.25rem; top:.45rem;
-      width:9px; height:9px; border-radius:50%;
-      background:var(--bg); border:2px solid var(--border2);
-      transition:border-color .2s, background .2s;
-      z-index:1;
-    }
-    .tl-item:hover .tl-left::after { border-color:var(--accent); background:var(--accent); }
-    .tl-right {
-      border-left:1px solid var(--border2);
-      padding-left:1.75rem;
-      padding-bottom:2.25rem;
-    }
-    .tl-item:last-child .tl-right { padding-bottom:0; border-left-color:transparent; }
-    .tl-year  { font-size:.68rem; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); line-height:1.5; }
-    .tl-title { font-size:.9rem; font-weight:500; margin-bottom:.14rem; }
-    .tl-place { font-size:.81rem; color:var(--ink2); margin-bottom:.35rem; }
-    .tl-desc  { font-size:.81rem; color:var(--ink3); line-height:1.65; }
-    .tl-tags  { display:flex; flex-wrap:wrap; gap:.3rem; margin-top:.5rem; }
-    .tl-tag   { font-size:.65rem; font-weight:500; padding:.14rem .52rem; border-radius:20px; }
-    @media (max-width:560px) {
-      .tl-item { grid-template-columns:1fr; }
-      .tl-left { text-align:left; padding-bottom:.3rem; }
-      .tl-left::after { display:none; }
-      .tl-right { border-left:none; padding-left:0; border-top:1px solid var(--border); padding-top:.75rem; }
-    }
-
-    .awards { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.65rem; }
-    .award-chip {
-      font-size:.7rem; font-weight:500; padding:.22rem .7rem;
-      border-radius:20px; background:color-mix(in srgb,var(--amber)10%,transparent);
-      color:var(--amber); border:1px solid color-mix(in srgb,var(--amber)25%,transparent);
-    }
-
-    /* PUBLICATIONS */
-    .pub-list { display:flex; flex-direction:column; gap:.65rem; }
-    .pub-item {
-      display:grid; grid-template-columns:2.8rem 1fr; gap:.65rem;
-      padding:.9rem 1.1rem; border-radius:var(--r);
-      border:1px solid var(--border); background:var(--bg);
-      text-decoration:none; color:inherit;
-      transition:background .2s,border-color .2s,transform .2s var(--ease);
-    }
-    .pub-item:hover { background:var(--bg2); border-color:var(--border2); transform:translateX(3px); }
-    .pub-item-static { cursor:default; }
-    .pub-item-static:hover { transform:none; background:var(--bg); border-color:var(--border); }
-    .pub-y   { font-size:.7rem; font-weight:500; color:var(--ink3); padding-top:2px; text-align:right; }
-    .pub-title { font-size:.86rem; font-weight:500; line-height:1.45; margin-bottom:.18rem; }
-    .pub-venue { font-size:.77rem; color:var(--ink3); margin-bottom:.32rem; }
-    .pub-tags  { display:flex; flex-wrap:wrap; gap:.28rem; }
-    .pub-tag   { font-size:.65rem; font-weight:500; padding:.14rem .52rem; border-radius:20px; }
-    .pta { color:var(--accent); background:color-mix(in srgb,var(--accent)9%,transparent); border:1px solid color-mix(in srgb,var(--accent)22%,transparent); }
-    .ptt { color:var(--teal);   background:color-mix(in srgb,var(--teal)9%,transparent);   border:1px solid color-mix(in srgb,var(--teal)22%,transparent); }
-    .ptp { color:var(--purple); background:color-mix(in srgb,var(--purple)9%,transparent); border:1px solid color-mix(in srgb,var(--purple)22%,transparent); }
-    .ptm { color:var(--amber);  background:color-mix(in srgb,var(--amber)9%,transparent);  border:1px solid color-mix(in srgb,var(--amber)22%,transparent); }
-
-    /* PROJECT CARDS */
-    .proj-list { display:flex; flex-direction:column; gap:.85rem; }
-    .proj-card {
-      padding:1.35rem 1.5rem; border-radius:var(--r);
-      border:1px solid var(--border); background:var(--bg);
-      transition:background .2s,border-color .2s,transform .2s var(--ease);
-    }
-    .proj-card:hover { background:var(--bg2); border-color:var(--border2); transform:translateX(3px); }
-    .proj-head { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:.65rem; }
-    .proj-date { font-size:.68rem; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); display:block; margin-bottom:.2rem; }
-    .proj-title { font-size:.9rem; font-weight:500; margin-bottom:.15rem; }
-    .proj-place { font-size:.8rem; color:var(--ink2); }
-    .proj-desc  { font-size:.82rem; color:var(--ink2); line-height:1.72; margin-bottom:.65rem; }
-
-    .proj-card-link { text-decoration:none; color:inherit; display:block; cursor:pointer; position:relative; }
-    .proj-card-link:hover { background:var(--bg2); border-color:var(--border2); transform:translateX(3px); }
-    .proj-card-link::after {
-      content:'Click to view the project';
-      position:absolute; bottom:.85rem; right:1rem;
-      font-size:.68rem; font-weight:500; letter-spacing:.04em;
-      color:var(--accent);
-      opacity:0; transform:translateY(4px);
-      transition:opacity .2s var(--ease), transform .2s var(--ease);
-      pointer-events:none;
-    }
-    .proj-card-link:hover::after { opacity:1; transform:translateY(0); }
-    .proj-view-icon {
-      font-size:1rem; color:var(--ink3);
-      transition:color .18s, transform .18s;
-      line-height:1; padding-top:2px;
-    }
-    .proj-card-link:hover .proj-view-icon { color:var(--accent); transform:scale(1.15); }
-
-    /* SKILLS GROUPS */
-    .skills-groups { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
-    @media (max-width:580px) { .skills-groups { grid-template-columns:1fr; } }
-    .skill-group {
-      border:1px solid var(--border); border-radius:var(--r);
-      padding:1.25rem 1.4rem; background:var(--bg2);
-    }
-    .sg-label {
-      font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
-      color:var(--ink3); margin-bottom:.85rem;
-      padding-bottom:.5rem; border-bottom:1px solid var(--border);
-    }
-    .sg-items { display:flex; flex-direction:column; gap:.55rem; }
-    .sg-item { display:flex; flex-direction:column; gap:.08rem; }
-    .sg-name   { font-size:.84rem; font-weight:500; color:var(--ink); }
-    .sg-detail { font-size:.75rem; color:var(--ink3); line-height:1.4; }
-
-    /* VOLUNTEERING */
-    .vol-list { display:flex; flex-direction:column; gap:.75rem; }
-    .vol-card {
-      display:grid; grid-template-columns:200px 1fr;
-      border-radius:var(--r);
-      border:1px solid var(--border);
-      background:var(--bg2);
-      overflow:hidden;
-      transition:border-color .2s, transform .2s var(--ease);
-    }
-    .vol-card:hover { border-color:var(--border2); transform:translateX(3px); }
-    .vol-left {
-      padding:1.1rem 1.25rem;
-      border-right:1px solid var(--border);
-      display:flex; flex-direction:column; justify-content:space-between;
-    }
-    .vol-accent { width:24px; height:2.5px; border-radius:2px; margin-bottom:.65rem; }
-    .vol-role { font-size:.86rem; font-weight:500; color:var(--ink); line-height:1.4; margin-bottom:.3rem; }
-    .vol-org  { font-size:.76rem; color:var(--ink2); line-height:1.45; }
-    .vol-date { font-size:.67rem; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--ink3); margin-top:.6rem; }
-    .vol-right { padding:1.1rem 1.35rem; display:flex; align-items:center; }
-    .vol-desc  { font-size:.82rem; color:var(--ink2); line-height:1.72; }
-    .vol-tag {
-      display:inline-block; margin-top:.6rem;
-      font-size:.67rem; font-weight:500; padding:.16rem .58rem;
-      border-radius:20px;
-    }
-    @media (max-width:580px) {
-      .vol-card { grid-template-columns:1fr; }
-      .vol-left { border-right:none; border-bottom:1px solid var(--border); }
-    }
-
-    /* CONTACT */
-    .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:2rem; align-items:start; }
-    @media (max-width:620px) { .contact-wrap { grid-template-columns:1fr; gap:2rem; } }
-    .contact-cta-email {
-      font-family:var(--serif); font-size:1.5rem; line-height:1.3;
-      color:var(--ink); text-decoration:none;
-      border-bottom:2px solid var(--accent);
-      padding-bottom:.15rem;
-      display:inline-block;
-      transition:color .18s, border-color .18s;
-    }
-    .contact-cta-email:hover { color:var(--accent); }
-    .contact-note { font-size:.82rem; color:var(--ink3); margin-top:.75rem; line-height:1.65; }
-    .contact-links { display:flex; flex-direction:column; gap:0; }
-    .cl {
-      display:flex; align-items:center; justify-content:space-between;
-      padding:.7rem 0;
-      border-bottom:1px solid var(--border);
-      text-decoration:none; color:inherit;
-      transition:color .15s;
-    }
-    .cl:first-child { border-top:1px solid var(--border); }
-    .cl:hover { color:var(--accent); }
-    .cl-name { font-size:.85rem; font-weight:500; }
-    .cl-handle { font-size:.78rem; color:var(--ink3); transition:color .15s; }
-    .cl:hover .cl-handle { color:var(--accent); }
-    .cl-arrow { font-size:.75rem; color:var(--ink3); margin-left:.5rem; transition:transform .15s, color .15s; }
-    .cl:hover .cl-arrow { transform:translateX(3px); color:var(--accent); }
-
-    /* CV */
-    .cv-grid { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; margin-top:1.5rem; }
-    @media (max-width:540px) { .cv-grid { grid-template-columns:1fr; } }
-
-    footer {
-      border-top:1px solid var(--border); padding:1.6rem 2.5rem;
-      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem;
-      max-width:900px; margin:0 auto;
-      font-size:.74rem; color:var(--ink3);
-    }
-    footer a { color:var(--ink2); text-decoration:none; }
-    footer a:hover { color:var(--ink); }
-
-    @keyframes fadeUp { to { opacity:1; transform:none; } }
-  </style>
+  @media (max-width: 46rem) {
+    body { font-size: 18px; }
+    .top nav { display: none; }
+    .opening { padding: 12vh 0 9vh; }
+    .story::before { left: 4px; }
+    .chapter { grid-template-columns: 1fr; padding: 0 0 3.5rem 1.6rem; }
+    .chapter::before { left: 0; }
+    .chapter .when { text-align: left; margin-bottom: .8rem; }
+    .chapter .num { display: inline; font-size: 1.6rem; margin-right: .6rem; }
+    .chapter .years, .chapter .place { display: inline; margin: 0 .4rem 0 0; }
+    .chapter h2 { font-size: 1.55rem; }
+    blockquote { font-size: 1.25rem; }
+    .cols, .contact { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<canvas id="bg" aria-hidden="true"></canvas>
 
-<nav id="nav">
-  <a href="#" class="nav-logo">Kasra Mirnobahar</a>
-  <div class="nav-right">
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
-    <a href="#publications">Publications</a>
-    <a href="#talks">Talks</a>
-    <a href="#volunteering">Volunteering</a>
-    <a href="#skills">Skills</a>
-    <a href="#cv">CV</a>
+<div class="wrap">
+
+<header class="top">
+  <a class="name" href="#">Kasra Mirnobahar</a>
+  <nav>
+    <a href="#story">Story</a>
+    <a href="#next">Next</a>
+    <a href="#record">Publications &amp; talks</a>
+    <a href="files/Kasra_Mirnobahar_CV.pdf">CV</a>
     <a href="#contact">Contact</a>
-    <button id="theme-btn" title="Toggle dark mode">◐</button>
+  </nav>
+</header>
+
+<section class="opening">
+  <p class="kicker">University of Glasgow</p>
+  <h1>Why do we keep checking our phones, <em>even when nothing is there?</em></h1>
+  <p>I'm <b>Kasra Mirnobahar</b>. I study how social media, reward and decision-making shape behaviour and mental health, using experiments, computational models, real-world data and brain imaging.</p>
+  <p>This page is the story of how I got to that question, and where I would like to take it next.</p>
+</section>
+
+<main class="story" id="story">
+
+  <article class="chapter">
+    <div class="when"><span class="num">i.</span><span class="years">2019 &ndash; 2023</span><span class="place">Tehran</span></div>
+    <div>
+      <h2>Starting with people, and with what goes wrong</h2>
+      <p>I studied psychology at the University of Social Welfare and Rehabilitation Sciences in Tehran and finished with first-class honours. Most of my time there was spent close to clinical work. For my dissertation I designed a study with 600 adults on childhood poly-victimisation, which means being exposed to several kinds of harm while growing up, and how it relates to impulsivity and behaviour problems later in life. That work became my first two papers.</p>
+      <p>Alongside it I ran cognitive tasks with five-to-eight-year-olds in schools, and for a year I volunteered as a counsellor on a suicide crisis line. Those years gave me a feel for running studies from ethics to analysis. They also showed me that the numbers in a mental health dataset are people.</p>
+      <div class="aside">
+        <span>BSc Psychology, USWR, first class (17.58/20)</span>
+        <span>Two papers, 2025: <a href="https://doi.org/10.5812/ijpbs-159188">Iran J Psychiatry Behav Sci</a> and <a href="https://doi.org/10.5812/ijhrba-163153">Int J High Risk Behav Addict</a></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="chapter">
+    <div class="when"><span class="num">ii.</span><span class="years">2023</span><span class="place">Tehran</span></div>
+    <div>
+      <h2>The question shows up</h2>
+      <p>In my last year I worked as a research assistant on a project about problematic social media use. We recruited clinical and non-clinical samples, and I helped collect and clean the data and write it up. A paper from that line of work, on fear of missing out, belonging and social isolation, is now under review at <i>Scientific Reports</i>.</p>
+      <p>What stayed with me was how blunt the tools were. Most studies asked how many hours people spent on their phones. Hours don't explain the urge to pick the phone up again a minute after putting it down.</p>
+    </div>
+  </article>
+
+  <article class="chapter">
+    <div class="when"><span class="num">iii.</span><span class="years">2024 &ndash; 2025</span><span class="place">Glasgow</span></div>
+    <div>
+      <h2>Building a social media feed in the lab</h2>
+      <p>I came to Glasgow on a Behavioural Sciences Scholarship for an MSc in Behavioural Sciences. For my dissertation, supervised by Federica Farolfi and Georgia Turner, I wanted to test an old idea from learning theory: that rewards arriving at unpredictable times keep us coming back.</p>
+      <p>So I built a simulated social media feed in Gorilla. People could scroll, post their own content and receive likes. I then varied whether the likes arrived at predictable or unpredictable times. I recruited 110 people and analysed the data in R.</p>
+      <blockquote>When the rewards were unpredictable, people checked more.</blockquote>
+      <p>I presented this at the Connected Minds Lab in Amsterdam and at the BPS Cyberpsychology conference, and I am writing it up as <i>The Social Media Skinner Box</i>.</p>
+      <div class="aside">
+        <span><a href="social-media-uncertainty.html">Read the full project, with analysis and code</a></span>
+        <span>MSc Behavioural Sciences, University of Glasgow, Merit</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="chapter">
+    <div class="when"><span class="num">iv.</span><span class="years">2025 &ndash; 2026</span><span class="place">Glasgow</span></div>
+    <div>
+      <h2>Looking at the brain while it decides</h2>
+      <p>Behaviour is half the picture, so I joined the Philiastides Lab as a research assistant. With Dr Gina Brunner I collected simultaneous EEG and fMRI from 45 participants on perceptual decisions and how confident people feel about them, and preprocessed the EEG in MATLAB and EEGLAB. With Dr Hamed Ghane I ran 30 EEG and ECG sessions on how the heartbeat affects learning and choice, and cleaned and analysed that data in Python.</p>
+    </div>
+  </article>
+
+  <article class="chapter now">
+    <div class="when"><span class="num">v.</span><span class="years">2026 &ndash; now</span><span class="place">Glasgow, Cambridge, Amsterdam</span></div>
+    <div>
+      <h2>Out of the lab, into real lives</h2>
+      <p>Lab tasks can only go so far, so my current work uses real-world data. With David Grüning, Georgia Turner, Wouter van den Bos, Myranda.ai and How We Feel (Max Planck Institute, Cambridge and Amsterdam), I am combining people's actual social media data with short daily mood surveys to see how emotion and scrolling feed into each other.</p>
+      <p>With Dr Samuel Leighton and Rajeev Krishnadas I am working on NHS Greater Glasgow and Clyde health records from people with psychosis. We are writing a target trial emulation protocol, a way of asking causal questions of routine data, and using it on related questions about antipsychotic medication and weight gain. It is a different topic, and it gives me the causal methods I want for social media research.</p>
+    </div>
+  </article>
+
+  <article class="chapter now" id="next">
+    <div class="when"><span class="num">vi.</span><span class="years">next</span><span class="place">PhD</span></div>
+    <div>
+      <h2>One person at a time</h2>
+      <p>Social media research keeps giving mixed answers, partly because it treats billions of users as one group. My proposed PhD project, <i>person-specific digital phenotyping of social media use and digital well-being</i>, brings the threads above together. It combines donated social media data, experience sampling and computational measures of behaviour to model how each person's own use and mood move together over time.</p>
+      <p>The goal is interventions and policy that fit the person, not an average user who doesn't exist. I'll present the proposal at the Digital Mental Health Conference in Cambridge in December 2026, and <a href="#contact">I am looking for a PhD position</a> to do it.</p>
+    </div>
+  </article>
+
+</main>
+
+<section class="record" id="record">
+  <h2>The record</h2>
+  <p class="lead">The same story as a list. The full version is in my <a href="files/Kasra_Mirnobahar_CV.pdf">CV (pdf)</a>.</p>
+
+  <div class="cols">
+    <div>
+      <div class="block">
+        <h3>Publications</h3>
+        <ul>
+          <li><span class="t">Impact of childhood poly-victimization on impulsivity and behavioral problems in Iranian adults: A regression analysis.</span>
+            <b>Mirnobahar, K.</b>, Pourmohamadreza-Tajrishi, M., &amp; Mohammadi Bytamar, J. (2025). <i>Iranian Journal of Psychiatry and Behavioral Sciences</i>, 19(3). <a href="https://doi.org/10.5812/ijpbs-159188">doi</a></li>
+          <li><span class="t">Assessing childhood trauma: The Iranian validation of the Juvenile Polyvictimization Questionnaire and its link to psychiatric symptoms.</span>
+            Pourmohamadreza-Tajrishi, M., <b>Mirnobahar, K.</b>, &amp; Mohammadi Bytamar, J. (2025). <i>International Journal of High Risk Behaviors and Addiction</i>, 14(3). <a href="https://doi.org/10.5812/ijhrba-163153">doi</a></li>
+          <li><span class="t">The impact of FoMO and belonging on problematic social media use: Social isolation as a mediating factor.</span>
+            <span class="d">Under review, Scientific Reports</span></li>
+          <li><span class="t">The social media Skinner box: Uncertain reward invigorates social media checking.</span>
+            <span class="d">In preparation</span></li>
+        </ul>
+        <p><a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&amp;hl=en">Google Scholar</a></p>
+      </div>
+    </div>
+    <div>
+      <div class="block">
+        <h3>Talks and posters</h3>
+        <ul>
+          <li><span class="t">Person-specific digital phenotyping of social media use and digital well-being</span>
+            <span class="d">Poster, Digital Mental Health Conference, University of Cambridge, Dec 2026 (upcoming)</span></li>
+          <li><span class="t">Does uncertainty drive compulsive checking? Causal evidence from a simulated social media task</span>
+            <span class="d">Poster, BPS Cyberpsychology Annual Conference, York St John University, Jul 2026</span></li>
+          <li><span class="t">Social media and uncertainty: How reward timing predictability shapes checking behaviour</span>
+            <span class="d">Invited talk, Connected Minds Lab, University of Amsterdam, Nov 2025</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Also</h3>
+        <ul>
+          <li><span class="t">Peer reviewer, InFrame Project</span><span class="d">Glasgow, Edinburgh and St Andrews, 2025. Reviewed eight research proposals.</span></li>
+          <li><span class="t">Suicide crisis counsellor, Iran Hotline Suicide Prevention</span><span class="d">2023&ndash;2024</span></li>
+          <li><span class="t">Researcher, Jahan Majd Basir Co.</span><span class="d">2023</span></li>
+          <li><span class="t">Administrative coordinator, USWR Counselling Centre</span><span class="d">2023</span></li>
+          <li><span class="t">Science communicator, Varan Psychology School</span><span class="d">2021&ndash;2022</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Methods and tools</h3>
+        <p><i>Analysis:</i> regression, Bayesian models, survival analysis, causal inference and target trial emulation, longitudinal data, reinforcement learning models.</p>
+        <p><i>Software:</i> R, Python, MATLAB/EEGLAB, SPSS, Gorilla, PsychoPy, FSL, Git.</p>
+        <p><i>Lab:</i> EEG, fMRI, ECG.</p>
+        <p><i>Languages:</i> Persian (native), English (fluent), German (basic).</p>
+      </div>
+    </div>
   </div>
-</nav>
+</section>
 
-<div class="page">
-
-  <!-- HERO -->
-  <div id="hero">
-    <div class="hero-text">
-      <p class="hero-eyebrow">Research Assistant · <b>University of Glasgow</b></p>
-      <h1>Kasra<br><em>Mirnobahar</em></h1>
-      <p class="hero-bio">
-        I study how behaviour and decision-making are shaped by <strong>digital environments</strong>. My work explores the interaction between <strong>social media</strong>, <strong>mental health and well-being</strong>, and the brain using <strong>neuroimaging</strong> and <strong>computational modelling</strong>.
-      </p>
-      <div class="hero-chips">
-        <span class="chip ca">Social media &amp; behaviour</span>
-        <span class="chip ct">fMRI · EEG</span>
-        <span class="chip cp">Computational models</span>
-        <span class="chip cm">Decision-making</span>
-      </div>
-      <div class="hero-btns">
-        <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk" class="btn btn-p">Get in touch</a>
-        <a href="#research" class="btn btn-o">View research</a>
-        <a href="#cv" class="btn btn-o">CV</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <canvas id="icon-canvas" aria-hidden="true"></canvas>
-    </div>
+<section class="contact" id="contact">
+  <div>
+    <p class="big"><a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk">Kasra.Mirnobahar@glasgow.ac.uk</a></p>
+    <p>If you work on any part of this story, or have a PhD position it might fit, I would like to hear from you. Personal email: <a href="mailto:kasranobahar@gmail.com">kasranobahar@gmail.com</a></p>
   </div>
+  <ul>
+    <li><a href="files/Kasra_Mirnobahar_CV.pdf">CV (pdf)</a></li>
+    <li><a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&amp;hl=en">Google Scholar</a></li>
+    <li><a href="https://orcid.org/0009-0001-2363-6381">ORCID</a></li>
+    <li><a href="https://github.com/KasraMirnobahar">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/kasra-mirnobahar-339b09107">LinkedIn</a></li>
+    <li><a href="https://bsky.app/profile/kasramn.bsky.social">Bluesky</a></li>
+    <li><a href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/index.html/staffcontact/person/33dce7e18697">University page</a></li>
+  </ul>
+</section>
 
-  <!-- RESEARCH PILLARS -->
-  <section id="research">
-    <p class="sec-label">What I study</p>
-    <h2>Research <em>themes</em></h2>
-    <p class="sec-intro">Understanding the cognitive and neural mechanisms that drive behaviour — from the pull of a notification to the circuitry of reward.</p>
-    <div class="pillars reveal">
-      <div class="pillar">
-        <div class="pillar-bar" style="background:var(--accent)"></div>
-        <h3>Social media &amp; mental health</h3>
-        <p>How uncertainty and variable reward drive compulsive checking in digital environments. My MSc dissertation examined how reward timing predictability shapes social media use via an explore/exploit framework.</p>
-        <span class="ptag ta">Gorilla · R</span>
-      </div>
-      <div class="pillar">
-        <div class="pillar-bar" style="background:var(--teal)"></div>
-        <h3>Neuroimaging</h3>
-        <p>Applying EEG and fMRI to uncover neural signatures of perceptual decision-making, metacognition of confidence, and cardiac-cycle influences on cognition — at the Philiastides Lab.</p>
-        <span class="ptag tt">EEG · fMRI · MATLAB</span>
-      </div>
-      <div class="pillar">
-        <div class="pillar-bar" style="background:var(--purple)"></div>
-        <h3>Computational modelling</h3>
-        <p>Reinforcement learning accounts of reward-sensitive behaviour in digital environments. Interested in Bayesian modelling, Dynamic Structural Equation Models, and person-specific network approaches (GIMME).</p>
-        <span class="ptag tp">RL · Bayesian · DSEM</span>
-      </div>
-      <div class="pillar">
-        <div class="pillar-bar" style="background:var(--amber)"></div>
-        <h3>Behaviour &amp; intervention</h3>
-        <p>Translating neuroscience insights into personalised, evidence-based interventions for digital mental health — moving beyond crude screen-time metrics and one-size-fits-all policies.</p>
-        <span class="ptag tm">Digital phenotyping</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESEARCH SPOTLIGHT -->
-  <section id="spotlight">
-    <p class="sec-label">Future project</p>
-    <h2>Research <em>spotlight</em></h2>
-    <div class="spotlight reveal">
-      <p class="spot-title">Person-Specific Digital Phenotyping of Social Media Use and Digital Well-Being</p>
-      <p class="spot-desc">
-        Despite growing public concern, research on social media and mental health remains inconsistent, largely because it treats users as a homogeneous group and relies on crude screen-time metrics. This project proposes a multi-modal approach integrating <strong>data donation</strong>, <strong>Ecological Momentary Assessment</strong>, and <strong>computational behavioural metrics</strong> to build person-specific affective-behavioural profiles.
-      </p>
-      <div class="spot-tags">
-        <span class="ptag ta">Data donation & EMA </span>
-        <span class="ptag tt">Social media</span>
-        <span class="ptag tp">Mental health & Well-being</span>
-        <span class="ptag tm">Digital phenotyping</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESEARCH PROJECTS -->
-  <section id="projects">
-    <p class="sec-label">Research projects</p>
-    <h2>Projects &amp; <em>experience</em></h2>
-    <p class="sec-intro"> I have experience as a research assistance across different fields such as cognitive and neuroscience, behavioural and social media, and clinical psychology.  In these roles I mostly assisted with ethical approval process, data collection including participants rectruitment, setup, organisation and follow-up with subjects, data anlayis, writing and editing manuscripts for publications</p>
-
-   <!-- <div class="proj-list reveal">
-      <div class="proj-card">
-        <div class="proj-head">
-          <div>
-            <span class="proj-date">June 2026 – Ongoing</span>
-            <p class="proj-title">Causal Inference</p>
-            <p class="proj-place">Departemnt of Health & Well-Being · University of Glasgow</p>
-          </div>
-          <span class="ptag tt">RA</span>
-        </div>
-        <p class="proj-desc">Working on causal relation of using psychotic and obesity from data from Greater Glasgow and County NHS.</p>
-        <div class="tl-tags"><span class="tl-tag tt">Causal Inference</span><span class="tl-tag ta">Longitudinal Data</span><span class="tl-tag tp">Psychosis medication</span><span class="tl-tag tm">NHS and Health Data</span></div>
-      </div>-->
-
-      
-      <div class="proj-card">
-        <div class="proj-head">
-          <div>
-            <span class="proj-date">Feb 2026 – June 2026</span>
-            <p class="proj-title">Decision-making, Learning &amp; Cardiac Cycle</p>
-            <p class="proj-place">Philiastides Lab · University of Glasgow</p>
-          </div>
-          <span class="ptag tt">RA · EEG/ECG</span>
-        </div>
-        <p class="proj-desc">Contributing to a study examining how the cardiac cycle influences learning and decision-making. Responsibilities include EEG and ECG data collection, participant recruitment, and data cleaning and analysis in Python.</p>
-        <div class="tl-tags"><span class="tl-tag tt">EEG</span><span class="tl-tag ta">ECG</span><span class="tl-tag tp">Python</span><span class="tl-tag tm">Real-time task</span></div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-head">
-          <div>
-            <span class="proj-date">June 2025 – March 2026</span>
-            <p class="proj-title">Decision-making &amp; Metacognition of Confidence</p>
-            <p class="proj-place">Philiastides Lab · University of Glasgow</p>
-          </div>
-          <span class="ptag tt">RA · EEG/fMRI</span>
-        </div>
-        <p class="proj-desc">Supported data collection for a perceptual decision-making study using simultaneous EEG and 3T fMRI. Responsibilities included experimental setup, participant testing, data quality control, and EEG preprocessing using MATLAB and EEGLab and MRI analysis using FSL.</p>
-        <div class="tl-tags"><span class="tl-tag tt">fMRI</span><span class="tl-tag ta">PsychoPy</span><span class="tl-tag tp">EEG</span><span class="tl-tag tm">MATLAB · EEGLab</span><span class="tl-tag ptp">FSL</span></div>
-      </div>
-
-      <a class="proj-card proj-card-link" href="social-media-uncertainty.html" target="_blank" rel="noopener">
-        <div class="proj-head">
-          <div>
-            <span class="proj-date">June 2025 – Sep 2025</span>
-            <p class="proj-title">Social Media &amp; Uncertainty — Reward Timing Predictability</p>
-            <p class="proj-place">Adam Smith Business School · University of Glasgow</p>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:.5rem">
-            <span class="ptag ta">Primary Researcher</span>
-            <span class="proj-view-icon" title="View project">&#x2315;</span>
-          </div>
-        </div>
-        <p class="proj-desc">Independently conceptualised and designed a study examining how reward timing predictability shapes social media checking behaviour. Designed a multi-component Gorilla.sc task including a simulated social media feed where participants could explore content, upload posts, and receive likes. Led ethics approval, recruited and screened participants, conducted full quantitative analysis in R, and wrote the dissertation manuscript.</p>
-        <div class="tl-tags"><span class="tl-tag tt">Experimental Design . Gorilla.sc</span><span class="tl-tag ta">R</span><span class="tl-tag tp">Bayesian Analysis . Regression </span><span class="tl-tag tm">Social Media</span><span class="tl-tag ptp">Uncertainty</span></div>
-      </a>
-
-      <a class="proj-card proj-card-link" href="https://link.springer.com/article/10.1007/s11469-024-01418-6" target="_blank" rel="noopener">
-       <div class="proj-card">
-         <div class="proj-head">
-           <div>
-             <span class="proj-date">Feb 2023 – Sep 2023</span>
-             <p class="proj-title">Problematic Social Media Usage</p>
-             <p class="proj-place">Dept. of Clinical Psychology · USWR</p>
-           </div>
-          <span class="ptag ta">Research Assistant</span>
-        </div>
-        <p class="proj-desc">Coordinated participant recruitment across non-clinical samples for studies on problematic social media use. Conducted online and in-person data collection, managed and cleaned datasets, performed data wrangling and quality checks, and contributed to manuscript drafting and editing for peer-reviewed publication.</p>
-        <div class="tl-tags"><span class="tl-tag tt">Social media</span><span class="tl-tag ta">SPSS</span><span class="tl-tag tp">FOMO</span><span class="tl-tag tm">Digital Well-being</span></div>
-       </div>
-      </a>
-      
-    
-      <div class="proj-card">
-        <div class="proj-head">
-          <div>
-            <span class="proj-date">March 2023 – Sep 2023</span>
-            <p class="proj-title">Childhood Poly-victimisation, Impulsivity &amp; Behavioural Problems</p>
-            <p class="proj-place">Dept. of Clinical Psychology · USWR Sciences</p>
-          </div>
-          <span class="ptag tp">Primary Researcher</span>
-        </div>
-        <p class="proj-desc">Independently conceptualised and designed a study on childhood poly-victimisation and its relationship to impulsivity and behavioural problems in adults. Led full ethics approval, conducted data collection with clinical and community samples, performed regression analysis and psychometric validation in SPSS and R. Findings published in two peer-reviewed journals.</p>
-        <div class="tl-tags"><span class="tl-tag tt">Regression</span><span class="tl-tag ta">SPSS · R</span><span class="tl-tag tp">Mental health & Well-being</span><span class="tl-tag tm">Behavioural Problems</span></div>
-      </div>
-      
-    <a class="proj-card proj-card-link" href="https://pubmed.ncbi.nlm.nih.gov/40195088/" target="_blank" rel="noopener">
-      <div class="proj-card">
-        <div class="proj-head">
-          <div>
-            <span class="proj-date">June 2022 – Feb 2023</span>
-            <p class="proj-title">Cognitive HTKS Task among Children</p>
-            <p class="proj-place">Dept. of Psychology &amp; Education · USWR Sciences</p>
-          </div>
-          <span class="ptag tm">Research Assistant</span>
-        </div>
-        <p class="proj-desc">Coordinated participant recruitment from school settings for children aged 5–8, liaising with school administrators and teachers. Managed informed consent and assent processes, administered cognitive and behavioural tasks in classroom environments across multiple school visits, and organised and coded structured participant datasets in SPSS. Led the full ethics approval process with governmental and educational authorities.</p>
-        <div class="tl-tags"><span class="tl-tag tt">Cognitive tasks</span><span class="tl-tag ta">SPSS</span><span class="tl-tag tp">Children research</span></div>
-      </div>
-    </a>
-
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <p class="sec-label">Education</p>
-    <h2>Academic <em>background</em></h2>
-
-    <div class="tl reveal">
-
-      <div class="tl-item">
-        <div class="tl-left"><p class="tl-year">Sep 2024<br>Sep 2025</p></div>
-        <div class="tl-right">
-          <p class="tl-title">MSc Behavioural Sciences — Merit</p>
-          <p class="tl-place">University of Glasgow</p>
-          <p class="tl-desc">Dissertation: The Impact of Reward Timing Predictability on Checking Behaviour in Social Media. </p>
-          <div class="awards"><span class="award-chip">🏅 Behavioural Sciences Scholarship</span></div>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-left"><p class="tl-year">Aug 2019<br>Oct 2023</p></div>
-        <div class="tl-right">
-          <p class="tl-title">BSc Psychology — First Class Honours</p>
-          <p class="tl-place">University of Social Welfare &amp; Rehabilitation Sciences</p>
-          <p class="tl-desc">Dissertation: The relationship between Poly-Victimisation and Behavioural Problems Among Individuals with Psychiatric Disorders.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PUBLICATIONS -->
-  <section id="publications">
-    <p class="sec-label">Publications</p>
-    <h2>Research <em>output</em></h2>
-
-    <div class="pub-list reveal">
-
-      <a href="https://brieflands.com/journals/ijhrba/articles/163153.pdf" class="pub-item" target="_blank" rel="noopener">
-        <span class="pub-y">2025</span>
-        <div>
-          <p class="pub-title">Assessing Childhood Trauma: Iranian Validation of the Juvenile Polyvictimization Questionnaire and Its Link to Psychiatric Symptoms</p>
-          <p class="pub-venue">International Journal of High Risk Behaviors &amp; Addiction — Pourmohamadreza-Tajrishi M, Mirnobahar K, Mohammadi Bytamar J.</p>
-          <div class="pub-tags"><span class="pub-tag ptp">Poly-Victimisatoin</span><span class="pub-tag pta">Psychiatric Problems</span><span class="pub-tag ptm">Psychometric Properties</span></div>
-        </div>
-      </a>
-
-      <a href="https://brieflands.com/journals/ijpbs/articles/159188.pdf" class="pub-item" target="_blank" rel="noopener">
-        <span class="pub-y">2025</span>
-        <div>
-          <p class="pub-title">Impact of Childhood Poly-victimization on Impulsivity and Behavioral Problems in Iranian Adults: A Regression Analysis</p>
-          <p class="pub-venue">Iranian Journal of Psychiatry and Behavioral Sciences — Mirnobahar K, Pourmohamadreza-Tajrishi M, Mohammadi Bytamar J.</p>
-          <div class="pub-tags"><span class="pub-tag ptm">Impulsivity</span><span class="pub-tag pta">Behavioural Problems</span><span class="pub-tag ptp">Poly-vitimisation</span></div>
-        </div>
-      </a>
-
-    </div>
-
-    <div style="margin-top:1.35rem;margin-bottom:1rem">
-      <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="btn btn-o" target="_blank" rel="noopener" style="font-size:.8rem">View on Google Scholar →</a>
-    </div>
-  </section>
-
-  <!-- TALKS -->
-  <section id="talks">
-    <p class="sec-label">Invited talks &amp; conferences</p>
-    <h2>Talks &amp; <em>presentations</em></h2>
-    <div class="pub-list reveal">
-      <div class="pub-item pub-item-static">
-        <span class="pub-y">2026</span>
-        <div>
-          <p class="pub-title">Does Uncertainty Drive Compulsive Checking? Causal Evidence from a Simulated Social Media Task</p>
-          <p class="pub-venue">BPS Cyberpsychology Annual Conference · York St John University
-            <span class="ptag tm" style="margin-left:.5rem;font-size:.65rem">Upcoming</span>
-          </p>
-        </div>
-      </div>
-      <div class="pub-item pub-item-static">
-        <span class="pub-y">2025</span>
-        <div>
-          <p class="pub-title">Social Media and Uncertainty: How Reward Timing Predictability Shapes Checking Behaviour</p>
-          <p class="pub-venue">Connected Minds Lab · University of Amsterdam</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <p class="sec-label">Methods &amp; skills</p>
-    <h2>How I <em>work</em></h2>
-    <p class="sec-intro">Empirical, computational, and analytical approaches across neuroimaging, behavioural and cognitive experiments, and statistical modelling.</p>
-
-    <div class="skills-groups reveal">
-
-      <div class="skill-group">
-        <p class="sg-label">Neuroimaging</p>
-        <div class="sg-items">
-          <div class="sg-item"><span class="sg-name">fMRI</span><span class="sg-detail">Data acquisition, QC, experimental setup</span></div>
-          <div class="sg-item"><span class="sg-name">EEG & ECG</span><span class="sg-detail">Setup, preprocessing, ERP, time-frequency</span></div>
-          <div class="sg-item"><span class="sg-name">EMG</span><span class="sg-detail">Cardiac cycle data collection</span></div>
-          <div class="sg-item"><span class="sg-name">EEGLab</span><span class="sg-detail">Preprocessing pipelines in MATLAB</span></div>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <p class="sg-label">Programming &amp; analysis</p>
-        <div class="sg-items">
-          <div class="sg-item"><span class="sg-name">R</span><span class="sg-detail">Regression, quantitative &amp; psychometric analysis</span></div>
-          <div class="sg-item"><span class="sg-name">Python</span><span class="sg-detail">Data cleaning, wrangling, analysis</span></div>
-          <div class="sg-item"><span class="sg-name">MATLAB</span><span class="sg-detail">EEG preprocessing, scripting</span></div>
-          <div class="sg-item"><span class="sg-name">SPSS</span><span class="sg-detail">Clinical &amp; psychometric datasets</span></div>
-          <div class="sg-item"><span class="sg-name">FSL</span><span class="sg-detail">fMRI preprocessing</span></div>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <p class="sg-label">Experimental design</p>
-        <div class="sg-items">
-          <div class="sg-item"><span class="sg-name">Gorilla.sc &amp; PsychoPy</span><span class="sg-detail">Design behavioural experiments</span></div>
-          <div class="sg-item"><span class="sg-name">Survey &amp; EMA</span><span class="sg-detail">Ecological momentary assessment</span></div>
-          <div class="sg-item"><span class="sg-name">Ethics &amp; recruitment</span><span class="sg-detail">Full ethics approval, participant management</span></div>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <p class="sg-label">Computational &amp; statistical</p>
-        <div class="sg-items">
-          <div class="sg-item"><span class="sg-name">Bayesian modelling</span><span class="sg-detail">Statistical inference</span></div>
-          <div class="sg-item"><span class="sg-name">DSEM</span><span class="sg-detail">Dynamic structural equation modelling</span></div>
-          <div class="sg-item"><span class="sg-name">GIMME</span><span class="sg-detail">Person-specific longitudinal network models</span></div>
-          <div class="sg-item"><span class="sg-name">ANOVA &amp; regression</span><span class="sg-detail">General linear modelling</span></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- VOLUNTEERING -->
-  <section id="volunteering">
-    <p class="sec-label">Volunteering</p>
-    <h2>Giving <em>back</em></h2>
-    <p class="sec-intro">Beyond research, contributing to mental health support, scientific research, and community mentorship.</p>
-    <div class="vol-list reveal">
-
-      <div class="vol-card">
-        <div class="vol-left">
-          <div>
-            <div class="vol-accent" style="background:var(--accent)"></div>
-            <p class="vol-role">Peer-Reviewer</p>
-            <p class="vol-org">InFrame Project · University of Glasgow, Edinburgh &amp; St Andrews</p>
-          </div>
-          <p class="vol-date">Jan 2025</p>
-        </div>
-        <div class="vol-right">
-          <div>
-            <p class="vol-desc">Reviewed and evaluated research proposals for scientific merit, feasibility, and alignment with project objectives. Provided structured feedback to applicants to improve methodological clarity and impact. Collaborated with a multidisciplinary review panel to support research quality and inclusivity.</p>
-            <span class="vol-tag" style="color:var(--accent);background:color-mix(in srgb,var(--accent)9%,transparent);border:1px solid color-mix(in srgb,var(--accent)25%,transparent)">Research quality · Peer review</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="vol-card">
-        <div class="vol-left">
-          <div>
-            <div class="vol-accent" style="background:var(--teal)"></div>
-            <p class="vol-role">Mentorship Programme Coordinator</p>
-            <p class="vol-org">Underprivileged Children · USWR</p>
-          </div>
-          <p class="vol-date">Aug – Oct 2023</p>
-        </div>
-        <div class="vol-right">
-          <div>
-            <p class="vol-desc">Coordinated and facilitated a mentorship programme supporting children's academic performance and social development across multiple school settings. Managed scheduling, volunteer coordination, and direct engagement with children and families.</p>
-            <span class="vol-tag" style="color:var(--teal);background:color-mix(in srgb,var(--teal)9%,transparent);border:1px solid color-mix(in srgb,var(--teal)25%,transparent)">Education · Community</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="vol-card">
-        <div class="vol-left">
-          <div>
-            <div class="vol-accent" style="background:#e05555"></div>
-            <p class="vol-role">Suicide Crisis Counsellor</p>
-            <p class="vol-org">Iran Hotline Suicide Prevention · NGO</p>
-          </div>
-          <p class="vol-date">June 2023 – June 2024</p>
-        </div>
-        <div class="vol-right">
-          <div>
-            <p class="vol-desc">Provided crisis support and intervention for individuals experiencing acute suicidal ideation, following structured clinical safeguarding protocols including escalation procedures. Developed trauma-informed communication skills with vulnerable individuals in distress, maintaining professional boundaries and accurate case documentation.</p>
-            <span class="vol-tag" style="color:#e05555;background:rgba(224,85,85,.09);border:1px solid rgba(224,85,85,.25)">Mental health · Crisis support</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CV SECTION -->
-  <section id="cv">
-    <p class="sec-label">Curriculum Vitae</p>
-    <h2>Full <em>CV</em></h2>
-    <p class="sec-intro">Download the full CV or browse highlights below.</p>
-    <a href="files/Kasra_MIrnobahar_CV.pdf" class="btn btn-p" download style="margin-bottom:1.75rem;display:inline-flex">⬇ Download CV</a>
-
-    <div class="cv-grid reveal">
-      <div class="pillar">
-        <div class="pillar-bar" style="background:var(--teal)"></div>
-        <h3>Languages</h3>
-        <p style="font-size:.82rem;color:var(--ink2);margin-top:.3rem">Persian — Native<br>English — C1<br>German — A2</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <p class="sec-label">Get in touch</p>
-    <h2>Let's <em>connect</em></h2>
-    <p class="sec-intro">Open to PhD opportunities, research collaborations, and conversations about decision-making, social media, and computational neuroscience.</p>
-    <div class="contact-wrap reveal">
-      <div>
-        <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk" class="contact-cta-email">Kasra.Mirnobahar<br>@glasgow.ac.uk</a>
-        <p class="contact-note">Or reach me personally at<br><a href="mailto:kasranobahar@gmail.com" style="color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--border2)">kasranobahar@gmail.com</a></p>
-      </div>
-      <div class="contact-links">
-        <a href="https://www.linkedin.com/in/kasra-mirnobahar-339b09107" class="cl" target="_blank" rel="noopener">
-          <span class="cl-name">LinkedIn</span>
-          <span><span class="cl-handle">kasra-mirnobahar</span><span class="cl-arrow">→</span></span>
-        </a>
-        <a href="https://scholar.google.com/citations?user=MsGhvtwAAAAJ&hl=en" class="cl" target="_blank" rel="noopener">
-          <span class="cl-name">Google Scholar</span>
-          <span><span class="cl-handle">Publications</span><span class="cl-arrow">→</span></span>
-        </a>
-        <a href="https://orcid.org/0009-0001-2363-6381" class="cl" target="_blank" rel="noopener">
-          <span class="cl-name">ORCID</span>
-          <span><span class="cl-handle">0009-0001-2363-6381</span><span class="cl-arrow">→</span></span>
-        </a>
-        <a href="https://bsky.app/profile/kasramn.bsky.social" class="cl" target="_blank" rel="noopener">
-          <span class="cl-name">Bluesky</span>
-          <span><span class="cl-handle">@kasramn.bsky.social</span><span class="cl-arrow">→</span></span>
-        </a>
-        <a href="https://github.com/KasraMirnobahar" class="cl" target="_blank" rel="noopener">
-          <span class="cl-name">GitHub</span>
-          <span><span class="cl-handle">KasraMirnobahar</span><span class="cl-arrow">→</span></span>
-        </a>
-        <a href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/index.html/staffcontact/person/33dce7e18697" class="cl" target="_blank" rel="noopener">
-          <span class="cl-name">University of Glasgow</span>
-          <span><span class="cl-handle">School of Psychology &amp; Neuroscience</span><span class="cl-arrow">→</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <span>Kasra Mirnobahar · University of Glasgow · 2026</span>
-    <a href="mailto:Kasra.Mirnobahar@glasgow.ac.uk">Kasra.Mirnobahar@glasgow.ac.uk</a>
-  </footer>
+<footer>Kasra Mirnobahar, Glasgow. Last updated October 2026.</footer>
 
 </div>
 
 <script>
-/* dark mode */
-const html = document.documentElement;
-const btn  = document.getElementById('theme-btn');
-const saved = localStorage.getItem('km-theme');
-if (saved) html.dataset.theme = saved;
-btn.addEventListener('click', () => {
-  const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
-  html.dataset.theme = next;
-  localStorage.setItem('km-theme', next);
-});
+/* background: drifting nodes joined by lines when close */
+(function () {
+  var canvas = document.getElementById('bg');
+  var ctx = canvas.getContext('2d');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, nodes, dpr = window.devicePixelRatio || 1;
 
-/* nav */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-/* reveal */
-const revEls = document.querySelectorAll('.reveal');
-const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('vis'); ro.unobserve(e.target); }
-  });
-}, { threshold: 0.07 });
-revEls.forEach(el => ro.observe(el));
-
-/* ════════════════════
-   BACKGROUND CANVAS
-════════════════════ */
-(function() {
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, nodes;
-
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
+  function setup() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.min(70, W * H / 16000));
+    nodes = [];
+    for (var i = 0; i < n; i++) {
+      nodes.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25,
+        r: Math.random() * 1.6 + 1.2, p: Math.random() * Math.PI * 2,
+        warm: Math.random() < .12
+      });
+    }
   }
 
-  function makeNodes(n) {
-    return Array.from({ length: n }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      vx: (Math.random() - .5) * .3,
-      vy: (Math.random() - .5) * .3,
-      r: Math.random() * 2.2 + 1.8,
-      p: Math.random() * Math.PI * 2
-    }));
-  }
-
-  function isDark() { return html.dataset.theme === 'dark'; }
-
-  function draw() {
-    const dark = isDark();
+  function frame() {
     ctx.clearRect(0, 0, W, H);
-
-    nodes.forEach(n => {
-      n.x += n.vx; n.y += n.vy; n.p += .011;
-      if (n.x < 0 || n.x > W) n.vx *= -1;
-      if (n.y < 0 || n.y > H) n.vy *= -1;
-    });
-
-    const maxD = 150;
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const d  = Math.sqrt(dx * dx + dy * dy);
+    var maxD = 150, i, j, a, b, dx, dy, d;
+    for (i = 0; i < nodes.length; i++) {
+      a = nodes[i];
+      if (!still) {
+        a.x += a.vx; a.y += a.vy; a.p += .01;
+        if (a.x < 0 || a.x > W) a.vx *= -1;
+        if (a.y < 0 || a.y > H) a.vy *= -1;
+      }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = a.x - b.x; dy = a.y - b.y; d = Math.sqrt(dx * dx + dy * dy);
         if (d < maxD) {
-          const a = (1 - d / maxD) * (dark ? .45 : .28);
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = dark ? `rgba(140,170,255,${a})` : `rgba(45,91,227,${a})`;
-          ctx.lineWidth = dark ? 1.1 : 1.0;
-          ctx.stroke();
+          ctx.strokeStyle = 'rgba(150,175,215,' + ((1 - d / maxD) * .28) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
         }
       }
     }
-
-    nodes.forEach(n => {
-      const r = n.r + Math.sin(n.p) * .55;
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = dark ? 'rgba(160,185,255,.72)' : 'rgba(45,91,227,.5)';
-      ctx.fill();
-    });
-
-    requestAnimationFrame(draw);
-  }
-
-  resize();
-  nodes = makeNodes(65);
-  draw();
-  window.addEventListener('resize', () => { resize(); nodes = makeNodes(65); }, { passive: true });
-})();
-
-/* ════════════════════
-   HERO ICON CANVAS
-════════════════════ */
-(function() {
-  const canvas = document.getElementById('icon-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  canvas.width = 320; canvas.height = 320;
-
-  const icons = [
-    { bx:160, by:72,  type:'brain', phase:0.0  },
-    { bx:55,  by:170, type:'phone', phase:1.3  },
-    { bx:278, by:158, type:'phone', phase:2.6  },
-    { bx:120, by:268, type:'node',  phase:0.7  },
-    { bx:215, by:262, type:'node',  phase:2.1  },
-    { bx:82,  by:105, type:'dot',   phase:3.2  },
-    { bx:255, by:92,  type:'dot',   phase:1.0  },
-    { bx:160, by:198, type:'wave',  phase:1.85 },
-  ];
-  icons.forEach(ic => { ic.t = ic.phase; });
-
-  const conns = [[0,1],[0,2],[0,7],[1,3],[2,4],[3,4],[5,0],[6,0]];
-
-  function isDark() { return document.documentElement.dataset.theme === 'dark'; }
-
-  function drawBrain(cx, cy, s, dark) {
-    const c  = dark ? 'rgba(150,175,255,.9)' : 'rgba(45,91,227,.82)';
-    const cf = dark ? 'rgba(150,175,255,.13)': 'rgba(45,91,227,.1)';
-    ctx.strokeStyle = c; ctx.lineWidth = 1.9; ctx.fillStyle = cf;
-    ctx.beginPath();
-    ctx.ellipse(cx, cy, s*.88, s*.68, 0, 0, Math.PI*2);
-    ctx.fill(); ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(cx, cy - s*.62);
-    ctx.bezierCurveTo(cx-s*.08, cy, cx+s*.08, cy, cx, cy+s*.62);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(cx-s*.36, cy-s*.12, s*.26, Math.PI*.35, Math.PI*1.65);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(cx+s*.36, cy-s*.12, s*.26, Math.PI*-.65, Math.PI*.65);
-    ctx.stroke();
-  }
-
-  function drawPhone(cx, cy, s, dark) {
-    const c  = dark ? 'rgba(95,215,185,.9)' : 'rgba(14,124,107,.75)';
-    const cf = dark ? 'rgba(95,215,185,.11)': 'rgba(14,124,107,.08)';
-    ctx.strokeStyle = c; ctx.lineWidth = 1.9; ctx.fillStyle = cf;
-    const w=s*.52, h=s*.92;
-    ctx.beginPath();
-    ctx.roundRect(cx-w/2, cy-h/2, w, h, s*.11);
-    ctx.fill(); ctx.stroke();
-    ctx.fillStyle = dark ? 'rgba(95,215,185,.22)':'rgba(14,124,107,.16)';
-    ctx.beginPath();
-    ctx.roundRect(cx-w/2+3, cy-h/2+s*.13, w-6, h-s*.26, 3);
-    ctx.fill();
-    ctx.fillStyle = c;
-    ctx.beginPath();
-    ctx.roundRect(cx-s*.09, cy+h/2-s*.09, s*.18, 3, 2);
-    ctx.fill();
-    for (let i=0;i<3;i++) {
-      ctx.beginPath();
-      ctx.arc(cx-s*.1+i*s*.1, cy-s*.06, 2, 0, Math.PI*2);
-      ctx.fill();
+    for (i = 0; i < nodes.length; i++) {
+      a = nodes[i];
+      ctx.fillStyle = a.warm ? 'rgba(224,168,79,.75)' : 'rgba(190,205,230,.5)';
+      ctx.beginPath(); ctx.arc(a.x, a.y, a.r + Math.sin(a.p) * .4, 0, Math.PI * 2); ctx.fill();
     }
+    if (!still) requestAnimationFrame(frame);
   }
 
-  function drawNode(cx, cy, s, dark) {
-    const c = dark ? 'rgba(175,145,255,.9)' : 'rgba(92,71,199,.75)';
-    ctx.fillStyle = c;
-    ctx.beginPath();
-    ctx.arc(cx, cy, s*.36, 0, Math.PI*2);
-    ctx.fill();
-    ctx.strokeStyle = c; ctx.lineWidth = 1.1;
-    ctx.globalAlpha = .32;
-    ctx.beginPath();
-    ctx.arc(cx, cy, s*.62, 0, Math.PI*2);
-    ctx.stroke();
-    ctx.globalAlpha = 1;
-  }
-
-  function drawDot(cx, cy, dark) {
-    ctx.fillStyle = dark ? 'rgba(200,210,255,.58)' : 'rgba(45,91,227,.38)';
-    ctx.beginPath();
-    ctx.arc(cx, cy, 4.5, 0, Math.PI*2);
-    ctx.fill();
-  }
-
-  function drawWave(cx, cy, s, dark) {
-    ctx.strokeStyle = dark ? 'rgba(240,175,85,.75)' : 'rgba(184,114,20,.65)';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    for (let i=0; i<=44; i++) {
-      const x = cx - s + (i/44)*s*2;
-      const y = cy + Math.sin((i/44)*Math.PI*4)*s*.26;
-      i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
-    }
-    ctx.stroke();
-  }
-
-  function getPos(ic) {
-    const spd = .013 + icons.indexOf(ic)*.002;
-    ic.t += spd;
-    return { x: ic.bx + Math.sin(ic.t)*7.5, y: ic.by + Math.cos(ic.t*.72)*5.5 };
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, 320, 320);
-    const dark = isDark();
-    const positions = icons.map(ic => getPos(ic));
-
-    conns.forEach(([a,b]) => {
-      ctx.beginPath();
-      ctx.moveTo(positions[a].x, positions[a].y);
-      ctx.lineTo(positions[b].x, positions[b].y);
-      ctx.strokeStyle = dark ? 'rgba(180,200,255,.2)' : 'rgba(45,91,227,.15)';
-      ctx.lineWidth = .85;
-      ctx.stroke();
-    });
-
-    icons.forEach((ic, i) => {
-      const {x, y} = positions[i];
-      const s = 22;
-      if (ic.type==='brain') drawBrain(x,y,s,dark);
-      else if (ic.type==='phone') drawPhone(x,y,s,dark);
-      else if (ic.type==='node')  drawNode(x,y,s,dark);
-      else if (ic.type==='dot')   drawDot(x,y,dark);
-      else if (ic.type==='wave')  drawWave(x,y,s,dark);
-    });
-
-    requestAnimationFrame(draw);
-  }
-
-  draw();
+  setup(); frame();
+  window.addEventListener('resize', function () { setup(); if (still) frame(); });
 })();
 </script>
 </body>
